@@ -1,3 +1,6 @@
+import { contactUsTypes } from "../../backend/src/models/contactUs.models";
+import { contactUsResponse } from "../../backend/src/routes/loginRouter";
+
 export type loginUserTypes = {
     email: string;
     password: string;
@@ -83,8 +86,8 @@ export type addReviewTypes = {
 
 
 
-// const Base_Url_API = "https://68cae40d2013f615b4aad1fb--lively-boba-e2000d.netlify.app/api";
-const Base_Url_API = "http://localhost:8000";
+const Base_Url_API = "https://68d31103abcf7005ccb9eb48--lively-boba-e2000d.netlify.app/api";
+// const Base_Url_API = "http://localhost:8000";
 export const AddHotelApi = async (hotelFormData: FormData) => {
   try {
     const response = await fetch(`${Base_Url_API}/v2/addRoom`, {
@@ -212,39 +215,39 @@ const addBlogApi = async (formData: FormData) => {
     throw new Error("Something Went Wrong!");
   }
 };
-// const contactUsApi = async (formData: contactUsTypes) => {
-//   try {
-//     const response = await fetch(`${Base_Url_API}/v2/contactUs`, {
-//       method: "POST",
-//       headers: { "Content-Type": "application/json" },
-//       body: JSON.stringify(formData),
-//     });
+const contactUsApi = async (formData: contactUsTypes) => {
+  try {
+    const response = await fetch(`${Base_Url_API}/v2/contactUs`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
 
-//     if (!response.ok) {
-//       throw new Error("Something Went Wrong!");
-//     }
+    if (!response.ok) {
+      throw new Error("Something Went Wrong!");
+    }
 
-//     const data = await response.json();
-//     return data;
-//   } catch (error) {
-//     console.log(error);
-//     throw new Error("Something Went Wrong!");
-//   }
-// };
-// const getContactUsApi = async (): Promise<contactUsResponse[]> => {
-//   try {
-//     const response = await fetch(`${Base_Url_API}/v2/contactUs`, {
-//       credentials: "include",
-//     });
-//     if (!response.ok) {
-//       throw new Error("blogApi not fetched");
-//     }
-//     return response.json();
-//   } catch (error) {
-//     console.log(error);
-//     throw new Error("Something Went Wrong!");
-//   }
-// };
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+    throw new Error("Something Went Wrong!");
+  }
+};
+const getContactUsApi = async (): Promise<contactUsResponse[]> => {
+  try {
+    const response = await fetch(`${Base_Url_API}/v2/contactUs`, {
+      credentials: "include",
+    });
+    if (!response.ok) {
+      throw new Error("blogApi not fetched");
+    }
+    return response.json();
+  } catch (error) {
+    console.log(error);
+    throw new Error("Something Went Wrong!");
+  }
+};
 
 const allBlogsApi = async (): Promise<addBlogTypes[]> => {
   try {
@@ -327,7 +330,7 @@ export const searchPageContact = async (
 export type addHeroImageTypes = {
   userId: string;
   _id: string;
-  hotelImage:string;
+  
   imageFile: string;
 };
 export const updateImageHomeApi = async (hotelFormData: FormData) => {
@@ -513,8 +516,8 @@ export {
   addBlogApi,
   allBlogsApi,
   searchPage,
-  // contactUsApi,
-  // getContactUsApi,
+  contactUsApi,
+  getContactUsApi,
   AddReviewApi,
   GetReviewsApi,
   getUserInfoApi,
