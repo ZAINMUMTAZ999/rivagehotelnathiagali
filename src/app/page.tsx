@@ -1,0 +1,84 @@
+
+
+
+
+
+// import YearsExperience from "./components/YearsExperience";
+// import  GetallReviews  from "./components/GetallReviews";
+// import WorkingMethodology from "./components/WorkingMethodolgy";
+// import { BlogsLaningPage } from "./components/BlogsLaningPage";
+// import TechStack from "./components/TechStack";
+import GetallReviews from "./components/GetallReviews";
+import GetHeroImageHomepage from "./components/GetHeroImage";
+// import { GetHeroImage, GetHeroImageHomepage } from "./components/g/etHeroImage";
+// import HeroSection from "./components/HeroSection";
+// import HeroSection from "./components/HeroSection";
+// import YearsExperience from './components/YearsExperience';
+import HotelServicesSection from "./components/HotelServices";
+
+export default function Home() {
+  return (
+  <section className="mt-0 overflow-hidden bg-white">
+
+      {/* <HeroSection/> */}
+      <GetHeroImageHomepage />
+
+      {/* <span className="mt-2">
+
+      <TechStack/>  
+      </span> */}
+      {/* <WorkingMethodology/> */}
+      <HotelServicesSection/>
+      {/* <Portfolio/> */}
+      
+      {/* <motion.div
+        initial={{ y: -30, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+      > */}
+        <h1 className="flex justify-center text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight text-gray-900">
+          <span className="bg-gradient-to-r from-purple-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent inline-block">
+
+            Customer&apos;s Reviews
+          </span>
+        </h1>
+      {/* </motion.div> */}
+      
+      <GetallReviews/>
+         {/* Google Maps Section */}
+      <section className="bg-white py-12 md:py-16 border-t border-gray-200">
+        <div className="container mx-auto px-4 max-w-7xl" >
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-indigo-800 mb-8">
+            Our Location in Nathia Gali
+          </h2>
+       
+       {/* <iframe src="" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> */}
+          {/* Fixed responsive iframe container with touch support */}
+          <div className="w-full max-w-4xl mx-auto">
+            <div className="relative w-full h-96 md:h-[450px] rounded-lg overflow-hidden shadow-lg">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4066.4109750194434!2d73.37977728841653!3d34.07551884727791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfd5762d7b4765%3A0xcb0a4f3dd7101a87!2sCottage%20Nathiagali!5e1!3m2!1sen!2s!4v1758538761264!5m2!1sen!2s"
+
+                className="absolute top-0 left-0 w-full h-full border-0 touch-auto"
+
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Holiday Resort Hotel Murree Location"
+                style={{ pointerEvents: 'auto' }}
+              />
+            </div>
+            <p className="text-center text-sm text-gray-600 mt-3 md:hidden">
+              Use two fingers to zoom and pan the map
+            </p>
+          </div>
+        </div>
+      </section>
+      {/* <YearsExperience/> */}
+      {/* <BlogsLaningPage
+      /> */}
+      {/* Add other sections here as needed */}
+    </section>
+  );
+};
+
+// export default LandingPage;
