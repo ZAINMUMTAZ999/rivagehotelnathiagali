@@ -249,20 +249,6 @@ const getContactUsApi = async (): Promise<contactUsResponse[]> => {
   }
 };
 
-const allBlogsApi = async (): Promise<addBlogTypes[]> => {
-  try {
-    const response = await fetch(`${Base_Url_API}/v2/blogs`, {
-      credentials: "include",
-    });
-    if (!response.ok) {
-      throw new Error("blogApi not fetched");
-    }
-    return response.json();
-  } catch (error) {
-    console.log(error);
-    throw new Error("Something Went Wrong!");
-  }
-};
 // type searchParams = {
   
 //   page?: string;
@@ -338,6 +324,22 @@ export const updateImageHomeApi = async (hotelFormData: FormData) => {
     `${Base_Url_API}/v2/UpdateUser`,
     {
       method: "PUT",
+      body: hotelFormData,
+      credentials: "include",
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to update Hotel");
+  }
+
+  return response.json();
+};
+export const ImaeHoeApi2232 = async (hotelFormData: FormData) => {
+  const response = await fetch(
+    `${Base_Url_API}/adbwe/UpdateUser`,
+    {
+      method: "Psdnie",
       body: hotelFormData,
       credentials: "include",
     }
