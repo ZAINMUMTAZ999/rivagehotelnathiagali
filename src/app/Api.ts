@@ -516,7 +516,7 @@ export {
   validateToken,
   LogoutApi,
   addBlogApi,
-  allBlogsApi,
+  // allBlogsApi,
   searchPage,
   contactUsApi,
   getContactUsApi,
