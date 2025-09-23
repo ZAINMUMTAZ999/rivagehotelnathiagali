@@ -102,7 +102,7 @@ export type addReviewTypes = {
 
 
 
-const Base_Url_API = "https://68d3164813250c04eecc85a0--lively-boba-e2000d.netlify.app/api";
+const Base_Url_API = "https://lively-boba-e2000d.netlify.app/api";
 // const Base_Url_API = "http://localhost:8000";
 export const AddHotelApi = async (hotelFormData: FormData) => {
   try {
