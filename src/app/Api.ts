@@ -1,5 +1,21 @@
-import { contactUsTypes } from "../../backend/src/models/contactUs.models";
-import { contactUsResponse } from "../../backend/src/routes/loginRouter";
+export type contactUsTypes = {
+userId: string;
+_id:string;
+name: string;
+email: string;
+phoneNumber: number;
+interestedIn: string;
+message: string;
+
+};
+export type contactUsResponse = {
+  data: contactUsTypes[];
+  pagination: {
+    total: number;
+    page: number;
+    pages: number;
+  };
+};
 
 export type loginUserTypes = {
     email: string;
