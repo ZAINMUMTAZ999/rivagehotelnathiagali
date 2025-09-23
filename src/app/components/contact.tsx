@@ -1,19 +1,28 @@
 "use client"
-// import { useForm } from "react-hook-form";
-// import { useMutation } from "@tanstack/react-query";
+import { useForm } from "react-hook-form";
+import { useMutation } from "@tanstack/react-query";
 // import { useNavigate } from "react-router-dom";
 import { Mail, MapPin, Phone } from "lucide-react";
 
-// import {  contactUsApi, contactUsTypes } from "../Api";
-// import { AppContext } from "../context/AppNotify";
-// import { Button } from "../components/ui/button";
+import {  contactUsApi } from "../Api";
+import { AppContext } from "../context/AppNotify";
+import { Button } from "../components/ui/button";
 
 import WhatsAppLinkButton from "../components/WA";
-// import { useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 // import { Button } from "../components/ui/button";
 // import WhatsAppLinkButton from "@/components/WA";
 
+export type contactUsTypes = {
+userId: string;
+_id:string;
+name: string;
+email: string;
+phoneNumber: number;
+interestedIn: string;
+message: string;
 
+};
 // Placeholder for your decorative background elements for cleaner code
 const ContactBackground = () => (
   <>
@@ -23,36 +32,36 @@ const ContactBackground = () => (
 );
 
 export default function ContactUS () {
-  // const {showToast}=AppContext();
-  // const router = useRouter();
+  const {showToast}=AppContext();
+  const router = useRouter();
 
 
-//   const {
-// register,
-//     handleSubmit,
-//     formState: { errors },
+  const {
+register,
+    handleSubmit,
+    formState: { errors },
 
-//   } = useForm<contactUsTypes>();
+  } = useForm<contactUsTypes>();
 
-  // const { mutate: apiMutate, isPending:isLoading } = useMutation(
+  const { mutate: apiMutate, isPending:isLoading } = useMutation(
     
-  //   {
-  //     mutationKey:["contact"],
-  //     mutationFn:contactUsApi,
-  //      onSuccess: () => {
-  //     showToast({ message: "Message sent successfully!", type: "SUCCESS" });
-  //     router.push("/");
-  //   },
-  //   onError: (error: Error) => {
-  //     showToast({ message: error.message, type: "ERROR" });
-  //   },
-  //   }
+    {
+      mutationKey:["contact"],
+      mutationFn:contactUsApi,
+       onSuccess: () => {
+      showToast({ message: "Message sent successfully!", type: "SUCCESS" });
+      router.push("/");
+    },
+    onError: (error: Error) => {
+      showToast({ message: error.message, type: "ERROR" });
+    },
+    }
   //   contactUsApi, {
   //  
   // }
-// );
+);
 
-  // const onSubmits = handleSubmit((data) => apiMutate(data));
+  const onSubmits = handleSubmit((data) => apiMutate(data));
 
   return (
     <main className="min-h-screen bg-white relative overflow-hidden">
@@ -118,7 +127,7 @@ export default function ContactUS () {
         {/* === Right Side: Contact Form === */}
         {/* On small screens, this form will take up the full width since the left column is hidden */}
         <form 
-        // onSubmit={onSubmits}
+        onSubmit={onSubmits}
         className="w-full lg:w-7/12 bg-white p-6 sm:p-8 lg:p-10 rounded-2xl shadow-2xl">
            {/* Mobile-only Header */}
            <div className="md:hidden text-center mb-8">
@@ -128,20 +137,20 @@ export default function ContactUS () {
             {/* Form inputs remain the same... */}
             <div>
               <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">Name</label>
-              {/* <input id="name" type="text" {...register("name", { required: "Full name is required" })} className="w-full p-3 bg-gray-50 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-base" placeholder="Enter your full name" />
-              {errors.name && <span className="text-red-500 text-sm mt-1 block">{errors.name.message}</span>} */}
+              <input id="name" type="text" {...register("name", { required: "Full name is required" })} className="w-full p-3 bg-gray-50 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-base" placeholder="Enter your full name" />
+              {errors.name && <span className="text-red-500 text-sm mt-1 block">{errors.name.message}</span>}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">Email</label>
-                {/* <input id="email" type="email" {...register("email", { required: "Email is required", pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Invalid email address" } })} className="w-full p-3 bg-gray-50 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-base" placeholder="name@gamil.com" />
-                {errors.email && <span className="text-red-500 text-sm mt-1 block">{errors.email.message}</span>} */}
+                <input id="email" type="email" {...register("email", { required: "Email is required", pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Invalid email address" } })} className="w-full p-3 bg-gray-50 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-base" placeholder="name@gamil.com" />
+                {errors.email && <span className="text-red-500 text-sm mt-1 block">{errors.email.message}</span>}
               </div>
               <div>
                 <label htmlFor="phoneNumber" className="block text-gray-700 text-sm font-bold mb-2">Phone</label>
-                {/* <input id="phoneNumber" type="tel" {...register("phoneNumber", { required: "Phone number is required" })} className="w-full p-3 bg-gray-50 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-base" placeholder="(123) 456-7890" />
-                {errors.phoneNumber && <span className="text-red-500 text-sm mt-1 block">{errors.phoneNumber.message}</span>} */}
+                <input id="phoneNumber" type="tel" {...register("phoneNumber", { required: "Phone number is required" })} className="w-full p-3 bg-gray-50 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-base" placeholder="(123) 456-7890" />
+                {errors.phoneNumber && <span className="text-red-500 text-sm mt-1 block">{errors.phoneNumber.message}</span>}
               </div>
             </div>
 
@@ -153,16 +162,16 @@ export default function ContactUS () {
 
             <div>
               <label htmlFor="message" className="block text-gray-700 text-sm font-bold mb-2">Message</label>
-              {/* <textarea id="message" {...register("message", { required: "Message is required" })} rows={5} className="w-full p-3 bg-gray-50 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none text-base" placeholder="Write your message here..." />
-              {errors.message && <span className="text-red-500 text-sm mt-1 block">{errors.message.message}</span>} */}
+              <textarea id="message" {...register("message", { required: "Message is required" })} rows={5} className="w-full p-3 bg-gray-50 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none text-base" placeholder="Write your message here..." />
+              {errors.message && <span className="text-red-500 text-sm mt-1 block">{errors.message.message}</span>}
             </div>
 
-            {/* <Button type="submit" 
+            <Button type="submit" 
             disabled={isLoading}
              className="w-full py-3 text-base font-semibold bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all duration-300 shadow-md hover:shadow-lg disabled:bg-gray-400 disabled:cursor-not-allowed">
               {isLoading ? "Sending..." : "Send Message"}
               
-            </Button> */}
+            </Button>
           </div>
         </form>
       </div>
