@@ -103,8 +103,8 @@ export type addReviewTypes = {
 
 
 // const Base_Url_API = "https://backendrivagehotelnathiagali-production.up.railway.app"
-const Base_Url_API = "https://backendrivagehotelnathiagali-production.up.railway.app"
 // const Base_Url_API = "http://localhost:8000";
+const Base_Url_API = "https://srivagehotel.up.railway.app"
 export const AddHotelApi = async (hotelFormData: FormData) => {
   try {
     const response = await fetch(`${Base_Url_API}/v2/addRoom`, {
