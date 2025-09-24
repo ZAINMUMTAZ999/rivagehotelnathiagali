@@ -52,23 +52,7 @@ const services: ServiceItem[] = [
 ];
 
 const HotelServicesSection: React.FC = () => {
-  // Framer Motion variants for section entrance
-//   const sectionVariants = {
-//     hidden: { opacity: 0, y: 50 },
-//     visible: {
-//       opacity: 1,
-//       y: 0,
-//       transition: {
-//         type: "spring",
-//         stiffness: 70,
-//         damping: 10,
-//         delayChildren: 0.2, // Delay before children start animating
-//         staggerChildren: 0.1, // Stagger effect for individual service cards
-//       },
-//     },
-//   };
 
-  // Framer Motion variants for individual service cards
   const itemVariants = {
     hidden: { opacity: 0, y: 30, scale: 0.95 },
     visible: { opacity: 1, y: 0, scale: 1 },
@@ -93,7 +77,7 @@ const HotelServicesSection: React.FC = () => {
           className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto"
           variants={itemVariants} // Animate the description
         >
-          At Holiday Resort Hotel Murree, every detail is crafted to ensure an extraordinary stay. Discover our range of world-class services designed for your ultimate comfort and delight.
+          At Rivage Resort Nathia Gali , every detail is crafted to ensure an extraordinary stay. Discover our range of world-class services designed for your ultimate comfort and delight.
         </motion.p>
       </div>
 

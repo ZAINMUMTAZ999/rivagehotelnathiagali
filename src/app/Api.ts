@@ -427,7 +427,7 @@ const GetReviewsApi = async (): Promise<addReviewTypes[]> => {
 };
 const GetAllReviewsApi = async (): Promise<addReviewTypes[]> => {
   try {
-    const response = await fetch(`${Base_Url_API}/v2/allReview`, {
+    const response = await fetch("https://lively-boba-e2000d.netlify.app/api/v2/allReview", {
       credentials: "include",
     });
 
