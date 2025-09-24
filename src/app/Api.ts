@@ -102,7 +102,7 @@ export type addReviewTypes = {
 
 
 
-const Base_Url_API = "https://lively-boba-e2000d.netlify.app/api";
+const Base_Url_API = "https://68d3894cd9799019d216b41d--lively-boba-e2000d.netlify.app/api"
 // const Base_Url_API = "http://localhost:8000";
 export const AddHotelApi = async (hotelFormData: FormData) => {
   try {
@@ -427,7 +427,7 @@ const GetReviewsApi = async (): Promise<addReviewTypes[]> => {
 };
 const GetAllReviewsApi = async (): Promise<addReviewTypes[]> => {
   try {
-    const response = await fetch("https://lively-boba-e2000d.netlify.app/api/v2/allReview", {
+    const response = await fetch(`${Base_Url_API}/v2/allReview`, {
       credentials: "include",
     });
 
