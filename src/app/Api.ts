@@ -102,6 +102,7 @@ export type addReviewTypes = {
 
 
 
+// const Base_Url_API = "https://backendrivagehotelnathiagali-production.up.railway.app"
 const Base_Url_API = "https://backendrivagehotelnathiagali-production.up.railway.app"
 // const Base_Url_API = "http://localhost:8000";
 export const AddHotelApi = async (hotelFormData: FormData) => {
