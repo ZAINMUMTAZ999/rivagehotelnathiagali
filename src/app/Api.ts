@@ -102,7 +102,7 @@ export type addReviewTypes = {
 
 
 
-const Base_Url_API = "https://68d3894cd9799019d216b41d--lively-boba-e2000d.netlify.app/api"
+const Base_Url_API = "https://backendrivagehotelnathiagali-production.up.railway.app"
 // const Base_Url_API = "http://localhost:8000";
 export const AddHotelApi = async (hotelFormData: FormData) => {
   try {
