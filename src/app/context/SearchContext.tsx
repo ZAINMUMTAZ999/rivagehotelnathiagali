@@ -1,10 +1,12 @@
 "use client";
-  import React, { useContext } from "react";
+  import React, { useContext, useState } from "react";
 
   type searchContext = {
-    // title: string;
+    phoneNumber: string;
+    name: string;
     saveSearchValues: (
-      title: string,
+      phoneNumber: string,
+      name: string,
     ) => void;
   };
   
@@ -15,22 +17,27 @@
   }: {
     children: React.ReactNode;
   }) => {
-    // const [title, setTitle] = useState<string>(()=>sessionStorage.getItem("title") || "");
+    const [phoneNumber, setphoneNumber] = useState<string>("");
+    const [name, setname] = useState<string>("");
   
     const saveSearchValues = (
-      // title: string,
+      phoneNumber: string,
+      name: string,
       
     ) => {
-      // setTitle(title);
-      // sessionStorage.setItem("title",title)
+      setphoneNumber(phoneNumber);
+      setname(name);
+      // sessionStorage.setItem("phoneNumber",phoneNumber)
+      sessionStorage.setItem("name",name)
     
     };
   
     return (
       <searchContext.Provider
         value={{
-          // title,
-          saveSearchValues,
+          phoneNumber,
+          name,
+          saveSearchValues
         }}
       >
         {children}

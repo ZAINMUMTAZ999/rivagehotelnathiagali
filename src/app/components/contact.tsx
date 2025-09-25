@@ -168,7 +168,7 @@ register,
 
             <Button type="submit" 
             disabled={isLoading}
-             className="w-full py-3 text-base font-semibold bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all duration-300 shadow-md hover:shadow-lg disabled:bg-gray-400 disabled:cursor-not-allowed">
+             className="w-full py-3 text-base font-semibold bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-all duration-300 shadow-md hover:shadow-lg disabled:bg-gray-400 disabled:cursor-not-allowed hover:cursor-pointer">
               {isLoading ? "Sending..." : "Send Message"}
               
             </Button>

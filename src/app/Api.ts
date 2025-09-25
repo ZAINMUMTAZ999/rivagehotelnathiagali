@@ -4,7 +4,6 @@ _id:string;
 name: string;
 email: string;
 phoneNumber: number;
-interestedIn: string;
 message: string;
 
 };
@@ -100,11 +99,9 @@ export type addReviewTypes = {
   message: string;
 };
 
-
-
-// const Base_Url_API = "https://backendrivagehotelnathiagali-production.up.railway.app"
 // const Base_Url_API = "http://localhost:8000";
-const Base_Url_API = "https://srivagehotel.up.railway.app"
+// const Base_Url_API = "https://srivagehotel.up.railway.app"
+const Base_Url_API = "https://srivagehotel-new.up.railway.app"
 export const AddHotelApi = async (hotelFormData: FormData) => {
   try {
     const response = await fetch(`${Base_Url_API}/v2/addRoom`, {
@@ -251,20 +248,20 @@ const contactUsApi = async (formData: contactUsTypes) => {
     throw new Error("Something Went Wrong!");
   }
 };
-const getContactUsApi = async (): Promise<contactUsResponse[]> => {
-  try {
-    const response = await fetch(`${Base_Url_API}/v2/contactUs`, {
-      credentials: "include",
-    });
-    if (!response.ok) {
-      throw new Error("blogApi not fetched");
-    }
-    return response.json();
-  } catch (error) {
-    console.log(error);
-    throw new Error("Something Went Wrong!");
-  }
-};
+// const getContactUsApi = async (): Promise<contactUsTypes> => {
+//   try {
+//     const response = await fetch(`${Base_Url_API}/v2/contactUs`, {
+//       credentials: "include",
+//     });
+//     if (!response.ok) {
+//       throw new Error("blogApi not fetched");
+//     }
+//     return response.json();
+//   } catch (error) {
+//     console.log(error);
+//     throw new Error("Something Went Wrong!");
+//   }
+// };
 
 // type searchParams = {
   
@@ -299,15 +296,16 @@ const searchPage = async (searchParams: { page: string; }
   }
 };
 export type searchParamsContact = {
-  title?: string;
+  phoneNumber?: string;
+  name?: string;
   page?: string;
 };
 export const searchPageContact = async (
   searchParams: searchParamsContact
-): Promise<getroomsResponse> => {
+): Promise<contactUsResponse> => {
   const queryParams = new URLSearchParams();
-  queryParams.append("title", searchParams.title || "");
-
+  queryParams.append("phoneNumber", searchParams.phoneNumber || "");
+  queryParams.append("name", searchParams.name || "");
   queryParams.append("page", searchParams.page || "");
   try {
     const repsonse = await fetch(
@@ -468,7 +466,7 @@ const getUserInfoApi = async (): Promise<userTypes[]> => {
 searchParams: searchParamsContact
 ): Promise<getroomsResponse> => {
   const queryParams = new URLSearchParams();
-  queryParams.append("title", searchParams.title || "");
+  // queryParams.append("title", searchParams.title || "");
 
   queryParams.append("page", searchParams.page || "");
   try {
@@ -536,7 +534,7 @@ export {
   // allBlogsApi,
   searchPage,
   contactUsApi,
-  getContactUsApi,
+  // getContactUsApi,
   AddReviewApi,
   GetReviewsApi,
   getUserInfoApi,
