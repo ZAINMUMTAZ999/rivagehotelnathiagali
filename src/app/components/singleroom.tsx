@@ -501,7 +501,7 @@ const MyHotelsById = ({ hotel }: MyHotelsByIdProps) => {
             </div>
             <div className="flex ">
                 
-                PKR 
+                PKR :
               <p className="text-lg font-semibold -mt-0.5 text-green-600 flex items-center justify-end sm:justify-start">
                 {hotel?.pricePerNight}  
               </p>
@@ -531,8 +531,8 @@ const MyHotelsById = ({ hotel }: MyHotelsByIdProps) => {
             <div className="mb-6">
               <p className="text-green-600 flex items-center">
                 <FaBed className="mr-2 text-blue-500" size={32} />
-                {/* Room Status: */}
-                <span className="bg-gray-400 rounded-full font-extrabold font-xl ml-2">
+                Room :
+                <span className="bg-white  font-extrabold font-xl ml-2">
                   {hotel.roomStatus}
                 </span>
               </p>
