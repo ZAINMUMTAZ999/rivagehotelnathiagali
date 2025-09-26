@@ -499,11 +499,14 @@ const MyHotelsById = ({ hotel }: MyHotelsByIdProps) => {
                 <span className="font-semibold">{hotel?.type}</span> Hotel
               </p>
             </div>
-            <div className="text-right sm:text-left">
-              <p className="text-4xl font-bold text-green-600 flex items-center justify-end sm:justify-start">
-                PKR : {hotel?.pricePerNight}
+            <div className="flex ">
+                
+                PKR 
+              <p className="text-lg font-semibold -mt-0.5 text-green-600 flex items-center justify-end sm:justify-start">
+                {hotel?.pricePerNight}  
               </p>
-              <p className="text-sm text-gray-500">per night</p>
+                per night
+              {/* <p className="text-sm text-gray-500">per night</p> */}
             </div>
           </div>
 
@@ -512,11 +515,13 @@ const MyHotelsById = ({ hotel }: MyHotelsByIdProps) => {
           {/* Description */}
           {hotel?.description && (
             <div className="mb-6">
-              <h2 className="text-2xl font-semibold text-gray-700 mb-3">
-                About this Hotel
+              <h2 className="text-2xl  underline font-semibold text-gray-700 mb-3">
+                About :
               </h2>
               <p className="text-gray-700 leading-relaxed whitespace-pre-wrap">
-                {hotel?.description}
+                <span className='tracking-tight text-sm'>
+                  {hotel?.description}
+                  </span>
               </p>
             </div>
           )}
@@ -526,8 +531,8 @@ const MyHotelsById = ({ hotel }: MyHotelsByIdProps) => {
             <div className="mb-6">
               <p className="text-green-600 flex items-center">
                 <FaBed className="mr-2 text-blue-500" size={32} />
-                Room Status:
-                <span className=" font-extrabold font-xl ml-2">
+                {/* Room Status: */}
+                <span className="bg-gray-400 rounded-full font-extrabold font-xl ml-2">
                   {hotel.roomStatus}
                 </span>
               </p>
@@ -537,8 +542,8 @@ const MyHotelsById = ({ hotel }: MyHotelsByIdProps) => {
           {/* Facilities */}
           {hotel?.facilities && hotel.facilities.length > 0 && (
             <div className="mb-6">
-              <h2 className="text-2xl font-semibold text-gray-700 mb-3">
-                Facilities
+              <h2 className="text-2xl font-semibold text-gray-700 mb-3 underline">
+                Facilities :
               </h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                 {hotel?.facilities?.map((facility, index) => (
@@ -546,7 +551,7 @@ const MyHotelsById = ({ hotel }: MyHotelsByIdProps) => {
                     key={index}
                     className="flex items-center bg-gray-100 p-3 rounded-md shadow-sm text-gray-700 hover:bg-blue-50 transition-colors duration-200"
                   >
-                    <span className="text-md font-medium">{facility}</span>
+                    <span className="text-sm font-serif">{facility}</span>
                   </div>
                 ))}
               </div>
@@ -555,7 +560,7 @@ const MyHotelsById = ({ hotel }: MyHotelsByIdProps) => {
 
           {/* Last Updated */}
           {hotel?.lastUpdated && (
-            <div className="mt-8 text-sm text-gray-500 text-right">
+            <div className="mt-8 text-sm text-gray-500 text-right underline">
               Last updated: {new Date(hotel.lastUpdated).toLocaleDateString()}
             </div>
           )}
