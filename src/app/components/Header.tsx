@@ -34,7 +34,7 @@ const Header = () => {
             className="h-8 w-8 sm:h-9 sm:w-9 lg:h-10 lg:w-10 object-contain"
           /> */}
           <span className="text-lg sm:text-xl font-bold text-white">
-            <b>RivageResort</b>
+            <b>ArcadianResort</b>
           </span>
         </Link>
 
@@ -122,7 +122,7 @@ const Header = () => {
                 className="h-8 w-8 object-contain"
               /> */}
               <span className="text-lg font-bold text-white">
-                <b>RivageCottageResort</b>
+                <b>ArcadianResort</b>
               </span>
             </div>
             <button
