@@ -8,6 +8,8 @@ import {
 } from "react-icons/fa";
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from "next/image";
+import Link from 'next/link';
+import { Button } from './ui/button';
 
 export type addHotelTypes = {
   _id: string;
@@ -156,7 +158,7 @@ const MyHotelsById = ({ hotel }: MyHotelsByIdProps) => {
           )}
 
           {/* Dot Indicators (for fewer images) */}
-          {images.length > 1 && images.length <= 5 && (
+          {/* {images.length > 1 && images.length <= 5 && (
             <div className="flex justify-center mt-4 space-x-2">
               {images.map((_, index) => (
                 <button
@@ -171,7 +173,7 @@ const MyHotelsById = ({ hotel }: MyHotelsByIdProps) => {
                 />
               ))}
             </div>
-          )}
+          )} */}
         </div>
 
        
@@ -181,6 +183,23 @@ const MyHotelsById = ({ hotel }: MyHotelsByIdProps) => {
 
   return (
     <div className="container mx-auto px-4 py-8 mt-24 mb-10">
+       <div className="sticky  top-0 z-20 bg-white/70 backdrop-blur-md border-b border-slate-200/40">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-800 leading-tight">
+            {hotel.name}
+          </h1>
+          <Link
+            href="/allrooms"
+            className="inline-flex items-center rounded-xl bg-gradient-to-r from-blue-700 to-rose-600 px-4 py-2 text-white font-semibold shadow hover:from-red-700 hover:to-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-400 focus:ring-offset-2 transition-all text-sm" 
+          >
+            All Rooms 
+          </Link>
+        </div>
+      </div>
+          <p className="text-lg text-gray-600 flex items-center mt-1">
+                <FaMapMarkerAlt className="mr-2 text-red-500" />
+                {hotel?.city}
+              </p>
       <div className="bg-white rounded-lg shadow-xl overflow-hidden">
         <div className="p-6 md:p-8">
           {/* Images Section with Built-in Slider */}
@@ -189,21 +208,12 @@ const MyHotelsById = ({ hotel }: MyHotelsByIdProps) => {
               <ImageSlider />
             </div>
           )}
-
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 gap-4">
-            <div>
-              <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-800 leading-tight">
-                {hotel?.name}
-              </h1>
-              <p className="text-lg text-gray-600 flex items-center mt-1">
-                <FaMapMarkerAlt className="mr-2 text-red-500" />
-                {hotel?.city}
-              </p>
-              <p className="text-md text-gray-500 mt-1">
-                <span className="font-semibold">{hotel?.type}</span> Hotel
-              </p>
-            </div>
-            <div className="flex ">
+            <div className="sticky   top-0 z-20 bg-white/70 backdrop-blur-md border-b border-slate-200/40">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
+          <Button
+              className=" flex justify-center bg-blue-800   hover:bg-blue-950 hover:cursor-pointer"
+              >BuyNow PayLater</Button>
+          <div className="flex ">
                 
                 PKR :
               <p className="text-lg font-semibold -mt-0.5 text-green-600 flex items-center justify-end sm:justify-start">
@@ -212,6 +222,31 @@ const MyHotelsById = ({ hotel }: MyHotelsByIdProps) => {
                 per night
               {/* <p className="text-sm text-gray-500">per night</p> */}
             </div>
+        </div>
+      </div>
+
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 gap-4">
+            <div>
+              {/* <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-800 leading-tight">
+                {hotel?.name}
+              </h1> */}
+              {/* <span className="flex   "> */}
+
+
+
+
+
+              {/* <p className="text-lg text-gray-600 flex items-center mt-1">
+                <FaMapMarkerAlt className="mr-2 text-red-500" />
+                {hotel?.city}
+              </p> */}
+             
+              {/* </span> */}
+              <p className="text-md text-gray-500 mt-1">
+                <span className="font-semibold">{hotel?.type}</span> Hotel
+              </p>
+            </div>
+          
           </div>
 
           <hr className="my-6 border-gray-200" />
