@@ -14,7 +14,7 @@ const Pagination = ({ page, pages, onPageChange }: Props) => {
 
   return (
     <div className="w-full flex justify-center mt-6">
-      <ul className="flex flex-wrap gap-2 border border-slate-300 rounded-md p-2 bg-white shadow-sm">
+      <ul className="flex flex-wrap gap-2 border border-slate-300 rounded-md p-2 bg-white  shadow-sm">
         {pageNumbers.map((p) => (
           <li key={p}>
             <button
@@ -23,7 +23,7 @@ const Pagination = ({ page, pages, onPageChange }: Props) => {
                 ${
                   page === p
                     ? "bg-blue-500 text-white border-blue-500"
-                    : "bg-white text-gray-800 hover:bg-gray-100 border-gray-300"
+                    : "bg-white text-gray-800 hover:bg-gray-100 hover:cursor-pointer border-gray-300"
                 }`}
             >
               {p}

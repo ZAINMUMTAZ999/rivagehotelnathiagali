@@ -1,3 +1,5 @@
+import { addHotelTypes } from "./components/AddHotel";
+
 export type contactUsTypes = {
 userId: string;
 _id:string;
@@ -100,7 +102,6 @@ export type addReviewTypes = {
 };
 
 // const Base_Url_API = "http://localhost:8000";
-// const Base_Url_API = "https://srivagehotel.up.railway.app"
 const Base_Url_API = "https://srivagehotel-new.up.railway.app"
 export const AddHotelApi = async (hotelFormData: FormData) => {
   try {
@@ -133,6 +134,24 @@ export const AddHeroImageApi = async (hotelFormData: FormData) => {
     }
 
      return await response.json();
+  } catch (error) {
+    console.log(error);
+    throw new Error("Something Went Wrong!");
+  }
+};
+export const getHotelApiBId = async (hotelId:string):Promise<addHotelTypes> => {
+  try {
+    const response = await fetch(`${Base_Url_API}/v2/rooms/${hotelId}`, {
+
+    credentials: "include"
+  });
+
+    if (!response.ok) {
+      throw new Error("Something Went Wrong!");
+    }
+
+    const data = await response.json();
+     return data as addHotelTypes;
   } catch (error) {
     console.log(error);
     throw new Error("Something Went Wrong!");

@@ -12,12 +12,14 @@ import { useState } from "react";
 // import { useSearchContext } from "../context/SearchContext";
 // import Link from "next/link";
 import Image from "next/image";
+import { Button } from "../components/ui/button";
+import MyHotelsById from "../components/singleroom";
 
-export default function page () {
+export default function Page () {
     // const search = useSearchContext();
-      // eslint-disable-next-line react-hooks/rules-of-hooks
       const [page, setPage] = useState<number>(1);
-
+        const [selectedBlogId, setSelectedBlogId] = useState<string | null>(null);
+    
   const searchParams = {
     // title: search.title,
     page: page.toString(),
@@ -31,15 +33,20 @@ export default function page () {
     // }
     // };
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { data: apiResponse, isLoading } = useQuery({
   queryKey: ["rooms", searchParams], // include params so cache updates when they change
   queryFn: () => getHotelApi(searchParams),
   // keepPreviousData: true,
 });
-console.log("apipage",apiResponse)
+const selectedBlog = selectedBlogId
+? apiResponse?.data.find((blog) => blog._id === selectedBlogId)
+: null;
+if (selectedBlog) {
+  return <MyHotelsById hotel={selectedBlog}/>;
+}
+console.log("selectedblog",selectedBlog);
   const hotelData = apiResponse?.data || "";
-console.log(apiResponse)
+// console.log(apiResponse)
   if (isLoading) {
     return (
       <div className="container mx-auto py-8 mt-12 px-4 sm:px-6 lg:px-8 animate-pulse">
@@ -114,6 +121,10 @@ console.log(apiResponse)
 //       </div>
 //     );
 //   }
+ const handleReadMore = (id: string) => {
+    setSelectedBlogId(id);
+    window.scrollTo(0, 0);
+  };
 
   if (!hotelData || hotelData.length === 0) {
     return (
@@ -179,7 +190,7 @@ console.log(apiResponse)
                  
                   <div className="flex items-center text-gray-700 font-semibold">
                     <BiMoney className="mr-2 text-purple-500 flex-shrink-0" />
-                    <span>${hotel.pricePerNight} / night</span>
+                    <span>PKR : {hotel.pricePerNight} / night</span>
                   </div>
                 </div>
 
@@ -206,12 +217,13 @@ console.log(apiResponse)
               </div>
 
               <div className="flex justify-end mt-4 pt-4 border-t border-gray-100">
-                {/* <Link
-                  to={`/allRooms/${hotel._id}`}
-                  className="bg-indigo-600 text-white text-sm sm:text-base font-bold py-2 px-4 rounded-lg hover:bg-indigo-700 transition-colors duration-200 shadow-md transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50"
+                <Button
+                  // to={`/allRooms/${hotel._id}`}
+                   onClick={() => handleReadMore(hotel._id)}
+                  className="bg-indigo-600 text-white text-sm sm:text-base font-bold py-2 px-4 rounded-lg hover:bg-indigo-700 transition-colors duration-200 shadow-md transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 hover:cursor-pointer"
                 >
                   View Details
-                </Link> */}
+                </Button>
               </div>
             </div>
           </div>
