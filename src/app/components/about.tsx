@@ -8,6 +8,7 @@ import one from '../assets/p1.jpeg';
 import two from'../assets/p2.jpeg'; // Optional: if you want a visual for the story
 import three from '../assets/p3.jpeg'; // Optional: an image that captures Murree's spirit
 import Image from 'next/image';
+import Link from 'next/link';
 
 const AboutUs = () => {
   const containerVariants = {
@@ -153,12 +154,12 @@ const AboutUs = () => {
           <p className="text-lg md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed">
             Discover the magic of Nathia Gali, enhanced by the comfort and authentic charm of Rivage Cottage Resort. We are ready to welcome you.
           </p>
-          <a
-            href="/allrooms" // Direct to rooms or booking
+          <Link
+            href="/allrooms" 
             className="inline-block bg-emerald-400 text-indigo-900 font-bold py-4 px-10 rounded-full shadow-xl hover:bg-emerald-300 hover:scale-105 transition-all duration-300 ease-in-out text-lg uppercase tracking-wide"
           >
             Explore Our Rooms
-          </a>
+          </Link>
         </motion.div>
       </section>
     </motion.div>
