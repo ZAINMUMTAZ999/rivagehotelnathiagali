@@ -1,15 +1,22 @@
-
-
 "use client";
-import React, { useState } from 'react';
+import { useQuery } from "@tanstack/react-query";
+// import { useParams } from "react-router-dom";
+
+
 import {
   FaMapMarkerAlt,
+//   FaDollarSign,
   FaBed,
 } from "react-icons/fa";
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+
+import { getHotelApiBId } from "../../Api";
+// import { AppContext } from "@/context/AppNotify";
 import Image from "next/image";
-import Link from 'next/link';
-import { Button } from './ui/button';
+import { useParams } from "next/navigation";
+import Link from "next/link";
+import { Button } from "@/app/components/ui/button";
+import { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export type addHotelTypes = {
   _id: string;
@@ -26,19 +33,11 @@ export type addHotelTypes = {
   lastUpdated: Date;
 };
 
-type MyHotelsByIdProps = {
-  hotel: addHotelTypes;
-  isloadingID:boolean;
-};
 
-const MyHotelsById = ({ hotel,isloadingID }: MyHotelsByIdProps) => {
-  // Slider state
+const MyHotelsById = () => {
+
   const [currentIndex, setCurrentIndex] = useState(0);
-  // const [showModal, setShowModal] = useState(false);
-
-  const images: string[] = hotel?.imageUrls || [];
-
-  // Slider functions
+   // Slider functions
   const goToPrevious = () => {
     setCurrentIndex((prevIndex) => 
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
@@ -54,23 +53,57 @@ const MyHotelsById = ({ hotel,isloadingID }: MyHotelsByIdProps) => {
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
   };
+const params = useParams();
+const hotelId = params?.id as string;
 
-  // const openModal = () => {
-  //   setShowModal(true);
-  // };
 
-  // const closeModal = () => {
-  //   setShowModal(false);
-  // };
+const { data: hotel, isLoading, isError } = useQuery<addHotelTypes>({
+  queryKey: ["hotelId"],
+  queryFn:()=> getHotelApiBId(hotelId),
+  enabled:Boolean(hotelId)
 
-  // Handle keyboard navigation in modal
-  // const handleKeyDown = (e: React.KeyboardEvent) => {
-  //   if (e.key === 'Escape') closeModal();
-  //   if (e.key === 'ArrowLeft') goToPrevious();
-  //   if (e.key === 'ArrowRight') goToNext();
-  // };
+});
+console.log("hotelId",hotel)
 
-  // Image Slider Component (built-in)
+  if (isLoading) {
+    return (
+      <div className="container mx-auto px-4 py-8 mt-24 animate-pulse">
+        <div className="bg-white p-6 rounded-lg shadow-md">
+          <div className="h-96 bg-gray-200 rounded-md mb-4"></div>
+          <div className="h-10 bg-gray-200 rounded-md w-3/4 mb-4"></div>
+          <div className="h-6 bg-gray-200 rounded-md w-1/2 mb-4"></div>
+          <div className="h-4 bg-gray-200 rounded-md w-full mb-2"></div>
+          <div className="h-4 bg-gray-200 rounded-md w-5/6 mb-2"></div>
+          <div className="h-4 bg-gray-200 rounded-md w-full mb-2"></div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-6">
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className="h-12 bg-gray-200 rounded-md"></div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (isError || !hotel) {
+    return (
+      <div className="container mx-auto px-4 py-8 mt-24 text-center">
+        <div
+          className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+          role="alert"
+        >
+          <strong className="font-bold">Oops!</strong>
+          <span className="block sm:inline ml-2">
+            Hotel not found or an error occurred.
+          </span>
+        </div>
+      </div>
+    );
+  }
+
+  const images: string[] = hotel?.imageUrls || [];
+//   const hasSingleImage = images.length === 1;
+
    const ImageSlider = () => {
     if (!images || images.length === 0) {
       return (
@@ -81,33 +114,33 @@ const MyHotelsById = ({ hotel,isloadingID }: MyHotelsByIdProps) => {
         </div>
       );
     };
-    if(isloadingID){
-      return (
-        <div className="relative w-full mx-auto">
-      {/* Main Image Container */}
-      <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] rounded-lg overflow-hidden shadow-lg bg-gray-200 animate-pulse">
-        {/* Left arrow placeholder */}
-        <div className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-gray-300 rounded-full shadow-md" />
-        {/* Right arrow placeholder */}
-        <div className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-gray-300 rounded-full shadow-md" />
-        {/* Image counter placeholder */}
-        <div className="absolute top-4 left-4 px-6 py-2 rounded-full bg-gray-300" />
-      </div>
+    // if(isloadingID){
+    //   return (
+    //     <div className="relative w-full mx-auto">
+    //   {/* Main Image Container */}
+    //   <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] rounded-lg overflow-hidden shadow-lg bg-gray-200 animate-pulse">
+    //     {/* Left arrow placeholder */}
+    //     <div className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-gray-300 rounded-full shadow-md" />
+    //     {/* Right arrow placeholder */}
+    //     <div className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-gray-300 rounded-full shadow-md" />
+    //     {/* Image counter placeholder */}
+    //     <div className="absolute top-4 left-4 px-6 py-2 rounded-full bg-gray-300" />
+    //   </div>
 
-      {/* Thumbnail Navigation */}
-      <div className="flex justify-center mt-4 space-x-2 overflow-x-auto pb-2">
-        {Array(5)
-          .fill(0)
-          .map((_, idx) => (
-            <div
-              key={idx}
-              className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-lg bg-gray-200 animate-pulse border-2 border-gray-300"
-            />
-          ))}
-      </div>
-    </div>
-      )
-    }
+    //   {/* Thumbnail Navigation */}
+    //   <div className="flex justify-center mt-4 space-x-2 overflow-x-auto pb-2">
+    //     {Array(5)
+    //       .fill(0)
+    //       .map((_, idx) => (
+    //         <div
+    //           key={idx}
+    //           className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-lg bg-gray-200 animate-pulse border-2 border-gray-300"
+    //         />
+    //       ))}
+    //   </div>
+    // </div>
+    //   )
+    // }
 
     return (
       <>
@@ -218,9 +251,9 @@ const MyHotelsById = ({ hotel,isloadingID }: MyHotelsByIdProps) => {
           </h1>
           <Link
             href="/allrooms"
-            className="inline-flex items-center rounded-xl bg-gradient-to-r from-blue-700 to-rose-600 px-4 py-2 text-white font-semibold shadow hover:from-red-700 hover:to-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-400 focus:ring-offset-2 transition-all text-sm" 
+            className="inline-flex items-center rounded-xl  bg-blue-800 hover:cursor-pointer  px-4 py-2 text-white font-semibold shadow hover:from-red-700 hover:to-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-400 focus:ring-offset-2 transition-all text-sm" 
           >
-            All Rooms 
+            View All Rooms 
           </Link>
         </div>
       </div>
@@ -237,20 +270,21 @@ const MyHotelsById = ({ hotel,isloadingID }: MyHotelsByIdProps) => {
             </div>
           )}
             <div className="sticky   top-0 z-20 bg-white/70 backdrop-blur-md border-b border-slate-200/40">
-        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
-          <Button
-              className=" flex justify-center bg-blue-800   hover:bg-blue-950 hover:cursor-pointer"
-              >BuyNow PayLater</Button>
-          <div className="flex ">
-                
-                PKR :
-              <p className="text-lg font-semibold -mt-0.5 text-green-600 flex items-center justify-end sm:justify-start">
-                {hotel?.pricePerNight}  
-              </p>
-                per night
-              {/* <p className="text-sm text-gray-500">per night</p> */}
-            </div>
-        </div>
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-5 border-b border-gray-200 bg-white">
+  <Button
+    className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+  >
+    Buy Now Pay Later
+  </Button>
+  
+  <div className="flex items-center space-x-2">
+    <span className="text-sm text-gray-600 font-medium">PKR</span>
+    <p className="text-2xl font-bold text-green-600">
+      {hotel?.pricePerNight}
+    </p>
+    <span className="text-sm text-gray-500 ml-1">per night</span>
+  </div>
+</div>
       </div>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 gap-4">
@@ -333,6 +367,7 @@ const MyHotelsById = ({ hotel,isloadingID }: MyHotelsByIdProps) => {
           )}
 
         </div>
+        
         
       </div>
       <span>Review Section</span>

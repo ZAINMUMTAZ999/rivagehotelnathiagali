@@ -12,13 +12,14 @@ import { useState } from "react";
 // import { useSearchContext } from "../context/SearchContext";
 // import Link from "next/link";
 import Image from "next/image";
-import { Button } from "../components/ui/button";
-import MyHotelsById from "../components/singleroom";
+// import { Button } from "../components/ui/button";
+// import MyHotelsById from "../components/singleroom";
+import Link from "next/link";
 
 export default function Page () {
     // const search = useSearchContext();
       const [page, setPage] = useState<number>(1);
-        const [selectedBlogId, setSelectedBlogId] = useState<string | null>(null);
+        // const [selectedBlogId, setSelectedBlogId] = useState<string | null>(null);
     
   const searchParams = {
     // title: search.title,
@@ -38,13 +39,13 @@ export default function Page () {
   queryFn: () => getHotelApi(searchParams),
   // keepPreviousData: true,
 });
-const selectedBlog = selectedBlogId
-? apiResponse?.data.find((blog) => blog._id === selectedBlogId)
-: null;
-if (selectedBlog) {
-  return <MyHotelsById hotel={selectedBlog}/>;
-}
-console.log("selectedblog",selectedBlog);
+// const selectedBlog = selectedBlogId
+// ? apiResponse?.data.find((blog) => blog._id === selectedBlogId)
+// : null;
+// if (selectedBlog) {
+//   return <MyHotelsById hotel={selectedBlog}  isloadingID={isLoading} />;
+// }
+// console.log("selectedblog",selectedBlog);
   const hotelData = apiResponse?.data || "";
 // console.log(apiResponse)
   if (isLoading) {
@@ -121,10 +122,7 @@ console.log("selectedblog",selectedBlog);
 //       </div>
 //     );
 //   }
- const handleReadMore = (id: string) => {
-    setSelectedBlogId(id);
-    window.scrollTo(0, 0);
-  };
+
 
   if (!hotelData || hotelData.length === 0) {
     return (
@@ -217,13 +215,14 @@ console.log("selectedblog",selectedBlog);
               </div>
 
               <div className="flex justify-end mt-4 pt-4 border-t border-gray-100">
-                <Button
+                <Link
                   // to={`/allRooms/${hotel._id}`}
-                   onClick={() => handleReadMore(hotel._id)}
+                  href={`/allrooms/${hotel._id}`}
+                  //  onClick={() => handleReadMore(hotel._id)}
                   className="bg-indigo-600 text-white text-sm sm:text-base font-bold py-2 px-4 rounded-lg hover:bg-indigo-700 transition-colors duration-200 shadow-md transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 hover:cursor-pointer"
                 >
                   View Details
-                </Button>
+                </Link>
               </div>
             </div>
           </div>
