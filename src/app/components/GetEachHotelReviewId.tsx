@@ -4,7 +4,7 @@ import { GetReviewEachHotelById } from "../Api";
 
 import {AddReviewTypesId} from "../Api";
 // import { Button } from "./ui/button";
-import { Link,  Plus, Star, User, UserIcon, X } from "lucide-react";
+import { Link,   Star, User, UserIcon, X } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 // import { useParams } from "next/navigation";
 
