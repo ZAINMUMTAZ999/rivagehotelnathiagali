@@ -1,13 +1,12 @@
 import { addHotelTypes } from "./components/AddHotel";
 
 export type contactUsTypes = {
-userId: string;
-_id:string;
-name: string;
-email: string;
-phoneNumber: number;
-message: string;
-
+  userId: string;
+  _id: string;
+  name: string;
+  email: string;
+  phoneNumber: number;
+  message: string;
 };
 export type contactUsResponse = {
   data: contactUsTypes[];
@@ -19,32 +18,16 @@ export type contactUsResponse = {
 };
 
 export type loginUserTypes = {
-    email: string;
-    password: string;
-    
+  email: string;
+  password: string;
+
   role: {
     // type: String,
     // required: true,
-    enum: ["admin", "user"],
-  },
-
+    enum: ["admin", "user"];
+  };
 };
-export type addBlogTypes = {
-userId: string;
-_id:string;
-title: string;
-description: string;
-imageFile: string;
-textEditor: string;
-date:Date;
-  createdAt?: Date; 
-  updatedAt?: Date;
 
-};
-// enum Role {
-//   User = "user",
-//   Admin = "admin",
-// }
 export type registerUserTypes = {
   _id: string;
   userId: string;
@@ -55,14 +38,7 @@ export type registerUserTypes = {
   role: string;
   imageFile: string;
 };
-export type blogSearchResponse = {
-  data: addBlogTypes[];
-  pagination: {
-    total: number;
-    page: number;
-    pages: number;
-  };
-};
+
 export type getroomsResponse = {
   data: getroomTypes[];
   pagination: {
@@ -72,11 +48,11 @@ export type getroomsResponse = {
   };
 };
 export type getroomTypes = {
-_id: string;
+  _id: string;
   userId: string;
   name: string;
   city: string;
- 
+
   description: string;
   type: string;
   // adultCount: number;
@@ -85,15 +61,14 @@ _id: string;
   pricePerNight: number;
   // starRating: number;
   imageUrls: string[];
-imageFiles: FileList;
-roomStatus:string,
+  imageFiles: FileList;
+  roomStatus: string;
   lastUpdated: Date;
-
 };
 export type addReviewTypes = {
   userId: string;
   _id: string;
-  
+
   name: string;
   // email: string;
   // phoneNumber: number;
@@ -102,46 +77,47 @@ export type addReviewTypes = {
 };
 
 // const Base_Url_API = "http://localhost:8000";
-const Base_Url_API = "https://srivagehotel-new.up.railway.app"
-export const AddHotelApi = async (hotelFormData: FormData) => {
+const Base_Url_API = "https://srivagehotel-new.up.railway.app";
+
+const AddHotelApi = async (hotelFormData: FormData) => {
   try {
     const response = await fetch(`${Base_Url_API}/v2/addRoom`, {
-   method: "POST",
-    credentials: "include",
-   body: hotelFormData,
-  });
+      method: "POST",
+      credentials: "include",
+      body: hotelFormData,
+    });
 
     if (!response.ok) {
       throw new Error("Something Went Wrong!");
     }
 
-     return await response.json();
+    return await response.json();
   } catch (error) {
     console.log(error);
     throw new Error("Something Went Wrong!");
   }
 };
-export const AddHeroImageApi = async (hotelFormData: FormData) => {
+const AddHeroImageApi = async (hotelFormData: FormData) => {
   try {
     const response = await fetch(`${Base_Url_API}/v3/addHeroImage`, {
-   method: "POST",
-    credentials: "include",
-   body: hotelFormData,
-  });
+      method: "POST",
+      credentials: "include",
+      body: hotelFormData,
+    });
 
     if (!response.ok) {
       throw new Error("Something Went Wrong!");
     }
 
-     return await response.json();
+    return await response.json();
   } catch (error) {
     console.log(error);
     throw new Error("Something Went Wrong!");
   }
 };
-export const getHotelApiBId = async (hotelId:string):Promise<addHotelTypes> => {
+ const getHotelApiBId = async (id:string):Promise<addHotelTypes> => {
   try {
-    const response = await fetch(`${Base_Url_API}/v2/rooms/${hotelId}`, {
+    const response = await fetch(`${Base_Url_API}/v2/rooms/${id}`, {
 
     credentials: "include"
   });
@@ -157,6 +133,7 @@ export const getHotelApiBId = async (hotelId:string):Promise<addHotelTypes> => {
     throw new Error("Something Went Wrong!");
   }
 };
+
 const registerApi = async (formDatajson: registerUserTypes) => {
   const response = await fetch(`${Base_Url_API}/v1/register`, {
     method: "POST",
@@ -229,25 +206,6 @@ const LogoutApi = async () => {
   return response.json();
 };
 
-const addBlogApi = async (formData: FormData) => {
-  try {
-    const response = await fetch(`${Base_Url_API}/v2/addBlog`, {
-      method: "POST",
-      credentials: "include",
-      body: formData,
-    });
-
-    if (!response.ok) {
-      throw new Error("Something Went Wrong!");
-    }
-
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.log(error);
-    throw new Error("Something Went Wrong!");
-  }
-};
 const contactUsApi = async (formData: contactUsTypes) => {
   try {
     const response = await fetch(`${Base_Url_API}/v2/contactUs`, {
@@ -267,59 +225,13 @@ const contactUsApi = async (formData: contactUsTypes) => {
     throw new Error("Something Went Wrong!");
   }
 };
-// const getContactUsApi = async (): Promise<contactUsTypes> => {
-//   try {
-//     const response = await fetch(`${Base_Url_API}/v2/contactUs`, {
-//       credentials: "include",
-//     });
-//     if (!response.ok) {
-//       throw new Error("blogApi not fetched");
-//     }
-//     return response.json();
-//   } catch (error) {
-//     console.log(error);
-//     throw new Error("Something Went Wrong!");
-//   }
-// };
 
-// type searchParams = {
-  
-//   page?: string;
-// };
-const searchPage = async (searchParams: { page: string; }
-  // searchParams: searchParams
-): Promise<blogSearchResponse> => {
-  const queryParams = new URLSearchParams();
-  // queryParams.append("title", searchParams.title || "");
-
-  queryParams.append("page", searchParams.page || "");
-  try {
-    const repsonse = await fetch(
-      `${Base_Url_API}/v2/search?${queryParams}`,
-      // "http://localhost:8000/v2/blogs",
-      {
-        method: "GET",
-        credentials: "include",
-          // cache: 'no-store'
-      }
-    );
-    if (!repsonse.ok) {
-      throw new Error("Something Went Wrong!");
-    }
-    // console.log(await repsonse.json())
-    const data = await repsonse.json();
-    return data;
-  } catch (error) {
-    console.log(error);
-    throw new Error("Something Went Wrong!");
-  }
-};
 export type searchParamsContact = {
   phoneNumber?: string;
   name?: string;
   page?: string;
 };
-export const searchPageContact = async (
+const searchPageContact = async (
   searchParams: searchParamsContact
 ): Promise<contactUsResponse> => {
   const queryParams = new URLSearchParams();
@@ -350,34 +262,15 @@ export const searchPageContact = async (
 export type addHeroImageTypes = {
   userId: string;
   _id: string;
-  
+
   imageFile: string;
 };
-export const updateImageHomeApi = async (hotelFormData: FormData) => {
-  const response = await fetch(
-    `${Base_Url_API}/v2/UpdateUser`,
-    {
-      method: "PUT",
-      body: hotelFormData,
-      credentials: "include",
-    }
-  );
-
-  if (!response.ok) {
-    throw new Error("Failed to update Hotel");
-  }
-
-  return response.json();
-};
-export const ImaeHoeApi2232 = async (hotelFormData: FormData) => {
-  const response = await fetch(
-    `${Base_Url_API}/adbwe/UpdateUser`,
-    {
-      method: "Psdnie",
-      body: hotelFormData,
-      credentials: "include",
-    }
-  );
+const updateImageHomeApi = async (hotelFormData: FormData) => {
+  const response = await fetch(`${Base_Url_API}/v2/UpdateUser`, {
+    method: "PUT",
+    body: hotelFormData,
+    credentials: "include",
+  });
 
   if (!response.ok) {
     throw new Error("Failed to update Hotel");
@@ -386,9 +279,7 @@ export const ImaeHoeApi2232 = async (hotelFormData: FormData) => {
   return response.json();
 };
 
-export const heroImageApi = async ():Promise<addHeroImageTypes> => {
-
-
+const heroImageApi = async (): Promise<addHeroImageTypes> => {
   const response = await fetch(`${Base_Url_API}/v2/homeImage`, {
     credentials: "include",
   });
@@ -402,7 +293,7 @@ export const heroImageApi = async ():Promise<addHeroImageTypes> => {
 };
 const AddReviewApi = async (formdata: {
   name: string;
-  message: string
+  message: string;
 }): Promise<addReviewTypes> => {
   try {
     const response = await fetch(`${Base_Url_API}/v2/addReview`, {
@@ -464,38 +355,19 @@ export type userTypes = {
   firstName: string;
   userId: string;
 };
-const getUserInfoApi = async (): Promise<userTypes[]> => {
-  try {
-    const response = await fetch(`${Base_Url_API}/v2/login`, {
-      credentials: "include",
-    });
 
-    if (!response.ok) {
-      throw new Error("Something Went Wrong!");
-    }
-
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.log(error);
-    throw new Error("Something Went Wrong!");
-  }
-};
-    export const getHotelApi = async (
-searchParams: searchParamsContact
+const getHotelApi = async (
+  searchParams: searchParamsContact
 ): Promise<getroomsResponse> => {
   const queryParams = new URLSearchParams();
   // queryParams.append("title", searchParams.title || "");
 
   queryParams.append("page", searchParams.page || "");
   try {
-    const repsonse = await fetch(
-      `${Base_Url_API}/v2/rooms?${queryParams}`,
-      {
-        method: "GET",
-        credentials: "include",
-      }
-    );
+    const repsonse = await fetch(`${Base_Url_API}/v2/rooms?${queryParams}`, {
+      method: "GET",
+      credentials: "include",
+    });
     if (!repsonse.ok) {
       throw new Error("Something Went Wrong!");
     }
@@ -507,11 +379,23 @@ searchParams: searchParamsContact
     throw new Error("Something Went Wrong!");
   }
 };
-const getRegisteredUser = async (): Promise<registerUserTypes[]> => {
+
+export type AddReviewTypesId = {
+  _id: string; 
+  name: string; 
+  message: string; 
+
+};
+const GetReviewEachHotelById = async (
+  hotelId: string
+): Promise<AddReviewTypesId[]> => {
   try {
-  const response = await fetch(`${Base_Url_API}/v1/allRegisteredUser`, {
-      credentials: "include",
-    });
+    const response = await fetch(
+      `${Base_Url_API}/v2/rooms/${hotelId}/reviews`,
+      {
+        credentials: "include",
+      }
+    );
 
     if (!response.ok) {
       throw new Error("Something Went Wrong!");
@@ -524,40 +408,22 @@ const getRegisteredUser = async (): Promise<registerUserTypes[]> => {
     throw new Error("Something Went Wrong!");
   }
 };
-const allRegisteredUserApi = async (): Promise<registerUserTypes[]> => {
-  try {
-    const response = await fetch(`${Base_Url_API}/v1/allRegisteredUser`, {
-      credentials: "include",
-    });
-
-    if (!response.ok) {
-      throw new Error("Something Went Wrong!");
-    }
-
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.log(error);
-    throw new Error("Something Went Wrong!");
-  }
-};
-
-export default AddReviewApi;
 
 export {
   registerApi,
   loginApi,
   validateToken,
   LogoutApi,
-  addBlogApi,
-  // allBlogsApi,
-  searchPage,
-  contactUsApi,
-  // getContactUsApi,
   AddReviewApi,
+  contactUsApi,
   GetReviewsApi,
-  getUserInfoApi,
-  getRegisteredUser,
+  heroImageApi,
   GetAllReviewsApi,
-  allRegisteredUserApi
+  getHotelApi,
+  AddHotelApi,
+  searchPageContact,
+  AddHeroImageApi,
+  updateImageHomeApi,
+  GetReviewEachHotelById,
+  getHotelApiBId
 };

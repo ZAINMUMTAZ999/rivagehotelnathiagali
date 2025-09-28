@@ -17,6 +17,7 @@ import Link from "next/link";
 import { Button } from "@/app/components/ui/button";
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { GetEachHotelReviewId } from "../../components/GetEachHotelReviewId";
 
 export type addHotelTypes = {
   _id: string;
@@ -34,7 +35,9 @@ export type addHotelTypes = {
 };
 
 
-const MyHotelsById = () => {
+const MyHotelsById = (
+  // { params }: { params: { id: string } }
+) => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
    // Slider functions
@@ -53,17 +56,18 @@ const MyHotelsById = () => {
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
   };
-const params = useParams();
-const hotelId = params?.id as string;
-
+// const { id } = useParams<{ id: string }>();
+  // const { id } = useParams<{ id: string }>();
+    const { id } = useParams<{ id: string }>();
+console.log("idParams",id);
 
 const { data: hotel, isLoading, isError } = useQuery<addHotelTypes>({
-  queryKey: ["hotelId"],
-  queryFn:()=> getHotelApiBId(hotelId),
-  enabled:Boolean(hotelId)
+  queryKey: ["id"],
+  queryFn:()=> getHotelApiBId(id),
+  enabled:Boolean(id)
 
 });
-console.log("hotelId",hotel)
+console.log("idReview",hotel)
 
   if (isLoading) {
     return (
@@ -144,7 +148,8 @@ console.log("hotelId",hotel)
 
     return (
       <>
-        <div className="relative w-full  mx-auto">
+        <div className="relative w-full  mx-auto"
+        >
           {/* Main Image Container */}
           <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] object-cover rounded-lg overflow-hidden shadow-lg group">
             <Image
@@ -274,7 +279,7 @@ console.log("hotelId",hotel)
   <Button
     className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
   >
-    Buy Now Pay Later
+    Book Now Pay Later
   </Button>
   
   <div className="flex items-center space-x-2">
@@ -370,7 +375,17 @@ console.log("hotelId",hotel)
         
         
       </div>
-      <span>Review Section</span>
+      <span>
+        
+        
+        Reviews  {hotel.name}
+        <GetEachHotelReviewId
+        
+        // hotelId={params.id} 
+        hotelId={id} 
+        />
+        
+        </span>
 
 
         <section className="bg-white py-12 md:py-16 border-t border-gray-200 w">
