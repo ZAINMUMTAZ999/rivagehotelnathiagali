@@ -378,12 +378,15 @@ console.log("idReview",hotel)
         
       </div>
       {/* <AddReviewById/> */}
+      <Button className="bg-blue-700 hover:bg-blue-800 hover:cursor-pointer mt-4">
+
       <Link href={`/allrooms/${hotel._id}/add-review`}>Add Review</Link>
 
+      </Button>
       <span>
         
         
-        Reviews  {hotel.name}
+        {/* Reviews  {hotel.name} */}
         <GetEachHotelReviewId
         
         // hotelId={params.id} 

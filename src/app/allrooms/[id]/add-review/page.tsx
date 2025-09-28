@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
@@ -33,7 +33,9 @@ console.log("idADDREVIEW",id)
   const message = watch("message", "");
   const characterCount = message?.length ?? 0;
 
+  const router=useRouter();
   // ✅ mutation to add a review
+
   const { mutate: addReview, isPending } = useMutation({
     mutationFn: (data: { id: string; name: string; message: string }) =>
       AddReviewEachHotelById(data.id, {
@@ -44,6 +46,7 @@ console.log("idADDREVIEW",id)
  queryClient.invalidateQueries({ queryKey: ["getReviewsByID", id] });
 
       showToast({ type: "SUCCESS", message: "Review Added" });
+router.push(`/allrooms/${id}`)
       reset();
     },
   onError: (error:Error) => {

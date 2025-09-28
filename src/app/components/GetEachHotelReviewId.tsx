@@ -89,14 +89,12 @@ console.log("HotelReviewById",reviewsData);
   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10">
     <div>
       <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">
-        Customer Reviews
+         Reviews
       </h2>
-      <p className="text-gray-600 text-sm sm:text-base">
-        See what our community is saying
-      </p>
+      
     </div>
 
-    <Link
+    {/* <Link
       href="/addreview"
       className="group inline-flex items-center gap-2
                  bg-gradient-to-r from-blue-600 to-indigo-600
@@ -107,7 +105,7 @@ console.log("HotelReviewById",reviewsData);
     >
       <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
       <span>Add Review</span>
-    </Link>
+    </Link> */}
   </div>
 
   {/* Modal */}
