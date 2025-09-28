@@ -18,6 +18,8 @@ import { Button } from "@/app/components/ui/button";
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { GetEachHotelReviewId } from "../../components/GetEachHotelReviewId";
+// import AddReviewById from "../[id]/add-review/page";
+// import { AddReviewEachId } from "../../components/AddReviewEachId";
 
 export type addHotelTypes = {
   _id: string;
@@ -375,6 +377,9 @@ console.log("idReview",hotel)
         
         
       </div>
+      {/* <AddReviewById/> */}
+      <Link href={`/allrooms/${hotel._id}/add-review`}>Add Review</Link>
+
       <span>
         
         

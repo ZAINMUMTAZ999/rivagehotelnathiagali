@@ -386,6 +386,7 @@ export type AddReviewTypesId = {
   message: string; 
 
 };
+
 const GetReviewEachHotelById = async (
   hotelId: string
 ): Promise<AddReviewTypesId[]> => {
@@ -408,6 +409,39 @@ const GetReviewEachHotelById = async (
     throw new Error("Something Went Wrong!");
   }
 };
+type NewReviewPayload = {
+  name: string;
+  message: string;
+};
+
+ const AddReviewEachHotelById = async (
+  id: string,
+  payload: NewReviewPayload
+): Promise<AddReviewTypesId> => {
+  try {
+    const response = await fetch(
+      `${Base_Url_API}/v2/rooms/${id}/reviews`,
+      {
+        method: "POST",
+        credentials: "include",        // keep if you rely on cookies
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to add review");
+    }
+
+    return (await response.json()) as AddReviewTypesId;
+  } catch (error) {
+    console.error("AddReview error:", error);
+    throw error;
+  }
+};
+
 
 export {
   registerApi,
@@ -425,5 +459,6 @@ export {
   AddHeroImageApi,
   updateImageHomeApi,
   GetReviewEachHotelById,
-  getHotelApiBId
+  getHotelApiBId,
+  AddReviewEachHotelById
 };
