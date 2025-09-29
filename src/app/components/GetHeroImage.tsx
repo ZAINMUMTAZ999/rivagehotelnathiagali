@@ -55,7 +55,7 @@ export default function GetHeroImageHomepage() {
    <div className="relative w-full h-screen">
   <Image
     src={img}
-    alt="Luxury resort"
+    alt="ArcadianResort"
     fill
     className="object-cover object-center"
     priority
@@ -74,7 +74,7 @@ export default function GetHeroImageHomepage() {
       text-4xl sm:text-xl md:text-6xl lg:text-7xl
       leading-snug
     ">
-      Rivage Resort Nathiagali
+      Arcadian Resort Nathiagali
     </h1>
 
     {/* Subheading / Tagline */}

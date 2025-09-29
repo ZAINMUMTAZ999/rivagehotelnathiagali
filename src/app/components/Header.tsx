@@ -124,9 +124,20 @@ const Header = () => {
                 alt="RivageCottage"
                 className="h-8 w-8 object-contain"
               /> */}
-              <span className="text-lg font-bold text-white">
-                <b>ArcadianResort</b>
-              </span>
+               <Link href="/" className="flex items-center gap-2 flex-shrink-0">
+        
+             <Image
+            src="/logo.svg"
+            alt="Site Logo"
+            width={60}
+            height={60}
+            className="rounded-full"
+            priority
+          />
+          <span className="text-lg sm:text-xl font-bold text-white">
+            <b>ArcadianResort</b>
+          </span>
+        </Link>
             </div>
             <button
               className="text-white p-2 hover:bg-blue-800 rounded-md transition-colors"
