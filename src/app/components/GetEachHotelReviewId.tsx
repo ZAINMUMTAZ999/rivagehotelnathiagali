@@ -24,14 +24,14 @@ console.log("HotelReviewById",reviewsData);
 
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const scroll = (direction: "left" | "right") => {
-    if (containerRef.current) {
-      containerRef.current.scrollBy({
-        left: direction === "left" ? -320 : 320,
-        behavior: "smooth",
-      });
-    }
-  };
+  // const scroll = (direction: "left" | "right") => {
+  //   if (containerRef.current) {
+  //     containerRef.current.scrollBy({
+  //       left: direction === "left" ? -320 : 320,
+  //       behavior: "smooth",
+  //     });
+  //   }
+  // };
 
   const MAX_MESSAGE_LENGTH = 120;
 
@@ -118,20 +118,20 @@ console.log("HotelReviewById",reviewsData);
       {/* <span className="flex items-center justify-center">
         
       </span> */}
-      <button
+      {/* <button
         onClick={() => scroll("left")}
         className=" sm:flex absolute 
  
         left-2 top-1/2 -translate-y-1/2 z-10 mt-12 -ml-4 bg-white hover:bg-gray-50 shadow-lg border border-gray-200 w-10 h-10 rounded-full items-center justify-center transition-all duration-200"
       >
-        {/* <span className="text-gray-600 text-lg ">←</span> */}
-      </button>
-      <button
+        <span className="text-gray-600 text-lg ">←</span>
+      </button> */}
+      {/* <button
         onClick={() => scroll("right")}
         className="hidden sm:flex absolute right-2 top-1/2 mt-12  -ml-4 -translate-y-1/2 z-10 bg-white hover:bg-gray-50 shadow-lg border border-gray-200 w-10 h-10 rounded-full items-center justify-center  transition-all duration-200"
       >
-        {/* <span className="text-gray-600 text-lg ">→</span> */}
-      </button>
+        <span className="text-gray-600 text-lg ">→</span>
+      </button> */}
 
       {/* Reviews list */}
       <div
