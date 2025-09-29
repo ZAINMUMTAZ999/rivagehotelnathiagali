@@ -153,7 +153,12 @@ const searchParams = {
   }
 
   return (
-    <div className="container mx-auto  px-4 sm:px-6 lg:px-8">
+    
+    
+    
+       <div
+            
+    className="container mx-auto  px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-800 text-center sm:text-left">
           Our Rooms
@@ -164,7 +169,9 @@ const searchParams = {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6 sm:gap-8">
         {hotelData.map((hotel) => (
-          <div
+             <Link
+                  // to={`/allRooms/${hotel._id}`}
+                  href={`/allrooms/${hotel._id}`}
             key={hotel._id}
             className="flex flex-col bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 ease-in-out group"
           >
@@ -242,7 +249,7 @@ const searchParams = {
                 </Link>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
       <div className="mt-8">
