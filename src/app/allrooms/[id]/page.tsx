@@ -91,6 +91,27 @@ const MyHotelsById = () =>
       return (
  <div className="mt-8 space-y-6">
       {/* Header bar */}
+        <div className="relative w-full">
+      {/* Main Image Container */}
+      <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] rounded-lg overflow-hidden shadow-lg bg-gray-200 animate-pulse">
+        {/* Left arrow placeholder */}
+        <div className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-gray-300 rounded-full shadow-md" />
+        {/* Right arrow placeholder */}
+        <div className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-gray-300 rounded-full shadow-md" />
+        {/* Image counter placeholder */}
+        <div className="absolute top-4 left-4 px-4 py-2 rounded-full bg-gray-300" />
+      </div>
+
+      {/* Thumbnail Navigation */}
+      <div className="flex justify-center mt-4 space-x-2 overflow-x-auto pb-2">
+        {Array.from({ length: 5 }).map((_, idx) => (
+          <div
+            key={idx}
+            className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-lg bg-gray-300 border-2 border-gray-200 animate-pulse"
+          />
+        ))}
+      </div>
+    </div>
       <div className="bg-white/70 backdrop-blur-md border-b border-slate-200/40">
         <div className="flex items-center justify-between px-4 py-4">
           <div className="h-6 w-40 bg-gray-300 rounded animate-pulse" />
@@ -184,31 +205,7 @@ const MyHotelsById = () =>
           </div>
         );
       }
-    if(isLoading){
-      return(
-      <div className="relative w-full">
-      {/* Main Image Container */}
-      <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] rounded-lg overflow-hidden shadow-lg bg-gray-200 animate-pulse">
-        {/* Left arrow placeholder */}
-        <div className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-gray-300 rounded-full shadow-md" />
-        {/* Right arrow placeholder */}
-        <div className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-gray-300 rounded-full shadow-md" />
-        {/* Image counter placeholder */}
-        <div className="absolute top-4 left-4 px-4 py-2 rounded-full bg-gray-300" />
-      </div>
-
-      {/* Thumbnail Navigation */}
-      <div className="flex justify-center mt-4 space-x-2 overflow-x-auto pb-2">
-        {Array.from({ length: 5 }).map((_, idx) => (
-          <div
-            key={idx}
-            className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-lg bg-gray-300 border-2 border-gray-200 animate-pulse"
-          />
-        ))}
-      </div>
-    </div>
-      )
-    }
+ 
 
       return (
         <>
