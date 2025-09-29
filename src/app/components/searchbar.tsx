@@ -1,5 +1,5 @@
 "use client";
-import { useSearchContext } from "../context/SearchContext";
+// import { useSearchContext } from "../context/SearchContext";
 import  { FormEvent,  useState } from "react";
 import {  Search, PhoneIcon, RotateCcw } from "lucide-react";
 import { CgNametag } from "react-icons/cg";
@@ -7,12 +7,12 @@ import { CgNametag } from "react-icons/cg";
 
 
 const SearchBar = () => {
-  const search = useSearchContext();
+  // const search = useSearchContext();
 
 //   const [transactionId, setTransactionsId] = useState(search.transactionId);
   // const [phoneNumber, setPhoneNumber] = useState(search.phoneNumber);
-  const [name, setname] = useState(search.name);
-  const [phoneNumber, setphoneNumber] = useState(search.phoneNumber);
+  // const [name, setname] = useState(search.name);
+  // const [phoneNumber, setphoneNumber] = useState(search.phoneNumber);
 //   const [jobLocation, setJobLocation] = useState(search.jobLocation);
 //   const [companysIndustry, setCompanysIndustry] = useState(search.companysIndustry);
 //   const [sortOption, setSortOption] = useState(search.sortOption);
@@ -38,7 +38,7 @@ const SearchBar = () => {
     e.preventDefault();
     setIsLoading(true); 
     // search.saveSearchValues(phoneNumber);
-    search.saveSearchValues(name,phoneNumber);
+    // search.saveSearchValues(name,phoneNumber);
 
     setTimeout(() => {
       setIsLoading(false);
@@ -47,8 +47,8 @@ const SearchBar = () => {
   };
 
   const handleReset = () => {
-    setname('');
-    setphoneNumber('');
+    // setname('');
+    // setphoneNumber('');
     // setCompanysIndustry('');
     // setSortOption('');
   };
@@ -74,9 +74,9 @@ const SearchBar = () => {
                 name="phoneNumber" 
                 id="phoneNumber"
                 
-                value={phoneNumber}
+                // value={phoneNumber}
             
-                onChange={(e) => setphoneNumber(e.target.value)}
+                // onChange={(e) => setphoneNumber(e.target.value)}
 
                 className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 placeholder="search by phoneNumber"
@@ -95,9 +95,9 @@ const SearchBar = () => {
                 name="name" 
                 id="name"
                 
-                value={name}
+                // value={name}
             
-                onChange={(e) => setname(e.target.value)}
+                // onChange={(e) => setname(e.target.value)}
 
                 className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 placeholder="search by name"
