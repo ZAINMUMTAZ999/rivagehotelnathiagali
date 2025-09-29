@@ -18,9 +18,12 @@ import Link from "next/link";
 import { useSearchContext } from "../context/SearchContext";
 import SearchHotelsBar from "../components/searchHotelsBar";
 import { Button } from "../components/ui/button";
+import { useRouter } from "next/navigation";
 
 export default function Page () {
+
     const search = useSearchContext();
+      const router = useRouter();
       const [page, setPage] = useState<number>(1);
         // const [selectedBlogId, setSelectedBlogId] = useState<string | null>(null);
     
@@ -145,11 +148,13 @@ const searchParams = {
     return (
       <div className="flex flex-col items-center justify-center min-h-[calc(100vh-200px)] bg-gray-50 rounded-lg shadow-lg p-8 m-4 sm:m-6 md:m-8">
         <p className="text-3xl font-extrabold text-gray-800 mb-6 text-center">No Hotels Found Yet!</p>
-        <Link href="/allrooms" className="text-lg text-gray-600 mb-8 text-center max-w-prose">
-          <Button className="flex w-full justify-center items-center bg-blue-500 hover:bg-red-300 flex-1 hover:cursor-pointer text-white font-bold p-1 rounded">
-All Rooms
+        {/* <Link href="/" className="text-lg text-gray-600 mb-8 text-center max-w-prose"> */}
+          <Button 
+           onClick={() => router.back()}
+          className="flex w-full justify-center items-center bg-blue-500 hover:bg-red-300 flex-1 hover:cursor-pointer text-white font-bold p-1 rounded">
+GoBack
           </Button>
-        </Link>
+        {/* </Link> */}
        
       </div>
     );
