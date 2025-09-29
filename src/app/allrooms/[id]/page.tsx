@@ -136,33 +136,72 @@ const MyHotelsById = () =>
           </div>
         );
       }
-      // if(isloadingID){
-      //   return (
-      //     <div className="relative w-full mx-auto">
-      //   {/* Main Image Container */}
-      //   <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] rounded-lg overflow-hidden shadow-lg bg-gray-200 animate-pulse">
-      //     {/* Left arrow placeholder */}
-      //     <div className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-gray-300 rounded-full shadow-md" />
-      //     {/* Right arrow placeholder */}
-      //     <div className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-gray-300 rounded-full shadow-md" />
-      //     {/* Image counter placeholder */}
-      //     <div className="absolute top-4 left-4 px-6 py-2 rounded-full bg-gray-300" />
-      //   </div>
+    if(isLoading){
+      return(
+        <div className="mt-8 space-y-6">
+      {/* Header bar */}
+      <div className="bg-white/70 backdrop-blur-md border-b border-slate-200/40">
+        <div className="flex items-center justify-between px-4 py-4">
+          <div className="h-6 w-40 bg-gray-300 rounded animate-pulse" />
+          <div className="h-8 w-28 bg-gray-300 rounded-xl animate-pulse" />
+        </div>
+      </div>
 
-      //   {/* Thumbnail Navigation */}
-      //   <div className="flex justify-center mt-4 space-x-2 overflow-x-auto pb-2">
-      //     {Array(5)
-      //       .fill(0)
-      //       .map((_, idx) => (
-      //         <div
-      //           key={idx}
-      //           className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-lg bg-gray-200 animate-pulse border-2 border-gray-300"
-      //         />
-      //       ))}
-      //   </div>
-      // </div>
-      //   )
-      // }
+      {/* Location + price */}
+      <div className="flex justify-between px-4">
+        <div className="h-5 w-32 bg-gray-300 rounded animate-pulse" />
+        <div className="flex items-center space-x-2">
+          <div className="h-6 w-12 bg-gray-300 rounded animate-pulse" />
+          <div className="h-6 w-20 bg-gray-300 rounded animate-pulse" />
+        </div>
+      </div>
+
+      {/* Big card */}
+      <div className="bg-white rounded-lg shadow-xl overflow-hidden p-6 space-y-6">
+        {/* Book button */}
+        <div className="h-12 w-full bg-gray-300 rounded-lg animate-pulse" />
+
+        {/* Hotel type */}
+        <div className="h-5 w-32 bg-gray-300 rounded animate-pulse" />
+
+        {/* Description */}
+        <div className="space-y-2">
+          <div className="h-6 w-24 bg-gray-300 rounded animate-pulse" />
+          <div className="h-4 w-full bg-gray-200 rounded animate-pulse" />
+          <div className="h-4 w-5/6 bg-gray-200 rounded animate-pulse" />
+          <div className="h-4 w-4/6 bg-gray-200 rounded animate-pulse" />
+        </div>
+
+        {/* Room status */}
+        <div className="h-6 w-40 bg-gray-300 rounded animate-pulse" />
+
+        {/* Facilities */}
+        <div className="space-y-3">
+          <div className="h-6 w-28 bg-gray-300 rounded animate-pulse" />
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <div
+                key={i}
+                className="h-8 w-full bg-gray-200 rounded-md animate-pulse"
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Add review button */}
+        <div className="h-10 w-40 bg-gray-300 rounded-lg animate-pulse" />
+      </div>
+
+      {/* Map section */}
+      <section className="bg-white py-12 md:py-16 border-t border-gray-200">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="h-8 w-48 bg-gray-300 mx-auto rounded animate-pulse mb-8" />
+          <div className="relative w-full h-96 md:h-[450px] rounded-lg bg-gray-300 animate-pulse" />
+        </div>
+      </section>
+    </div>
+      )
+    }
 
       return (
         <>
