@@ -25,10 +25,10 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold mb-4">Services</h3>
           <ul className="space-y-2 text-sm underline text-purple-100  ">
-            <li><Link href="/rooms" className="hover:text-white  underline  hover:text-red-400">Resort</Link></li>
-            <li><Link href="/mobileApp" className="hover:text-white">Rooms</Link></li>
-            <li><Link href="/cloudSolutions" className="hover:text-white">Gallery</Link></li>
-            <li><Link href="/digitalmarketing" className="hover:text-white">Reviews</Link></li>
+            <li><Link href="/" className="hover:text-white  underline  hover:text-red-400">Resort</Link></li>
+            <li><Link href="/allrooms" className="hover:text-white">Rooms</Link></li>
+            {/* <li><Link href="/cloudSolutions" className="hover:text-white">Gallery</Link></li> */}
+            {/* <li><Link href="/digitalmarketing" className="hover:text-white">Reviews</Link></li> */}
           </ul>
         </div>
 

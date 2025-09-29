@@ -77,7 +77,7 @@ const HotelServicesSection: React.FC = () => {
           className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto"
           variants={itemVariants} // Animate the description
         >
-          At Rivage Resort Nathia Gali , every detail is crafted to ensure an extraordinary stay. Discover our range of world-class services designed for your ultimate comfort and delight.
+          At Arcadian Resort Nathia Gali , every detail is crafted to ensure an extraordinary stay. Discover our range of world-class services designed for your ultimate comfort and delight.
         </motion.p>
       </div>
 

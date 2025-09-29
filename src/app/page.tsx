@@ -37,7 +37,7 @@ export default function Home() {
 
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Rivage Resort Nathia Gali  Location"
+                title="Arcadian Resort Nathia Gali  Location"
                 style={{ pointerEvents: 'auto' }}
               />
             </div>
