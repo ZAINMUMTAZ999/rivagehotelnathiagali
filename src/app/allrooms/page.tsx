@@ -154,15 +154,16 @@ const searchParams = {
           className="flex w-full justify-center items-center bg-blue-500 hover:bg-red-300 flex-1 hover:cursor-pointer text-white font-bold p-1 rounded">
 GoBack
           </Button> */}
-           <button
+           <Link
+           href="/"
       // type="submit"
-       onClick={() => router.back()}
+      //  onClick={() => router.back()}
       className="w-full rounded-md bg-blue-600 px-4 py-2 font-medium
                  text-white transition hover:bg-blue-700 focus:outline-none focus:ring-2
                  focus:ring-blue-400"
     >
       GoBack
-    </button>
+    </Link>
         {/* </Link> */}
        
       </div>
