@@ -17,7 +17,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useSearchContext } from "../context/SearchContext";
 import SearchHotelsBar from "../components/searchHotelsBar";
-import { Button } from "../components/ui/button";
+// import { Button } from "../components/ui/button";
 import { useRouter } from "next/navigation";
 
 export default function Page () {
@@ -149,11 +149,20 @@ const searchParams = {
       <div className="flex flex-col items-center justify-center min-h-[calc(100vh-200px)] bg-gray-50 rounded-lg shadow-lg p-8 m-4 sm:m-6 md:m-8">
         <p className="text-3xl font-extrabold text-gray-800 mb-6 text-center">No Hotels Found Yet!</p>
         {/* <Link href="/" className="text-lg text-gray-600 mb-8 text-center max-w-prose"> */}
-          <Button 
+          {/* <Button 
            onClick={() => router.back()}
           className="flex w-full justify-center items-center bg-blue-500 hover:bg-red-300 flex-1 hover:cursor-pointer text-white font-bold p-1 rounded">
 GoBack
-          </Button>
+          </Button> */}
+           <button
+      // type="submit"
+       onClick={() => router.back()}
+      className="w-full rounded-md bg-blue-600 px-4 py-2 font-medium
+                 text-white transition hover:bg-blue-700 focus:outline-none focus:ring-2
+                 focus:ring-blue-400"
+    >
+      GoBack
+    </button>
         {/* </Link> */}
        
       </div>
