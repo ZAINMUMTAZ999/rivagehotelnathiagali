@@ -23,13 +23,12 @@ export default function Page () {
       const [page, setPage] = useState<number>(1);
         // const [selectedBlogId, setSelectedBlogId] = useState<string | null>(null);
     
-  const searchParams = {
-    jobTitle: search.title,
-    // companysIndustry: search.companysIndustry,
-    // jobLocation: search.jobLocation,
-    sortOption: search.sortOption,
-    page: page.toString(),
-  };
+const searchParams = {
+  name: search.name,        // ✅ correct key
+  sortOption: search.sortOption,
+  page: page.toString(),
+};
+
   
     //   type hotelSearchResponse = {
     //   data:addHotelTypes[];
@@ -40,7 +39,7 @@ export default function Page () {
     // }
     // }
     ;
-  const queryKey = ["searchRooms", searchParams.jobTitle,
+  const queryKey = ["searchRooms", searchParams.name, 
     //  searchParams.companysIndustry, 
                   //  searchParams.jobLocation, 
                    searchParams.sortOption, 

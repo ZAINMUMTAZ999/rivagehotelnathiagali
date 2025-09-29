@@ -76,8 +76,8 @@ export type addReviewTypes = {
   message: string;
 };
 
-// const Base_Url_API = "http://localhost:8000";
-const Base_Url_API = "https://srivagehotel-new.up.railway.app";
+const Base_Url_API = "http://localhost:8000";
+// const Base_Url_API = "https://srivagehotel-new.up.railway.app";
 
 const AddHotelApi = async (hotelFormData: FormData) => {
   try {
@@ -355,40 +355,59 @@ export type userTypes = {
   firstName: string;
   userId: string;
 };
-type searchParamsSearch = {
-   title?: string;
-  companysIndustry?: string;
-  jobLocation?: string;
-
-  starRating?: string[];
-  salary?: string;
+type SearchParams = {
+  name?: string;        // ✅ hotel/room name
+  city?: string;        // optional
+  maxPrice?: string;    // optional
   sortOption?: string;
   page?: string;
 };
-const getHotelApi = async (
-  searchParams: searchParamsSearch
-): Promise<getroomsResponse> => {
+const getHotelApi = async (searchParams: SearchParams): Promise<getroomsResponse> => {
   const queryParams = new URLSearchParams();
-  queryParams.append("title", searchParams.title || "");
-  queryParams.append("sortOption", searchParams.sortOption || "");
 
-  queryParams.append("page", searchParams.page || "");
+  if (searchParams.name)      queryParams.append("name", searchParams.name);
+  if (searchParams.city)      queryParams.append("city", searchParams.city);
+  if (searchParams.maxPrice)  queryParams.append("maxPrice", searchParams.maxPrice);
+  if (searchParams.sortOption)queryParams.append("sortOption", searchParams.sortOption);
+  if (searchParams.page)      queryParams.append("page", searchParams.page);
+
   try {
-    const repsonse = await fetch(`${Base_Url_API}/v2/rooms?${queryParams}`, {
+    const response = await fetch(`${Base_Url_API}/v2/rooms?${queryParams.toString()}`, {
       method: "GET",
       credentials: "include",
     });
-    if (!repsonse.ok) {
-      throw new Error("Something Went Wrong!");
-    }
-    // console.log(await repsonse.json())
-    const data = await repsonse.json();
-    return data;
+    if (!response.ok) throw new Error("Something Went Wrong!");
+    return await response.json();
   } catch (error) {
-    console.log(error);
+    console.error(error);
     throw new Error("Something Went Wrong!");
   }
 };
+
+// const getHotelApi = async (
+//   searchParams: searchParamsSearch
+// ): Promise<getroomsResponse> => {
+//   const queryParams = new URLSearchParams();
+//   queryParams.append("title", searchParams.title || "");
+//   queryParams.append("sortOption", searchParams.sortOption || "");
+
+//   queryParams.append("page", searchParams.page || "");
+//   try {
+//     const repsonse = await fetch(`${Base_Url_API}/v2/rooms?${queryParams}`, {
+//       method: "GET",
+//       credentials: "include",
+//     });
+//     if (!repsonse.ok) {
+//       throw new Error("Something Went Wrong!");
+//     }
+//     // console.log(await repsonse.json())
+//     const data = await repsonse.json();
+//     return data;
+//   } catch (error) {
+//     console.log(error);
+//     throw new Error("Something Went Wrong!");
+//   }
+// };
 
 export type AddReviewTypesId = {
   _id: string; 

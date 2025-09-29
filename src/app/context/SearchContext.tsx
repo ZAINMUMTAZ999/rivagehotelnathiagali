@@ -3,12 +3,12 @@
 
 
   type searchContext = {
-    title: string;
+    name: string;   
           // phoneNumber: string;
       // name: string;
     sortOption: string; // Make sure this matches what you use in components
     saveSearchValues: (
-      title: string,
+      name: string,
       // name: string,
       // phoneNumber: string,
     
@@ -24,22 +24,22 @@
     children: React.ReactNode;
   }) => {
     // const [phoneNumber, setphoneNumber] = useState<string>("");
-    // const [name, setname] = useState<string>("");
+    const [name, setname] = useState<string>("");
   
-        const [title, setTitle] = useState<string>("");
+        // const [title, setTitle] = useState<string>("");
     // const [jobLocation, setJobLocation] = useState<string>("");
     // const [companysIndustry, setCompanysIndustry] = useState<string>("");
     const [sortOption, setSortOption] = useState<string>("");
     const saveSearchValues = (
       // phoneNumber: string,
       // name: string,
-      title:string,
+      name:string,
       sortOption:string,
       
     ) => {
       // setphoneNumber(phoneNumber);
       // setname(name);
-      setTitle(title);
+      setname(name);
       setSortOption(sortOption);
       // sessionStorage.setItem("phoneNumber",phoneNumber)
       // sessionStorage.setItem("name",name)
@@ -52,7 +52,7 @@
           // phoneNumber,
           // name,
           sortOption,
-          title,
+          name,
           saveSearchValues
         }}
       >
