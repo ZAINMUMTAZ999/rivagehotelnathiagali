@@ -17,6 +17,7 @@ import { Button } from "@/app/components/ui/button";
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { GetEachHotelReviewId } from "../../components/GetEachHotelReviewId";
+// import WhatsAppLinkButton from "../../components/WA";
 // import AddReviewById from "../[id]/add-review/page";
 // import { AddReviewEachId } from "../../components/AddReviewEachId";
 
@@ -34,10 +35,20 @@ export type addHotelTypes = {
   roomStatus: string;
   lastUpdated: Date;
 };
+// const  BookNowButton=()=> {
+//   // ✅ Get the dynamic id from the current URL
+//   const { id } = useParams<{ id: string }>();
+
+//   // ✅ Build the WhatsApp link including this hotel’s page URL
+//   const whatsappUrl = `https://wa.me/923459280907?text=${encodeURIComponent(
+//     `Hello! I'm interested in this hotel: https://your-domain.com/allrooms/${id}`
+//   )}`
+// };
 
 const MyHotelsById = () =>
   // { params }: { params: { id: string } }
   {
+    
     const [currentIndex, setCurrentIndex] = useState(0);
     // Slider functions
     const goToPrevious = () => {
@@ -60,6 +71,11 @@ const MyHotelsById = () =>
     const { id } = useParams<{ id: string }>();
     console.log("idParams", id);
 
+    //  const { id } = useParams<{ id: string }>();
+
+  const whatsappUrl = `https://wa.me/923459280907?text=${encodeURIComponent(
+    `Hello! I'm interested in this hotel: https://rivagehotelnathiagali.vercel.app/allrooms/${id}`
+  )}`;
     const {
       data: hotel,
       isLoading,
@@ -267,19 +283,15 @@ const MyHotelsById = () =>
             )}
             {/* <div className="sticky   top-0 z-20 bg-white/70 backdrop-blur-md border-b border-slate-200/40"> */}
               {/* <div className=" flex  items-center  justify-center "> */}
+        
                 <Button className="flex justify-center items-center w-full   hover:cursor-pointer bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors duration-200 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                  Book Now Pay Later
+       <Link href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+        Book Now Pay Later
+      </Link>
                 </Button>
-                {/* </div> */}
-
-                {/* <div className="flex items-center space-x-2">
-                  <span className="text-sm text-gray-600 font-medium">PKR</span>
-                  <p className="text-2xl font-bold text-green-600">
-                    {hotel?.pricePerNight}
-                  </p>
-                  <span className="text-sm text-gray-500 ml-1">per night</span>
-                </div> */}
-            {/* </div> */}
+                
+                    
+      
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 gap-4">
               <div>
@@ -401,3 +413,6 @@ const MyHotelsById = () =>
   };
 
 export default MyHotelsById;
+
+
+
