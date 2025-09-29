@@ -230,9 +230,9 @@ const MyHotelsById = () =>
     return (
       // <div className="container mx-auto px-4 py-8 mt-24 mb-10">
       <div className="mt-8">
-        <div className="sticky  top-0 z-20 bg-white/70 backdrop-blur-md border-b border-slate-200/40">
-          <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
-            <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-800 leading-tight">
+        <div className=" bg-white/70 backdrop-blur-md border-b border-slate-200/40">
+          <div className=" flex items-center justify-between px-4 py-4">
+            <h1 className="text-xl sm:text-xl font-extrabold text-gray-800 leading-tight">
               {hotel.name}
             </h1>
             <Link
