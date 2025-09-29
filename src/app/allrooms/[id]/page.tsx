@@ -85,60 +85,11 @@ const MyHotelsById = () =>
       queryFn: () => getHotelApiBId(id),
       enabled: Boolean(id),
     });
-    console.log("idReview", hotel);
+    // console.log("idReview", hotel);
 
     if (isLoading) {
       return (
-        <div className="container mx-auto px-4 py-8 mt-24 animate-pulse">
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <div className="h-96 bg-gray-200 rounded-md mb-4"></div>
-            <div className="h-10 bg-gray-200 rounded-md w-3/4 mb-4"></div>
-            <div className="h-6 bg-gray-200 rounded-md w-1/2 mb-4"></div>
-            <div className="h-4 bg-gray-200 rounded-md w-full mb-2"></div>
-            <div className="h-4 bg-gray-200 rounded-md w-5/6 mb-2"></div>
-            <div className="h-4 bg-gray-200 rounded-md w-full mb-2"></div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-6">
-              {[...Array(6)].map((_, i) => (
-                <div key={i} className="h-12 bg-gray-200 rounded-md"></div>
-              ))}
-            </div>
-          </div>
-        </div>
-      );
-    }
-
-    if (isError || !hotel) {
-      return (
-        <div className="container mx-auto px-4 py-8 mt-24 text-center">
-          <div
-            className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
-            role="alert"
-          >
-            <strong className="font-bold">Oops!</strong>
-            <span className="block sm:inline ml-2">
-              Hotel not found or an error occurred.
-            </span>
-          </div>
-        </div>
-      );
-    }
-
-    const images: string[] = hotel?.imageUrls || [];
-    //   const hasSingleImage = images.length === 1;
-
-    const ImageSlider = () => {
-      if (!images || images.length === 0) {
-        return (
-          <div className="flex items-center justify-center h-[400px] bg-gray-100 rounded-lg">
-            <div className="text-center text-gray-500">
-              <p className="text-lg">No images available</p>
-            </div>
-          </div>
-        );
-      }
-    if(isLoading){
-      return(
-        <div className="mt-8 space-y-6">
+ <div className="mt-8 space-y-6">
       {/* Header bar */}
       <div className="bg-white/70 backdrop-blur-md border-b border-slate-200/40">
         <div className="flex items-center justify-between px-4 py-4">
@@ -199,6 +150,62 @@ const MyHotelsById = () =>
           <div className="relative w-full h-96 md:h-[450px] rounded-lg bg-gray-300 animate-pulse" />
         </div>
       </section>
+    </div>
+       
+      );
+    }
+
+    if (isError || !hotel) {
+      return (
+        <div className="container mx-auto px-4 py-8 mt-24 text-center">
+          <div
+            className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+            role="alert"
+          >
+            <strong className="font-bold">Oops!</strong>
+            <span className="block sm:inline ml-2">
+              Hotel not found or an error occurred.
+            </span>
+          </div>
+        </div>
+      );
+    }
+
+    const images: string[] = hotel?.imageUrls || [];
+    //   const hasSingleImage = images.length === 1;
+
+    const ImageSlider = () => {
+      if (!images || images.length === 0) {
+        return (
+          <div className="flex items-center justify-center h-[400px] bg-gray-100 rounded-lg">
+            <div className="text-center text-gray-500">
+              <p className="text-lg">No images available</p>
+            </div>
+          </div>
+        );
+      }
+    if(isLoading){
+      return(
+      <div className="relative w-full">
+      {/* Main Image Container */}
+      <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] rounded-lg overflow-hidden shadow-lg bg-gray-200 animate-pulse">
+        {/* Left arrow placeholder */}
+        <div className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-gray-300 rounded-full shadow-md" />
+        {/* Right arrow placeholder */}
+        <div className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-gray-300 rounded-full shadow-md" />
+        {/* Image counter placeholder */}
+        <div className="absolute top-4 left-4 px-4 py-2 rounded-full bg-gray-300" />
+      </div>
+
+      {/* Thumbnail Navigation */}
+      <div className="flex justify-center mt-4 space-x-2 overflow-x-auto pb-2">
+        {Array.from({ length: 5 }).map((_, idx) => (
+          <div
+            key={idx}
+            className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-lg bg-gray-300 border-2 border-gray-200 animate-pulse"
+          />
+        ))}
+      </div>
     </div>
       )
     }
@@ -346,7 +353,8 @@ const MyHotelsById = () =>
 
                 {/* </span> */}
                 <p className="text-md text-gray-500 mt-1">
-                  <span className="font-semibold">{hotel?.type}</span> Hotel
+                  Hotel Type :
+                  <span className="font-semibold">{hotel?.type}</span> 
                 </p>
               </div>
             </div>
