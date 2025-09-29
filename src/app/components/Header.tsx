@@ -129,12 +129,12 @@ const Header = () => {
              <Image
             src="/logo.svg"
             alt="Site Logo"
-            width={60}
-            height={60}
+            width={40}
+            height={40}
             className="rounded-full"
             priority
           />
-          <span className="text-lg sm:text-xl font-bold text-white">
+          <span className="text-sm sm:text-sm font-bold text-white">
             <b>ArcadianResort</b>
           </span>
         </Link>
