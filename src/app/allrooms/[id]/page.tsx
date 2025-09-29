@@ -234,6 +234,16 @@ const MyHotelsById = () =>
                   >
                     <ChevronLeft className="w-6 h-6 text-gray-800 hover:cursor-pointer" />
                   </button>
+     <Image
+                src={images[currentIndex]}
+                alt={`Hotel image ${currentIndex + 1}`}
+                fill
+                className="object-contain bg-black "
+                // onClick={openModal}
+                unoptimized={true}
+              />
+
+
 
                   <button
                     onClick={(e) => {
