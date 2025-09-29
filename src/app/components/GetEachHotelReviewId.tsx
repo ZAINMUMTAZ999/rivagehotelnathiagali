@@ -4,7 +4,7 @@ import { GetReviewEachHotelById } from "../Api";
 
 import {AddReviewTypesId} from "../Api";
 // import { Button } from "./ui/button";
-import { Link,   Star, User, UserIcon, X } from "lucide-react";
+import { User, UserIcon, X } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 // import { useParams } from "next/navigation";
 
@@ -71,232 +71,108 @@ console.log("HotelReviewById",reviewsData);
           <h3 className="text-lg font-medium text-gray-900 mb-2">No reviews yet</h3>
           <p className="text-gray-500 mb-8">Be the first to share your experience!</p>
 
-          <Link
+          {/* <Link
             href="/addreview"
             className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
           >
             <Star className="w-5 h-5" />
             Write First Review
-          </Link>
+          </Link> */}
         </div>
       </div>
     );
   }
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mt-12 relative">
-  {/* Header */}
-  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-10">
-    <div>
-      <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">
-         Reviews
-      </h2>
-      
-    </div>
 
-    {/* <Link
-      href="/addreview"
-      className="group inline-flex items-center gap-2
-                 bg-gradient-to-r from-blue-600 to-indigo-600
-                 hover:from-blue-700 hover:to-indigo-700
-                 text-white px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3
-                 text-sm sm:text-base rounded-lg font-medium shadow
-                 hover:shadow-lg transition-all duration-200"
-    >
-      <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
-      <span>Add Review</span>
-    </Link> */}
-  </div>
+                
+    <div className="max-w-6xl mx-auto px-4 mt-12 relative">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-8">
+        <div>
+          <h2 className="text-2xl font-bold text-gray-900 mb-1 sm:mb-2">Customer Reviews</h2>
+          {/* <p className="text-gray-600">See what our community is saying</p> */}
+        </div>
 
-  {/* Modal */}
-  {selectedReview && (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4">
-      <div className="relative w-full max-w-xl bg-white rounded-2xl shadow-2xl p-5 sm:p-6">
-        <button
-          onClick={() => setSelectedReview(null)}
-          className="absolute top-4 right-4 p-1 rounded-full text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors"
-          aria-label="Close modal"
-        >
-          <X size={20} />
-        </button>
-        <h3 className="text-xl font-semibold mb-4 text-gray-900">
-          Full Review
-        </h3>
-        <p className="text-gray-700 whitespace-pre-line leading-relaxed">
-          {selectedReview.message}
-        </p>
+
+
       </div>
-    </div>
-  )}
 
-  {/* Scroll Buttons */}
-  <button
-    onClick={() => scroll("left")}
-    className="absolute left-2 top-1/2 -translate-y-1/2 z-10
-               hidden sm:flex w-10 h-10 items-center justify-center
-               rounded-full bg-white border border-gray-200 shadow-lg
-               hover:bg-gray-50 transition-colors"
-    aria-label="Scroll left"
-  >
-    <span className="text-gray-600 text-lg">←</span>
-  </button>
-
-  <button
-    onClick={() => scroll("right")}
-    className="absolute right-2 top-1/2 -translate-y-1/2 z-10
-               hidden sm:flex w-10 h-10 items-center justify-center
-               rounded-full bg-white border border-gray-200 shadow-lg
-               hover:bg-gray-50 transition-colors"
-    aria-label="Scroll right"
-  >
-    <span className="text-gray-600 text-lg">→</span>
-  </button>
-
-  {/* Reviews list */}
-  <div
-    ref={containerRef}
-    className="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6
-               overflow-x-auto sm:overflow-visible scroll-smooth pb-4
-               hide-scrollbar"
-  >
-    {reviewsData.map((review) => {
-      const isLong = review.message.length > MAX_MESSAGE_LENGTH;
-      return (
-        <div
-          key={review._id}
-          className="flex-shrink-0 w-[90vw] sm:w-auto bg-white border border-gray-200
-                     rounded-xl p-4 md:p-6 shadow-sm hover:shadow-lg hover:border-gray-300
-                     transition-all duration-200 group"
-        >
-          <div className="flex items-center space-x-3 mb-4">
-            <h4 className="font-semibold text-gray-900 flex items-center gap-2">
-              <UserIcon className="w-4 h-4" />
-              {review.name}
-            </h4>
-          </div>
-
-          <div className="space-y-3">
-            <p className="text-gray-700 text-sm leading-relaxed">
-              {isLong
-                ? `${review.message.slice(0, MAX_MESSAGE_LENGTH)}…`
-                : review.message}
-            </p>
-
-            {isLong && (
-              <button
-                onClick={() => setSelectedReview(review)}
-                className="text-blue-600 text-sm font-medium hover:text-blue-700 hover:underline transition-colors"
-              >
-                Read more
-              </button>
-            )}
+      {/* Modal */}
+      {selectedReview && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center px-4">
+          <div className="bg-white w-full max-w-xl rounded-2xl shadow-2xl relative p-4 sm:p-6">
+            <button
+              onClick={() => setSelectedReview(null)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full p-1 transition-colors"
+            >
+              <X size={20} />
+            </button>
+            <h3 className="text-xl font-semibold mb-4 text-gray-900">Full Review</h3>
+            <p className="text-gray-700 whitespace-pre-line leading-relaxed">{selectedReview.message}</p>
           </div>
         </div>
-      );
-    })}
-  </div>
-</div>
+      )}
 
-    
-//      <div className="max-w-6xl mx-auto px-4 mt-12 relative">
-//        {/* Header */}
-//        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-8">
-//          <div>
-//            <h2 className="text-2xl font-bold text-gray-900 mb-1 sm:mb-2">Customer Reviews</h2>
-//            <p className="text-gray-600">See what our community is saying</p>
-//          </div>
-//  <div className="w-full flex justify-end">
-//    <Link
-//      href="/addreview"
-//      className="group inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white
-//      px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3
-//      text-sm sm:text-base
-//      rounded-lg sm:rounded-xl
-//      font-medium sm:font-semibold
-//      shadow-md hover:shadow-lg
-//      transition-all duration-200"
-//    >
-//      <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
-//      <span>Add Review</span>
-//    </Link>
-//  </div>
+      {/* Scroll buttons - hidden on xs */}
+      {/* <span className="flex items-center justify-center">
+        
+      </span> */}
+      <button
+        onClick={() => scroll("left")}
+        className=" sm:flex absolute 
  
- 
-//        </div>
- 
-//        {/* Modal */}
-//        {selectedReview && (
-//          <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center px-4">
-//            <div className="bg-white w-full max-w-xl rounded-2xl shadow-2xl relative p-4 sm:p-6">
-//              <button
-//                onClick={() => setSelectedReview(null)}
-//                className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full p-1 transition-colors"
-//              >
-//                <X size={20} />
-//              </button>
-//              <h3 className="text-xl font-semibold mb-4 text-gray-900">Full Review</h3>
-//              <p className="text-gray-700 whitespace-pre-line leading-relaxed">{selectedReview.message}</p>
-//            </div>
-//          </div>
-//        )}
- 
-   
-//        <button
-//          onClick={() => scroll("left")}
-//          className=" sm:flex absolute 
-  
-//          left-2 top-1/2 -translate-y-1/2 z-10 mt-12 -ml-4 bg-white hover:bg-gray-50 shadow-lg border border-gray-200 w-10 h-10 rounded-full items-center justify-center transition-all duration-200"
-//        >
-//          <span className="text-gray-600 text-lg ">←</span>
-//        </button>
-//        <button
-//          onClick={() => scroll("right")}
-//          className="hidden sm:flex absolute right-2 top-1/2 mt-12  -ml-4 -translate-y-1/2 z-10 bg-white hover:bg-gray-50 shadow-lg border border-gray-200 w-10 h-10 rounded-full items-center justify-center  transition-all duration-200"
-//        >
-//          <span className="text-gray-600 text-lg ">→</span>
-//        </button>
- 
-//        {/* Reviews list */}
-//        <div
-//          ref={containerRef}
-//          className="flex space-x-4 md:space-x-6 overflow-x-auto scroll-smooth pb-4 hide-scrollbar"
-//        >
-//         {reviewsData.map((review) => {
-//            const isLong = review.message.length > MAX_MESSAGE_LENGTH;
- 
-//            return (
+        left-2 top-1/2 -translate-y-1/2 z-10 mt-12 -ml-4 bg-white hover:bg-gray-50 shadow-lg border border-gray-200 w-10 h-10 rounded-full items-center justify-center transition-all duration-200"
+      >
+        <span className="text-gray-600 text-lg ">←</span>
+      </button>
+      <button
+        onClick={() => scroll("right")}
+        className="hidden sm:flex absolute right-2 top-1/2 mt-12  -ml-4 -translate-y-1/2 z-10 bg-white hover:bg-gray-50 shadow-lg border border-gray-200 w-10 h-10 rounded-full items-center justify-center  transition-all duration-200"
+      >
+        <span className="text-gray-600 text-lg ">→</span>
+      </button>
 
-//              <div
-//                key={review._id}
-//                className="w-[90vw] sm:w-[320px] bg-white border border-gray-200 rounded-xl p-4 md:p-6 flex-shrink-0 shadow-sm hover:shadow-lg hover:border-gray-300 transition-all duration-200 group"
-//              >
-//                <div className="flex items-center space-x-3 mb-4">
-//                  <div>
-//                    <h4 className="font-semibold text-gray-900 flex items-center gap-2">
-//                      <UserIcon className="w-4 h-4" />
-//                      {review.name}
-//                    </h4>
-//                  </div>
-//                </div>
- 
-//                <div className="space-y-3">
-//                  <p className="text-gray-700 text-sm leading-relaxed">
-//                    {isLong ? `${review.message.slice(0, MAX_MESSAGE_LENGTH)}...` : review.message}
-//                  </p>
- 
-//                  {isLong && (
-//                    <button
-//                      onClick={() => setSelectedReview(review)}
-//                      className="text-blue-600 text-sm font-medium hover:text-blue-700 hover:underline transition-colors"
-//                    >
-//                      Read more
-//                    </button>
-//                  )}
-//                </div>
-//              </div>
-//            );
-//          })} 
-//        </div>
-//      </div>
+      {/* Reviews list */}
+      <div
+        ref={containerRef}
+        className="flex space-x-4 md:space-x-6 overflow-x-auto scroll-smooth pb-4 hide-scrollbar"
+      >
+       {reviewsData.map((review) => {
+          const isLong = review.message.length > MAX_MESSAGE_LENGTH;
+
+          return (
+            <div
+              key={review._id}
+              className="w-[90vw] sm:w-[320px] bg-white border border-gray-200 rounded-xl p-4 md:p-6 flex-shrink-0 shadow-sm hover:shadow-lg hover:border-gray-300 transition-all duration-200 group"
+            >
+              <div className="flex items-center space-x-3 mb-4">
+                <div>
+                  <h4 className="font-semibold text-gray-900 flex items-center gap-2">
+                    <UserIcon className="w-4 h-4" />
+                    {review.name}
+                  </h4>
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  {isLong ? `${review.message.slice(0, MAX_MESSAGE_LENGTH)}...` : review.message}
+                </p>
+
+                {isLong && (
+                  <button
+                    onClick={() => setSelectedReview(review)}
+                    className="text-blue-600 text-sm font-medium hover:cursor-pointer hover:text-blue-700 hover:underline transition-colors"
+                  >
+                    Read more
+                  </button>
+                )}
+              </div>
+            </div>
+          );
+        })} 
+      </div>
+    </div>
   );
 };
