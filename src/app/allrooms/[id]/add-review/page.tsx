@@ -198,7 +198,7 @@ router.push(`/allrooms/${id}`)
                       </>
                     ) : (
                       <>
-                        <Send className="w-5 h-5" />
+                        <Send className="w-5 h-5 " />
                         <span>Add Review</span>
                       </>
                     )}

@@ -86,7 +86,7 @@ console.log("HotelReviewById",reviewsData);
   return (
 
                 
-    <div className="max-w-6xl mx-auto px-4 mt-12 relative">
+    <div className=" mt-12 relative">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-8">
         <div>

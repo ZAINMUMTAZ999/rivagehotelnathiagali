@@ -367,20 +367,25 @@ console.log("idReview",hotel)
           )}
 
           {/* Last Updated */}
-          {hotel?.lastUpdated && (
+          {/* {hotel?.lastUpdated && (
             <div className="mt-8 text-sm text-gray-500 text-right underline">
               Last updated: {new Date(hotel.lastUpdated).toLocaleDateString()}
             </div>
-          )}
+          )} */}
 
         </div>
         
         
       </div>
       {/* <AddReviewById/> */}
-      <Button className="bg-blue-700 hover:bg-blue-800 hover:cursor-pointer mt-4">
+      <Button className="
+      
+      
+      bg-blue-700 hover:bg-blue-800 hover:cursor-pointer mt-4 ">
 
-      <Link href={`/allrooms/${hotel._id}/add-review`}>Add Review</Link>
+      <Link href={`/allrooms/${hotel._id}/add-review`} 
+      
+      >Add Review</Link>
 
       </Button>
       <span>
