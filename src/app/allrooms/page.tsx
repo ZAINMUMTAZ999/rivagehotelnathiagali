@@ -15,16 +15,22 @@ import Image from "next/image";
 // import { Button } from "../components/ui/button";
 // import MyHotelsById from "../components/singleroom";
 import Link from "next/link";
+import { useSearchContext } from "../context/SearchContext";
+import SearchHotelsBar from "../components/searchHotelsBar";
 
 export default function Page () {
-    // const search = useSearchContext();
+    const search = useSearchContext();
       const [page, setPage] = useState<number>(1);
         // const [selectedBlogId, setSelectedBlogId] = useState<string | null>(null);
     
   const searchParams = {
-    // title: search.title,
+    jobTitle: search.title,
+    // companysIndustry: search.companysIndustry,
+    // jobLocation: search.jobLocation,
+    sortOption: search.sortOption,
     page: page.toString(),
   };
+  
     //   type hotelSearchResponse = {
     //   data:addHotelTypes[];
     // pagination:{
@@ -32,12 +38,23 @@ export default function Page () {
     //   page:number,
     //   pages:number,
     // }
-    // };
-
+    // }
+    ;
+  const queryKey = ["searchRooms", searchParams.jobTitle,
+    //  searchParams.companysIndustry, 
+                  //  searchParams.jobLocation, 
+                   searchParams.sortOption, 
+                   searchParams.page];
   const { data: apiResponse, isLoading } = useQuery({
-  queryKey: ["rooms", searchParams], // include params so cache updates when they change
+  queryKey: queryKey, // include params so cache updates when they change
   queryFn: () => getHotelApi(searchParams),
-  // keepPreviousData: true,
+  //  {
+  //     staleTime: Infinity, // Never consider the data stale
+  //     cacheTime: Infinity, // Keep the data in cache indefinitely
+  //     refetchOnMount: false, // Don't refetch when component mounts again
+  //     refetchOnWindowFocus: false, // Don't refetch when window regains focus
+  //     refetchOnReconnect: false, // Don't refetch when reconnecting
+  //   }
 });
 // const selectedBlog = selectedBlogId
 // ? apiResponse?.data.find((blog) => blog._id === selectedBlogId)
@@ -137,11 +154,12 @@ export default function Page () {
   }
 
   return (
-    <div className="container mx-auto py-8 mt-12 px-4 sm:px-6 lg:px-8">
+    <div className="container mx-auto  px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-800 text-center sm:text-left">
           Our Rooms
         </h1>
+        <SearchHotelsBar/>
      
       </div>
 

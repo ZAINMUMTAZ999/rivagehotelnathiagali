@@ -355,12 +355,22 @@ export type userTypes = {
   firstName: string;
   userId: string;
 };
+type searchParamsSearch = {
+   title?: string;
+  companysIndustry?: string;
+  jobLocation?: string;
 
+  starRating?: string[];
+  salary?: string;
+  sortOption?: string;
+  page?: string;
+};
 const getHotelApi = async (
-  searchParams: searchParamsContact
+  searchParams: searchParamsSearch
 ): Promise<getroomsResponse> => {
   const queryParams = new URLSearchParams();
-  // queryParams.append("title", searchParams.title || "");
+  queryParams.append("title", searchParams.title || "");
+  queryParams.append("sortOption", searchParams.sortOption || "");
 
   queryParams.append("page", searchParams.page || "");
   try {
