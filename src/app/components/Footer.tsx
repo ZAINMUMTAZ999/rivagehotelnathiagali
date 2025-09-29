@@ -12,7 +12,7 @@ const Footer = () => {
 
             <span className="text-xl sm:text-xl font-bold text-white">
                 <b>
-                  RivageCottageResort
+                  ArcadianResort
                   </b>
               
               </span>
@@ -34,7 +34,7 @@ const Footer = () => {
 
         {/* Company */}
         <div>
-          <h3 className="text-lg font-semibold mb-4">RivageCottageResort</h3>
+          <h3 className="text-lg font-semibold mb-4">ArcadianResort</h3>
           <ul className="space-y-2 text-sm text-purple-100 underline">
             <li><Link href="/about" className="hover:text-white">About Us</Link></li>
             {/* <li><Link href="/allBlogs" className="hover:text-white">Blogs</Link></li> */}
@@ -91,7 +91,7 @@ const Footer = () => {
 
       {/* Bothrefm Line */}
       <div className="mt-12  border-purple-700 pt-6 text-center text-sm text-white">
-        &copy; {new Date().getFullYear()} RivageCottageResort. All rights reserved.
+        &copy; {new Date().getFullYear()} ArcadianResort. All rights reserved.
       </div>
     </footer>
   );
