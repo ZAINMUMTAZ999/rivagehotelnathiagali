@@ -350,8 +350,8 @@ const MyHotelsById = () =>
 
                 {/* </span> */}
                 <p className="text-md text-gray-500 mt-1">
-                  Hotel Type :
-                  <span className="font-semibold">{hotel?.type}</span> 
+                  
+                  <span className="font-semibold">{hotel?.type}</span> : Hotel  
                 </p>
               </div>
             </div>
