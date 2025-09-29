@@ -3,12 +3,11 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
-// import Image from "next/image";
 import { usePathname } from "next/navigation";
-// import logo from "../assets/logo.svg";
 import { Button } from "./ui/button";
 import { AppContext } from "../context/AppNotify";
 import Logout from "../(auth)/logout/page";
+import Image from "next/image";
 
 const navLinks = [
   { name: "Rooms", href: "/allrooms" },
@@ -28,11 +27,15 @@ const Header = () => {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 flex-shrink-0">
-          {/* <Image
-            src={logo}
-            alt="RivageCottage"
-            className="h-8 w-8 sm:h-9 sm:w-9 lg:h-10 lg:w-10 object-contain"
-          /> */}
+        
+             <Image
+            src="/logo.svg"
+            alt="Site Logo"
+            width={60}
+            height={60}
+            className="rounded-full"
+            priority
+          />
           <span className="text-lg sm:text-xl font-bold text-white">
             <b>ArcadianResort</b>
           </span>
