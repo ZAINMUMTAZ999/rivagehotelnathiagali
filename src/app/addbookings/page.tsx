@@ -60,7 +60,7 @@ export default function Page () {
     
     <Link href="/addbookings/allbookings"
     
-      className="flex w-full items-center justify-end rounded-md bg-blue-600 px-4 py-2
+      className="flex  items-center justify-end rounded-md bg-blue-600 
                  text-white transition disabled:cursor-not-allowed disabled:opacity-70"
     >All Bookings</Link>
 
