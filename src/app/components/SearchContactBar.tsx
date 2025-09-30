@@ -197,7 +197,10 @@ const SearchContactBar = () => {
     setIsLoading(true);
 
     // ✅ Always send phoneNumber as string
-    saveSearchValues(name, sortOption,phoneNumber.toString());
+    saveSearchValues(name, phoneNumber, sortOption);
+
+    // saveSearchValues({ name, phoneNumber, sortOption, page: "1" });
+
 
     setTimeout(() => setIsLoading(false), 1500);
   };
