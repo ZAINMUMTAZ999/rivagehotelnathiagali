@@ -177,25 +177,30 @@ const SearchContactBar = () => {
   const [phoneNumber, setPhoneNumber] = useState(searchPhoneNumber || ""); // ✅ keep as string
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-
-    // ✅ Always send phoneNumber as string
-    saveSearchValues(name, sortOption,phoneNumber?.toString());
-
-    setTimeout(() => setIsLoading(false), 1500);
-  };
 
   const handleReset = () => {
     setName("");
     setPhoneNumber("");
   };
-
   useEffect(() => {
     setName(searchName || "");
     setPhoneNumber(searchPhoneNumber || "");
   }, [searchName, searchPhoneNumber]);
+
+//   useEffect(() => {
+//     setName(searchName || "");
+//     setPhoneNumber(searchPhoneNumber || "");
+//   }, [searchName, searchPhoneNumber]);
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    // ✅ Always send phoneNumber as string
+    saveSearchValues(name, sortOption,phoneNumber.toString());
+
+    setTimeout(() => setIsLoading(false), 1500);
+  };
 
   console.log("Submitting:", {
     name,

@@ -235,12 +235,13 @@ const searchPageContact = async (
   searchParams: searchParamsContact
 ): Promise<contactUsResponse> => {
   const queryParams = new URLSearchParams();
-  queryParams.append("phoneNumber", searchParams.phoneNumber || "");
-  queryParams.append("name", searchParams.name || "");
-  queryParams.append("page", searchParams.page || "");
+    if (searchParams.phoneNumber) queryParams.append("phoneNumber", searchParams.phoneNumber);
+  if (searchParams.name) queryParams.append("name", searchParams.name);
+  if (searchParams.page) queryParams.append("page", searchParams.page);
+  // queryParams.append("page", searchParams.page || "");
   try {
     const repsonse = await fetch(
-      `${Base_Url_API}/v2/contactUs?${queryParams}`,
+      `${Base_Url_API}/v2/contactUs?${queryParams.toString()}`,
       {
         method: "GET",
         credentials: "include",
