@@ -58,11 +58,16 @@ export default function Page () {
           </p>
     </div>
     
-    <Link href="/addbookings/allbookings"
-    
-      className="flex  items-center justify-end rounded-md bg-blue-600 
-                 text-white transition disabled:cursor-not-allowed disabled:opacity-70"
-    >All Bookings</Link>
+ <Link
+  href="/addbookings/allbookings"
+  className="inline-flex items-center px-4 py-2 rounded-lg bg-blue-600 
+             text-sm font-medium text-white shadow-sm hover:bg-blue-700 
+             focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 
+             transition disabled:cursor-not-allowed disabled:opacity-60"
+>
+  All Bookings
+</Link>
+
 
         {/* Main Form Container */}
         <div ref={formRef} className="max-w-4xl mx-auto">
