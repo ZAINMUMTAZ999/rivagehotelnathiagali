@@ -18,12 +18,12 @@ import Link from "next/link";
 import { useSearchContext } from "../context/SearchContext";
 import SearchHotelsBar from "../components/searchHotelsBar";
 // import { Button } from "../components/ui/button";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 
 export default function Page () {
 
     const search = useSearchContext();
-      const router = useRouter();
+      // const router = useRouter();
       const [page, setPage] = useState<number>(1);
         // const [selectedBlogId, setSelectedBlogId] = useState<string | null>(null);
     

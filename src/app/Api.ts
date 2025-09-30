@@ -76,8 +76,8 @@ export type addReviewTypes = {
   message: string;
 };
 
-// const Base_Url_API = "http://localhost:8000";
-const Base_Url_API = "https://srivagehotel-new.up.railway.app";
+const Base_Url_API = "http://localhost:8000";
+// const Base_Url_API = "https://srivagehotel-new.up.railway.app";
 
 const AddHotelApi = async (hotelFormData: FormData) => {
   try {
