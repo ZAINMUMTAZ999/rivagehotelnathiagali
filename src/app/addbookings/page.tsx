@@ -57,7 +57,12 @@ export default function Page () {
             Enter customer details to create a new hotel reservation
           </p>
     </div>
-    <Link href="/addbookings/allbookings">All Bookings</Link>
+    
+    <Link href="/addbookings/allbookings"
+    
+      className="flex w-full items-center justify-end rounded-md bg-blue-600 px-4 py-2
+                 text-white transition disabled:cursor-not-allowed disabled:opacity-70"
+    >All Bookings</Link>
 
         {/* Main Form Container */}
         <div ref={formRef} className="max-w-4xl mx-auto">
@@ -187,9 +192,7 @@ export default function Page () {
                           required: "Please select booking time",
                         })}
                       />
-                      {/* <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
-                        <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-focus-within:text-purple-500 transition-colors" />
-                      </div> */}
+                    
                     </div>
                     {errors?.time && (
                       <div className="flex items-center gap-2 mt-2 text-red-600">
