@@ -1,40 +1,35 @@
 // "use client";
-// import type { Metadata } from "next";
+import type { Metadata } from "next";
 import "./globals.css";
 import HomeLayout from "./Layout/HomeLayout";
 import { AppNotifyProvider } from "./context/AppNotify";
 import { SearchContextProvider } from "./context/SearchContext";
 import Providers from "./utils/page";
-// import Providers from "./providers";
 
-// export const metadata: Metadata = {
-// title: "SekaiSpace-Homepage",
-//   description: "SekaiSpace Software Company",
-// };
-// Minimal improvements to your existing code:
-// export const metadata: Metadata = {
-//   title: {
-//     default: "SekaiSpace - Premier Software Development Company",
-//     template: "%s | SekaiSpace",
+export const metadata: Metadata = {
+  title: {
+    default: "ArcadianResort - Hotel in Nathia Gali",
+    template: "%s | ArcadianResort",
   
  
-//   },
-//     icons: {
-//     icon: "/vercel.svg", // or "/logo.png", "/logo.svg"
-//   },
-//   description: "SekaiSpace specializes in full-stack web development, mobile apps, and custom software solutions. Transform your business with cutting-edge technology.",
-//   // metadataBase: new URL("https://sekaispace.vercel.app"), // Add your domain
-//   // openGraph: {
-//   //   type: "website",
-//   //   siteName: "SekaiSpace",
-//   //   title: "SekaiSpace - Premier Software Development Company",
-//   //   description: "Transform your business with cutting-edge software solutions.",
-//   // },
-//   // robots: {
-//   //   index: true,
-//   //   follow: true,
-//   // },
-// };
+  },
+
+    icons: {
+    icon: "/logo.svg", 
+  },
+  description: "ArcadianResort Luxury Hotel in Nathia Gali to stay and enjoy the nature scenory.",
+  metadataBase: new URL("https://arcadianresort.com"), 
+  openGraph: {
+    type: "website",
+    siteName: "ArcadianResort",
+    title: "ArcadianResort - Hotel in Nathia Gali",
+    description: "Hotel in Nathia Gali ArcadianResort.Northern Areas Hotel",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
