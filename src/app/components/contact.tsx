@@ -149,7 +149,7 @@ register,
               </div>
               <div>
                 <label htmlFor="phoneNumber" className="block text-gray-700 text-sm font-bold mb-2">Phone</label>
-                <input id="phoneNumber" type="tel" {...register("phoneNumber", { required: "Phone number is required" })} className="w-full p-3 bg-gray-50 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-base" placeholder="(123) 456-7890" />
+                <input id="phoneNumber" type="text" {...register("phoneNumber", { required: "Phone number is required" })} className="w-full p-3 bg-gray-50 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-base" placeholder="(123) 456-7890" />
                 {errors.phoneNumber && <span className="text-red-500 text-sm mt-1 block">{errors.phoneNumber.message}</span>}
               </div>
             </div>

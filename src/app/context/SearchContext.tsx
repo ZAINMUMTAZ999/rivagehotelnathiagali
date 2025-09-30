@@ -5,14 +5,14 @@
   type searchContext = {
     name: string;   
     email: string;   
-          // phoneNumber: string;
+          phoneNumber: string;
       // name: string;
     sortOption: string; // Make sure this matches what you use in components
     saveSearchValues: (
       name: string,
       email: string,
       // name: string,
-      // phoneNumber: string,
+      phoneNumber: string,
     
       sortOption: string, // This parameter name should match what you pass
     ) => void;
@@ -28,19 +28,20 @@
     // const [phoneNumber, setphoneNumber] = useState<string>("");
     const [name, setname] = useState<string>("");
     const [email, setemail] = useState<string>("");
+    const [phoneNumber, setphoneNumber] = useState<string>("");
   
         // const [title, setTitle] = useState<string>("");
     // const [jobLocation, setJobLocation] = useState<string>("");
     // const [companysIndustry, setCompanysIndustry] = useState<string>("");
     const [sortOption, setSortOption] = useState<string>("");
     const saveSearchValues = (
-      // phoneNumber: string,
+      phoneNumber: string,
       // name: string,
       name:string,
       sortOption:string,
       
     ) => {
-      // setphoneNumber(phoneNumber);
+      setphoneNumber(phoneNumber);
       // setname(name);
       setname(name);
       setemail(email);
@@ -53,7 +54,7 @@
     return (
       <searchContext.Provider
         value={{
-          // phoneNumber,
+          phoneNumber,
           email,
           sortOption,
           name,

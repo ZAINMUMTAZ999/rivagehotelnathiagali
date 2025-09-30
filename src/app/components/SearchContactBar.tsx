@@ -7,13 +7,16 @@ const SearchContactBar = () => {
   const {
     name: searchName,
     email: searchEmail,
+phoneNumber: searchphoneNumber,
     sortOption,
 
     saveSearchValues,
   } = useSearchContext();
 
   const [name, setName] = useState(searchName);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [email, setEmail] = useState(searchEmail);
+  const [phoneNumber, setPhoneNumber] = useState(searchphoneNumber);
   //   const [jobLocation, setJobLocation] = useState(search.jobLocation);
   //   const [companysIndustry, setCompanysIndustry] = useState(search.companysIndustry);
 //   const [sortOption, setSortOption] = useState(sortBySearch);
@@ -36,19 +39,20 @@ const SearchContactBar = () => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    saveSearchValues(name,email, sortOption); // ✅ pass name
+    saveSearchValues(name,email,phoneNumber, sortOption); // ✅ pass name
     setTimeout(() => setIsLoading(false), 1500);
   };
 
   useEffect(() => {
     setName(name);
-    setEmail(email);
+    setPhoneNumber(phoneNumber);
+    // setPhoneNumber(phoneNumber);
     // setSortOption(sortOption);
-  }, [name,email]);
+  }, [name,phoneNumber]);
 
   const handleReset = () => {
     setName("");
-    setEmail("");
+    setPhoneNumber("");
     // setSortOption("");
     // setJobLocation('');
     // setCompanysIndustry('');
@@ -84,13 +88,13 @@ const SearchContactBar = () => {
               />
             </div>
           </div>
-          {/* Email Search */}
+          {/* phoneNumber Search */}
           <div>
             <label
-              htmlFor="email"
+              htmlFor="phoneNumber"
               className="block text-sm font-medium text-white"
             >
-               Email Search 
+               PhoneNumber Search 
             </label>
             <div className="relative mt-1">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -98,12 +102,12 @@ const SearchContactBar = () => {
               </div>
               <input
                 type="text"
-                name="email"
-                id="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                name="phoneNumber"
+                id="phoneNumber"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
                 className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                placeholder="Search a name of contact"
+                placeholder="Search a Number"
               />
             </div>
           </div>

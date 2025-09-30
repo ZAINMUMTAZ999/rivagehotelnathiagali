@@ -26,7 +26,8 @@ const GetAllContacts = () => {
     const search = useSearchContext();
     const searchParams = {
   name: search.name,        // ✅ correct key
-  email: search.email,        // ✅ correct key
+  phoneNumber: search.phoneNumber,        // ✅ correct key
+  // email: search.,        // ✅ correct key
   // phoneNumber: search.,        // ✅ correct key
   // sortOption: search.sortOption,
   page: page.toString(),
@@ -34,7 +35,8 @@ const GetAllContacts = () => {
 
       const queryKey = ["searchContacts",
          searchParams.name, 
-         searchParams.email, 
+         searchParams.phoneNumber, 
+        //  searchParams.p, 
     //  searchParams.companysIndustry, 
                   //  searchParams.jobLocation, 
                   //  searchParams.sortOption, 

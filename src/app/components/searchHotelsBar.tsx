@@ -18,12 +18,14 @@ const SearchHotelsBar = () => {
   const {
     name: searchName,
     email: searchEmail,
+    phoneNumber: searchphoneNumber,
     sortOption: sortBySearch,
     saveSearchValues,
   } = useSearchContext();
 
   const [name, setName] = useState(searchName);
   const [email, setEmail] = useState(searchEmail);
+  const [phoneNumber, setphoneNumber] = useState(searchphoneNumber);
   //   const [jobLocation, setJobLocation] = useState(search.jobLocation);
   //   const [companysIndustry, setCompanysIndustry] = useState(search.companysIndustry);
   const [sortOption, setSortOption] = useState(sortBySearch);
@@ -46,15 +48,16 @@ const SearchHotelsBar = () => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    saveSearchValues(name, sortOption,email); // ✅ pass name
+    saveSearchValues(name, sortOption,email,phoneNumber); // ✅ pass name
     setTimeout(() => setIsLoading(false), 1500);
   };
 
   useEffect(() => {
     setName(name);
     setEmail(email);
+    setphoneNumber(phoneNumber);
     setSortOption(sortOption);
-  }, [name, email,sortOption]);
+  }, [name, email,phoneNumber,sortOption]);
 
   const handleReset = () => {
     setName("");
