@@ -46,7 +46,7 @@ const navigate= useRouter();
  
       // await queryClient.invalidateQueries({ queryKey: ["validateToken"] });
       
-      navigate.push("/rooms");
+      navigate.push("/allrooms");
     },
     onError: (error:Error) => {
       showToast({ type: "ERROR", message: error?.message });

@@ -57,7 +57,7 @@ export default function Dashboard() {
               All Contacts👥
             </p>
             <p className="mt-2 text-gray-500 text-sm">
-              RivageCottageResort all listed Contacts.
+              ArcadianResort all listed Contacts.
             </p>
           </Link>
         </div>
