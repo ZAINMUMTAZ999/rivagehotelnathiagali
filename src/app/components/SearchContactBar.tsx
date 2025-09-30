@@ -108,16 +108,16 @@ const SearchContactBar = () => {
                   Searching...
                 </div>
               ) : (
-                <>
+                <span className="hover:cursor-pointer">
                   <Search className="mr-2 h-4 w-4" />
                   Search
-                </>
+                </span>
               )}
             </button>
             <button
               type="button"
               onClick={handleReset}
-              className="inline-flex justify-center items-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="inline-flex justify-center items-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 hover:cursor-pointer"
             >
               <RotateCcw className="mr-2 h-4 w-4" />
               Reset

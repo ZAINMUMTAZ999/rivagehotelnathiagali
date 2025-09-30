@@ -387,7 +387,7 @@ const roomStatusOptions = ["Available","Booked","Maintenance"];
           <button
             disabled={isLoading}
             type="submit"
-            className="bg-blue-600 text-white p-4 font-bold hover:bg-green-500 text-xl disabled:bg-gray-500"
+            className="bg-blue-600 hover:cursor-pointer text-white p-4 font-bold hover:bg-green-500 text-xl disabled:bg-gray-500"
           >
             {isLoading ? "Saving..." : "Save"}
           </button>

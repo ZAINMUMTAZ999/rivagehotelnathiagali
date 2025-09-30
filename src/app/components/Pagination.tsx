@@ -19,7 +19,7 @@ const Pagination = ({ page, pages, onPageChange }: Props) => {
           <li key={p}>
             <button
               onClick={() => onPageChange(p)}
-              className={`px-3 py-1 rounded-md border transition-all duration-150 
+              className={`px-3 py-1 rounded-md border transition-all hover:cursor-pointer duration-150 
                 ${
                   page === p
                     ? "bg-blue-500 text-white border-blue-500"
