@@ -7,10 +7,11 @@ import { Button } from "../components/ui/button";
 import { AppContext } from "../context/AppNotify";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { AlertCircle } from "lucide-react";
 // import Link from "next/link";
 
 const UserProfile = () => {
-  const { showToast } = AppContext();
+  const { showToast ,isAdmin} = AppContext();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
@@ -100,6 +101,21 @@ const UserProfile = () => {
     )
   }
 
+  if (!isAdmin) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+        <div className="bg-white rounded-lg shadow-md p-8 max-w-md w-full text-center">
+          <AlertCircle className="w-12 h-12 text-amber-500 mx-auto mb-4" />
+          <h2 className="text-xl font-semibold text-gray-800 mb-2">
+            Access Denied
+          </h2>
+          <p className="text-gray-600">
+            You don&apos;t have permission to view this dashboard.
+          </p>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="flex justify-center items-start min-h-screen bg-gray-50 px-4 sm:px-6 lg:px-8 py-8">
       <form

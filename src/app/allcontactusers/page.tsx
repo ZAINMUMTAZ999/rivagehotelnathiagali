@@ -7,6 +7,7 @@ import Pagination from "../components/Pagination";
 import { useState } from "react";
 import { useSearchContext } from "../context/SearchContext";
 import SearchContactBar from "../components/SearchContactBar";
+import Link from "next/link";
 
 const Skeleton = ({ className = "" }) => (
   <div className={`animate-pulse bg-gray-200 rounded ${className}`}></div>
@@ -123,13 +124,19 @@ const GetAllContacts = () => {
     <div className="min-h-screen bg-white">
       <div className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
-                View All Contacts
-              </h1>
-            </div>
-          </div>
+            <div className="sticky  top-0 z-20 bg-white/70 backdrop-blur-md border-b border-slate-200/40">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
+          <h1 className="text-lg underline sm:text-xl font-bold text-slate-800">
+            AllContacts
+          </h1>
+          <Link
+            href="/dashboard"
+            className="inline-flex items-center rounded-xl bg-gradient-to-r from-blue-700 to-rose-600 px-4 py-2 text-white font-semibold shadow hover:from-red-700 hover:to-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-400 focus:ring-offset-2 transition-all text-sm" 
+          >
+            Go to Dashboard 
+          </Link>
+        </div>
+      </div>
         </div>
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 ">

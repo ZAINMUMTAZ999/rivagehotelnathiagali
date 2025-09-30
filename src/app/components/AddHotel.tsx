@@ -8,6 +8,7 @@ import { hotelFacilities, hotelTypes } from "../config/hotelOption";
 import { AppContext } from "../context/AppNotify";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { AlertCircle } from "lucide-react";
 // import { useRouter } from "next/";
 
 // import { useNavigate } from "react-router-dom";
@@ -35,6 +36,7 @@ roomStatus:string,
 // Main App component to encapsulate the form
 const AddHotel: React.FC = () => {
   const {showToast}=AppContext();
+  const {isAdmin}=AppContext();
 const navigate= useRouter();
   const { register, handleSubmit, formState: { errors } } = useForm<addHotelTypes>();
   const {mutate: apiMutate, isPending:isLoading} = useMutation(
@@ -89,7 +91,23 @@ const navigate= useRouter();
 
   apiMutate(formData);
   });
-const roomStatusOptions = ["Available","Booked","Maintenance"]
+const roomStatusOptions = ["Available","Booked","Maintenance"];
+
+  if (!isAdmin) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+        <div className="bg-white rounded-lg shadow-md p-8 max-w-md w-full text-center">
+          <AlertCircle className="w-12 h-12 text-amber-500 mx-auto mb-4" />
+          <h2 className="text-xl font-semibold text-gray-800 mb-2">
+            Access Denied
+          </h2>
+          <p className="text-gray-600">
+            You don&apos;t have permission to view this dashboard.
+          </p>
+        </div>
+      </div>
+    );
+  }
   return (
        <form  onSubmit={onSubmit} >
     <div className="min-h-screen   bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
