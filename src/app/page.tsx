@@ -1,3 +1,4 @@
+import FAQSection from "./components/FAQs";
 import GetallReviews from "./components/GetallReviews";
 import GetHeroImageHomepage from "./components/GetHeroImage";
 import HotelServicesSection from "./components/HotelServices";
@@ -20,6 +21,7 @@ export default function Home() {
     
       
       <GetallReviews/>
+      <FAQSection/>
        
       <section className="bg-white py-12 md:py-16 border-t border-gray-200">
         <div className="container mx-auto px-4 max-w-7xl" >
