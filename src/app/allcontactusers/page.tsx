@@ -12,7 +12,7 @@ const Skeleton = ({ className = "" }) => (
   <div className={`animate-pulse bg-gray-200 rounded ${className}`}></div>
 );
 const DashboardSkeleton = () => (
-  <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+  <div className="bg-gray-50 rounded-lg p-4 border border-gray-200 min-h-screen flex justify-center items-center mt-8">
     <div className="mb-4">
       <Skeleton className="h-4 w-24 mb-2" />
       <Skeleton className="h-8 w-full" />
