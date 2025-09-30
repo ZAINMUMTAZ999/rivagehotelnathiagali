@@ -389,6 +389,42 @@ const GetAllReviewsApi = async (): Promise<addReviewTypes[]> => {
     throw new Error("Something Went Wrong!");
   }
 };
+ type bookingSearchResponse = {
+      data: AddBookingTypes[];
+      pagination: {
+        total: number;
+        page: number;
+        pages: number;
+      };
+    };
+export type searchParamsBooking = {
+  phoneNumber?: string;
+  name?: string;
+  page?: string;
+};
+const GetAllBookingsApi = async (
+  searchParams: searchParamsBooking
+): Promise<bookingSearchResponse> => {
+    const queryParams = new URLSearchParams();
+    if (searchParams.phoneNumber) queryParams.append("phoneNumber", searchParams.phoneNumber);
+  if (searchParams.name) queryParams.append("name", searchParams.name);
+  if (searchParams.page) queryParams.append("page", searchParams.page);
+  try {
+    const response = await fetch(`${Base_Url_API}/v2/allbooking?${queryParams.toString()}`, {
+      credentials: "include",
+    });
+
+    if (!response.ok) {
+      throw new Error("Something Went Wrong!");
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+    throw new Error("Something Went Wrong!");
+  }
+};
 export type userTypes = {
   firstName: string;
   userId: string;
@@ -528,5 +564,6 @@ export {
   GetReviewEachHotelById,
   getHotelApiBId,
   AddReviewEachHotelById,
-  AddBookingApi
+  AddBookingApi,
+  GetAllBookingsApi
 };

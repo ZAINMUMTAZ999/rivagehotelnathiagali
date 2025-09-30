@@ -8,6 +8,7 @@ import { MessageSquare, Calendar, User, Phone, DollarSign, Clock } from "lucide-
 import { useRef } from "react";
 import { AppContext } from "../context/AppNotify";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Page () {
   const { showToast } = AppContext();
@@ -16,13 +17,14 @@ export default function Page () {
     register,
     formState: { errors },
   } = useForm<AddBookingTypes>();
-
+  const router = useRouter();
   const formRef = useRef<HTMLDivElement>(null);
 
   const { mutate: addReview } = useMutation({
     mutationFn: AddBookingApi,
     onSuccess: () => {
       showToast({ type: "SUCCESS", message: "Booking Added!" });
+        router.push("/dashboard");
     },
     onError: (error: Error) => {
       showToast({ type: "ERROR", message: error?.message });
@@ -54,7 +56,8 @@ export default function Page () {
           <p className="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto px-4">
             Enter customer details to create a new hotel reservation
           </p>
-        </div>
+    </div>
+    <Link href="/addbookings/allbookings">All Bookings</Link>
 
         {/* Main Form Container */}
         <div ref={formRef} className="max-w-4xl mx-auto">
@@ -119,7 +122,7 @@ export default function Page () {
                     </label>
                     <div className="relative group">
                       <input
-                   type="text"
+                   type="number"
                         placeholder="Enter phone number"
                         className="w-full px-4 py-3 sm:py-3.5 border-2 rounded-xl bg-gray-50 hover:bg-gray-100 focus:bg-white transition-all duration-200 border-gray-200 focus:border-green-500 focus:ring-4 focus:ring-green-100 text-gray-900 placeholder-gray-400 text-sm sm:text-base"
                         {...register("phoneNumber", {
@@ -148,7 +151,7 @@ export default function Page () {
                     </label>
                     <div className="relative group">
                       <input
-                       type="text"
+                       type="number"
                         placeholder="Enter amount"
                         className="w-full px-4 py-3 sm:py-3.5 border-2 rounded-xl bg-gray-50 hover:bg-gray-100 focus:bg-white transition-all duration-200 border-gray-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 text-gray-900 placeholder-gray-400 text-sm sm:text-base"
                         {...register("Amount", {
