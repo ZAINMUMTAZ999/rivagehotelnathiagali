@@ -119,7 +119,7 @@ export default function Page () {
                     </label>
                     <div className="relative group">
                       <input
-                        type="tel"
+                   type="text"
                         placeholder="Enter phone number"
                         className="w-full px-4 py-3 sm:py-3.5 border-2 rounded-xl bg-gray-50 hover:bg-gray-100 focus:bg-white transition-all duration-200 border-gray-200 focus:border-green-500 focus:ring-4 focus:ring-green-100 text-gray-900 placeholder-gray-400 text-sm sm:text-base"
                         {...register("phoneNumber", {
@@ -148,7 +148,7 @@ export default function Page () {
                     </label>
                     <div className="relative group">
                       <input
-                        type="number"
+                       type="text"
                         placeholder="Enter amount"
                         className="w-full px-4 py-3 sm:py-3.5 border-2 rounded-xl bg-gray-50 hover:bg-gray-100 focus:bg-white transition-all duration-200 border-gray-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-100 text-gray-900 placeholder-gray-400 text-sm sm:text-base"
                         {...register("Amount", {
@@ -177,16 +177,16 @@ export default function Page () {
                     </label>
                     <div className="relative group">
                       <input
-                        type="time"
+                        type="text"
                         placeholder="Select time"
                         className="w-full px-4 py-3 sm:py-3.5 border-2 rounded-xl bg-gray-50 hover:bg-gray-100 focus:bg-white transition-all duration-200 border-gray-200 focus:border-purple-500 focus:ring-4 focus:ring-purple-100 text-gray-900 placeholder-gray-400 text-sm sm:text-base"
                         {...register("time", {
                           required: "Please select booking time",
                         })}
                       />
-                      <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                      {/* <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                         <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-focus-within:text-purple-500 transition-colors" />
-                      </div>
+                      </div> */}
                     </div>
                     {errors?.time && (
                       <div className="flex items-center gap-2 mt-2 text-red-600">
