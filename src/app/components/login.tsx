@@ -9,18 +9,15 @@ export type loginUserTypes = {
   password: string;
 
   role: {
-    // type: String,
-    // required: true,
+  
     enum: ["admin", "user"];
   };
 };
-// import { AppContext } from "../context/AppNotify";
 import { useState } from "react";
-import Link from "next/link";
+
 import { useRouter } from "next/navigation";
 import { AppContext } from "@/app/context/AppNotify";
-// import { useRouter } from "next/router";
-// import { Link, useNavigate } from "react-router-dom";
+
 
 export type loginTypes = {
   email: string;
@@ -36,7 +33,7 @@ const togglePasswordVisibility = () => {
   setPasswordType((prev) => (prev === "password" ? "text" : "password"));
 };
 
-  // const navigate = useNavigate();
+
   const { showToast } = AppContext();
   const {
     register,
@@ -110,14 +107,14 @@ const togglePasswordVisibility = () => {
           )}
         </label>
         </div>
-        <span className="flex ">
+        {/* <span className="flex ">
           <Link
             href="/register"
             className="underline font-semibold tracking-tighter hover:text-lg"
           >
             Register your acccount?{" "}
           </Link>
-        </span>
+        </span> */}
       </div>
    
 
