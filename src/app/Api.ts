@@ -317,6 +317,43 @@ const AddReviewApi = async (formdata: {
     throw new Error("Something Went Wrong!");
   }
 };
+export type AddBookingTypes = {
+  userId: string;
+  _id: string;
+  name: string;
+  phoneNumber: string;
+  Amount: string;
+  time: string;
+  
+  createdAt: Date;
+};
+const AddBookingApi = async (formdata: {
+  name: string; 
+  phoneNumber: string;
+  Amount: string;
+  time: string;
+}): Promise<AddBookingTypes> => {
+  try {
+    const response = await fetch(`${Base_Url_API}/v2/addBookings`, {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json", // important for JSON
+      },
+      body: JSON.stringify(formdata),
+    });
+
+    if (!response.ok) {
+      throw new Error("Something Went Wrong!");
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+    throw new Error("Something Went Wrong!");
+  }
+};
 const GetReviewsApi = async (): Promise<addReviewTypes[]> => {
   try {
     const response = await fetch(`${Base_Url_API}/v2/addReview`, {
@@ -490,5 +527,6 @@ export {
   updateImageHomeApi,
   GetReviewEachHotelById,
   getHotelApiBId,
-  AddReviewEachHotelById
+  AddReviewEachHotelById,
+  AddBookingApi
 };

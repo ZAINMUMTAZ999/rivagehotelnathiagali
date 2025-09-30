@@ -84,6 +84,17 @@ export default function Dashboard() {
             </p>
           </Link>
           <Link
+            href="/addbookings"
+            className="group block rounded-xl bg-white p-6 shadow-md hover:shadow-lg transition hover:-translate-y-1"
+          >
+            <p className="text-xl font-semibold text-gray-800 group-hover:text-blue-600">
+              Bookings📖
+            </p>
+            <p className="mt-2 text-gray-500 text-sm">
+              ArcadianResort Bookings.
+            </p>
+          </Link>
+          <Link
             href="/allcontactusers"
             className="group block rounded-xl bg-white p-6 shadow-md hover:shadow-lg transition hover:-translate-y-1"
           >
