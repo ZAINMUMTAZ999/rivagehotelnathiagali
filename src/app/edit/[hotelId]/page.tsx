@@ -266,96 +266,96 @@
 //                 </div>
 
 //                 {/* Hotel Type Section */}
-//                 <div className="p-6 sm:p-8 lg:p-10">
-//                   <div className="flex items-center space-x-3 mb-8">
-//                     <div className="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg flex items-center justify-center">
-//                       <span className="text-white font-bold text-sm">2</span>
-//                     </div>
-//                     <h2 className="text-xl md:text-2xl font-bold text-slate-800">
-//                       Hotel Type
-//                     </h2>
-//                   </div>
+                // <div className="p-6 sm:p-8 lg:p-10">
+                //   <div className="flex items-center space-x-3 mb-8">
+                //     <div className="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg flex items-center justify-center">
+                //       <span className="text-white font-bold text-sm">2</span>
+                //     </div>
+                //     <h2 className="text-xl md:text-2xl font-bold text-slate-800">
+                //       Hotel Type
+                //     </h2>
+                //   </div>
 
-//                   <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-//                     {hotelTypes.map((type) => (
-//                       <label key={type} className="group cursor-pointer">
-//                         <div className="relative p-4 rounded-xl border-2 border-slate-200 bg-white/50 backdrop-blur-sm transition-all duration-200 group-hover:border-blue-300 group-hover:shadow-md has-[:checked]:border-blue-500 has-[:checked]:bg-blue-50 has-[:checked]:shadow-md">
-//                           <input
-//                             type="radio"
-//                             value={type}
-//                             className="sr-only"
-//                             {...register("type", {
-//                               required: "Please select a hotel type",
-//                             })}
-//                           />
-//                           <div className="text-center">
-//                             <div className="text-sm font-semibold text-slate-700 group-hover:text-blue-600">
-//                               {type}
-//                             </div>
-//                           </div>
-//                           <div className="absolute top-2 right-2 w-4 h-4 rounded-full border-2 border-slate-300 bg-white group-has-[:checked]:border-blue-500 group-has-[:checked]:bg-blue-500">
-//                             <div className="w-2 h-2 rounded-full bg-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-has-[:checked]:opacity-100"></div>
-//                           </div>
-//                         </div>
-//                       </label>
-//                     ))}
-//                   </div>
-//                   {errors.type && (
-//                     <p className="mt-4 text-red-500 text-sm font-medium flex items-center space-x-1">
-//                       <span>⚠</span>
-//                       <span>{errors.type.message}</span>
-//                     </p>
-//                   )}
-//                 </div>
+                //   <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+                //     {hotelTypes.map((type) => (
+                //       <label key={type} className="group cursor-pointer">
+                //         <div className="relative p-4 rounded-xl border-2 border-slate-200 bg-white/50 backdrop-blur-sm transition-all duration-200 group-hover:border-blue-300 group-hover:shadow-md has-[:checked]:border-blue-500 has-[:checked]:bg-blue-50 has-[:checked]:shadow-md">
+                //           <input
+                //             type="radio"
+                //             value={type}
+                //             className="sr-only"
+                //             {...register("type", {
+                //               required: "Please select a hotel type",
+                //             })}
+                //           />
+                //           <div className="text-center">
+                //             <div className="text-sm font-semibold text-slate-700 group-hover:text-blue-600">
+                //               {type}
+                //             </div>
+                //           </div>
+                //           <div className="absolute top-2 right-2 w-4 h-4 rounded-full border-2 border-slate-300 bg-white group-has-[:checked]:border-blue-500 group-has-[:checked]:bg-blue-500">
+                //             <div className="w-2 h-2 rounded-full bg-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-has-[:checked]:opacity-100"></div>
+                //           </div>
+                //         </div>
+                //       </label>
+                //     ))}
+                //   </div>
+                //   {errors.type && (
+                //     <p className="mt-4 text-red-500 text-sm font-medium flex items-center space-x-1">
+                //       <span>⚠</span>
+                //       <span>{errors.type.message}</span>
+                //     </p>
+                //   )}
+                // </div>
 
 //                 {/* Facilities Section */}
-//                 <div className="p-6 sm:p-8 lg:p-10">
-//                   <div className="flex items-center space-x-3 mb-8">
-//                     <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-//                       <span className="text-white font-bold text-sm">3</span>
-//                     </div>
-//                     <h2 className="text-xl md:text-2xl font-bold text-slate-800">
-//                       Facilities & Amenities
-//                     </h2>
-//                   </div>
+                // <div className="p-6 sm:p-8 lg:p-10">
+                //   <div className="flex items-center space-x-3 mb-8">
+                //     <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                //       <span className="text-white font-bold text-sm">3</span>
+                //     </div>
+                //     <h2 className="text-xl md:text-2xl font-bold text-slate-800">
+                //       Facilities & Amenities
+                //     </h2>
+                //   </div>
 
-//                   <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-//                     {hotelFacilities.map((facility) => (
-//                       <label key={facility} className="group cursor-pointer">
-//                         <div className="relative p-4 rounded-xl border-2 border-slate-200 bg-white/50 backdrop-blur-sm transition-all duration-200 group-hover:border-purple-300 group-hover:shadow-md has-[:checked]:border-purple-500 has-[:checked]:bg-purple-50 has-[:checked]:shadow-md">
-//                           <input
-//                             type="checkbox"
-//                             value={facility}
-//                             className="sr-only"
-//                             {...register("facilities", {
-//                               validate: (facilities) => {
-//                                 return facilities && facilities.length > 0
-//                                   ? true
-//                                   : "Select at least one facility";
-//                               },
-//                             })}
-//                           />
-//                           <div className="text-center">
-//                             <div className="text-sm font-semibold text-slate-700 group-hover:text-purple-600">
-//                               {facility}
-//                             </div>
-//                           </div>
-//                           <div className="absolute top-2 right-2 w-4 h-4 rounded border-2 border-slate-300 bg-white group-has-[:checked]:border-purple-500 group-has-[:checked]:bg-purple-500">
-//                             <div className="w-2 h-2 text-white text-xs flex items-center justify-center opacity-0 group-has-[:checked]:opacity-100">
-//                               ✓
-//                             </div>
-//                           </div>
-//                         </div>
-//                       </label>
-//                     ))}
-//                   </div>
-//                   {errors.facilities && (
-//                     <p className="mt-4 text-red-500 text-sm font-medium flex items-center space-x-1">
-//                       <span>⚠</span>
-//                       <span>{errors.facilities.message}</span>
-//                     </p>
-//                   )}
-//                 </div>
+                //   <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                //     {hotelFacilities.map((facility) => (
+                //       <label key={facility} className="group cursor-pointer">
+                //         <div className="relative p-4 rounded-xl border-2 border-slate-200 bg-white/50 backdrop-blur-sm transition-all duration-200 group-hover:border-purple-300 group-hover:shadow-md has-[:checked]:border-purple-500 has-[:checked]:bg-purple-50 has-[:checked]:shadow-md">
+                //           <input
+                //             type="checkbox"
+                //             value={facility}
+                //             className="sr-only"
+                //             {...register("facilities", {
+                //               validate: (facilities) => {
+                //                 return facilities && facilities.length > 0
+                //                   ? true
+                //                   : "Select at least one facility";
+                //               },
+                //             })}
+                //           />
+                //           <div className="text-center">
+                //             <div className="text-sm font-semibold text-slate-700 group-hover:text-purple-600">
+                //               {facility}
+                //             </div>
+                //           </div>
+                //           <div className="absolute top-2 right-2 w-4 h-4 rounded border-2 border-slate-300 bg-white group-has-[:checked]:border-purple-500 group-has-[:checked]:bg-purple-500">
+                //             <div className="w-2 h-2 text-white text-xs flex items-center justify-center opacity-0 group-has-[:checked]:opacity-100">
+                //               ✓
+                //             </div>
+                //           </div>
+                //         </div>
+                //       </label>
+                //     ))}
+                //   </div>
+                //   {errors.facilities && (
+                //     <p className="mt-4 text-red-500 text-sm font-medium flex items-center space-x-1">
+                //       <span>⚠</span>
+                //       <span>{errors.facilities.message}</span>
+                //     </p>
+                //   )}
+                // </div>
 
 //                 {/* Images Section */}
 //                 {/* <div className="p-6 sm:p-8 lg:p-10">
@@ -724,7 +724,7 @@ export default function EditHotelsById() {
                    </div>
 
                 {/* Hotel Type Section */}
-                <div className="p-6 sm:p-8 lg:p-10">
+{/*                 <div className="p-6 sm:p-8 lg:p-10">
                   <div className="flex items-center space-x-3 mb-8">
                     <div className="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg flex items-center justify-center"><span className="text-white font-bold text-sm">2</span></div>
                     <h2 className="text-xl md:text-2xl font-bold text-slate-800">Hotel Type</h2>
@@ -742,10 +742,51 @@ export default function EditHotelsById() {
                     ))}
                   </div>
                   {errors.type && (<p className="mt-4 text-red-500 text-sm font-medium flex items-center space-x-1"><span>⚠</span><span>{errors.type.message}</span></p>)}
-                </div>
+                </div> */}
+  <div className="p-6 sm:p-8 lg:p-10">
+                  <div className="flex items-center space-x-3 mb-8">
+                    <div className="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg flex items-center justify-center">
+                      <span className="text-white font-bold text-sm">2</span>
+                    </div>
+                    <h2 className="text-xl md:text-2xl font-bold text-slate-800">
+                      Hotel Type
+                    </h2>
+                  </div>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+                    {hotelTypes.map((type) => (
+                      <label key={type} className="group cursor-pointer">
+                        <div className="relative p-4 rounded-xl border-2 border-slate-200 bg-white/50 backdrop-blur-sm transition-all duration-200 group-hover:border-blue-300 group-hover:shadow-md has-[:checked]:border-blue-500 has-[:checked]:bg-blue-50 has-[:checked]:shadow-md">
+                          <input
+                            type="radio"
+                            value={type}
+                            className="sr-only"
+                            {...register("type", {
+                              required: "Please select a hotel type",
+                            })}
+                          />
+                          <div className="text-center">
+                            <div className="text-sm font-semibold text-slate-700 group-hover:text-blue-600">
+                              {type}
+                            </div>
+                          </div>
+                          <div className="absolute top-2 right-2 w-4 h-4 rounded-full border-2 border-slate-300 bg-white group-has-[:checked]:border-blue-500 group-has-[:checked]:bg-blue-500">
+                            <div className="w-2 h-2 rounded-full bg-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-has-[:checked]:opacity-100"></div>
+                          </div>
+                        </div>
+                      </label>
+                    ))}
+                  </div>
+                  {errors.type && (
+                    <p className="mt-4 text-red-500 text-sm font-medium flex items-center space-x-1">
+                      <span>⚠</span>
+                      <span>{errors.type.message}</span>
+                    </p>
+                  )}
+                </div>
 
                 {/* Facilities Section */}
-                <div className="p-6 sm:p-8 lg:p-10">
+{/*                 <div className="p-6 sm:p-8 lg:p-10">
                   <div className="flex items-center space-x-3 mb-8">
                     <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center"><span className="text-white font-bold text-sm">3</span></div>
                     <h2 className="text-xl md:text-2xl font-bold text-slate-800">Facilities & Amenities</h2>
@@ -763,7 +804,54 @@ export default function EditHotelsById() {
                     ))}
                   </div>
                   {errors.facilities && (<p className="mt-4 text-red-500 text-sm font-medium flex items-center space-x-1"><span>⚠</span><span>{errors.facilities.message}</span></p>)}
-                </div>
+                </div> */}
+ <div className="p-6 sm:p-8 lg:p-10">
+                  <div className="flex items-center space-x-3 mb-8">
+                    <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                      <span className="text-white font-bold text-sm">3</span>
+                    </div>
+                    <h2 className="text-xl md:text-2xl font-bold text-slate-800">
+                      Facilities & Amenities
+                    </h2>
+                  </div>
+
+                  <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                    {hotelFacilities.map((facility) => (
+                      <label key={facility} className="group cursor-pointer">
+                        <div className="relative p-4 rounded-xl border-2 border-slate-200 bg-white/50 backdrop-blur-sm transition-all duration-200 group-hover:border-purple-300 group-hover:shadow-md has-[:checked]:border-purple-500 has-[:checked]:bg-purple-50 has-[:checked]:shadow-md">
+                          <input
+                            type="checkbox"
+                            value={facility}
+                            className="sr-only"
+                            {...register("facilities", {
+                              validate: (facilities) => {
+                                return facilities && facilities.length > 0
+                                  ? true
+                                  : "Select at least one facility";
+                              },
+                            })}
+                          />
+                          <div className="text-center">
+                            <div className="text-sm font-semibold text-slate-700 group-hover:text-purple-600">
+                              {facility}
+                            </div>
+                          </div>
+                          <div className="absolute top-2 right-2 w-4 h-4 rounded border-2 border-slate-300 bg-white group-has-[:checked]:border-purple-500 group-has-[:checked]:bg-purple-500">
+                            <div className="w-2 h-2 text-white text-xs flex items-center justify-center opacity-0 group-has-[:checked]:opacity-100">
+                              ✓
+                            </div>
+                          </div>
+                        </div>
+                      </label>
+                    ))}
+                  </div>
+                  {errors.facilities && (
+                    <p className="mt-4 text-red-500 text-sm font-medium flex items-center space-x-1">
+                      <span>⚠</span>
+                      <span>{errors.facilities.message}</span>
+                    </p>
+                  )}
+                </div>
 
                 {/* -------------------- Images Section -------------------- */}
                 <div className="p-6 sm:p-8 lg:p-10">
