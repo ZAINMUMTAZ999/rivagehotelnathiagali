@@ -79,6 +79,23 @@ export type addReviewTypes = {
 // const Base_Url_API = "http://localhost:8000";
 const Base_Url_API = "https://srivagehotel-new.up.railway.app";
 
+const deleteJobApi = async (hotelId: string) => {
+  const response = await fetch(`${Base_Url_API}/delete/${hotelId}`, {
+    method: "DELETE",
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json"
+    }
+    // No body needed for simple deletion by ID
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json().catch(() => ({}));
+    throw new Error(errorData.message || "Failed to delete job");
+  }
+
+  return await response.json();
+};
 const AddHotelApi = async (hotelFormData: FormData) => {
   try {
     const response = await fetch(`${Base_Url_API}/v2/addRoom`, {
@@ -584,5 +601,6 @@ export {
   AddReviewEachHotelById,
   AddBookingApi,
   GetAllBookingsApi,
-  EditHotelById
+  EditHotelById,
+  deleteJobApi
 };

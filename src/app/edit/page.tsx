@@ -2,16 +2,21 @@
 
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
-import { getHotelApi } from "../Api"; 
+import {  getHotelApi } from "../Api"; 
 import { useSearchContext } from "../context/SearchContext";
 import { useState } from "react";
 import { addHotelTypes } from "../components/AddHotel";
 import Pagination from "../components/Pagination";
 import SearchHotelsBar from "../components/searchHotelsBar";
 
+
+  
+
 export default function EditDashboard() {
+ 
   const search = useSearchContext();
   const [page, setPage] = useState<number>(1);
+
 
   const searchParams = {
     name: search.name,
@@ -37,7 +42,11 @@ export default function EditDashboard() {
 
   if (isLoading) return <p>Loading hotels...</p>;
   if (isError) return <p>Error fetching hotels</p>;
+  // Setup delete mutation
 
+  
+  // Handler for canceling deletion
+  
   return (
     <main className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-7xl mx-auto">
@@ -82,9 +91,11 @@ export default function EditDashboard() {
               </div>
 
               {/* Action */}
+           
               <div className="flex justify-end">
                 <Link
                   href={`/edit/${hotel._id}`}
+                    // href={`/hotels/${hotel._id}`}
                   className="rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700 transition"
                 >
                   Edit
