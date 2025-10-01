@@ -1,28 +1,13 @@
 "use client";
-import { useQuery } from "@tanstack/react-query";
-// import { useParams } from "react-router-dom";
-
-import {
-  FaMapMarkerAlt,
-  //   FaDollarSign,
-  FaBed,
-} from "react-icons/fa";
-
-// import { getHotelApiBId } from "../../Api";
-// import { AppContext } from "@/context/AppNotify";
-import Image from "next/image";
-// import { useParams } from "next/navigation";
-import Link from "next/link";
-// import { Button } from "@/app/components/ui/button";
-import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-// import { GetEachHotelReviewId } from "../../components/GetEachHotelReviewId";
+import {  useQuery } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
-import { EditHotelById } from "../../Api";
-// import WhatsAppLinkButton from "../../components/WA";
-// import AddReviewById from "../[id]/add-review/page";
-// import { AddReviewEachId } from "../../components/AddReviewEachId";
-
+import {  EditHotelById } from "../../Api";
+// import AddHotel from "../../components/AddHotel";
+import { AlertCircle } from "lucide-react";
+import { AppContext } from "@/app/context/AppNotify";
+import { useForm } from "react-hook-form";
+import Link from "next/link";
+import { hotelFacilities, hotelTypes } from "@/app/config/hotelOption";
 export type addHotelTypes = {
   _id: string;
   userId: string;
@@ -40,27 +25,13 @@ export type addHotelTypes = {
 
 export default function  EditHotelsById  () 
   {
-    
-    const [currentIndex, setCurrentIndex] = useState(0);
-    // Slider functions
-    const goToPrevious = () => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === 0 ? images.length - 1 : prevIndex - 1
-      );
-    };
 
-    const goToNext = () => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === images.length - 1 ? 0 : prevIndex + 1
-      );
-    };
-
-    const goToSlide = (index: number) => {
-      setCurrentIndex(index);
-    };
+    const params = useParams();
+    const hotelId = params?.hotelId as string; // safely cast to string
+// const navigate= useRouter();
+const {isAdmin}=AppContext();
  
-const params = useParams();
-const hotelId = params?.hotelId as string; // safely cast to string
+  const { register, handleSubmit, formState: { errors } } = useForm<addHotelTypes>();
 
 
     const {
@@ -81,6 +52,30 @@ const hotelId = params?.hotelId as string; // safely cast to string
     }
     
     console.log("editHotel", hotel);
+  // const {isAdmin}=AppContext();
+
+  // const {mutate: apiMutate, isPending:isLoading,isError} = useMutation(
+  //   {
+
+  //     mutationFn: AddHotelApi,
+  //      onSuccess: async () => {
+  //     showToast({ type: "SUCCESS", message: "Room Added" });
+ 
+  //     // await queryClient.invalidateQueries({ queryKey: ["validateToken"] });
+      
+  //     navigate.push("/allrooms");
+  //   },
+  //   onError: (error:Error) => {
+  //     showToast({ type: "ERROR", message: error?.message });
+
+  //   },
+  //   }
+    
+  //   // "addHotel",
+  //   // AddHotelApi,
+   
+    
+  // );
 
     if (isLoading) {
       return (
@@ -186,216 +181,348 @@ const hotelId = params?.hotelId as string; // safely cast to string
         </div>
       );
     }
+   const onSubmit = handleSubmit((formDataJson: addHotelTypes) => {
+    const formData = new FormData();
+  
+    formData.append("name", formDataJson.name);
+    formData.append("city", formDataJson.city);
+    // formData.append("country", formDataJson.country);
+    formData.append("description", formDataJson.description);
+    formData.append("type", formDataJson.type);
+    formData.append("roomStatus", formDataJson.roomStatus);
+    formData.append("pricePerNight", formDataJson.pricePerNight.toString());
+    // formData.append("starRating", formDataJson.starRating.toString());
+    // formData.append("adultCount", formDataJson.adultCount.toString());
+    // formData.append("childCount", formDataJson.childCount.toString());
 
-    const images: string[] = hotel?.imageUrls || [];
-    //   const hasSingleImage = images.length === 1;
+    formDataJson.facilities.forEach((facility, index) => {
+      formData.append(`facilities[${index}]`, facility);
+    });
 
-    const ImageSlider = () => {
-      if (!images || images.length === 0) {
-        return (
-          <div className="flex items-center justify-center h-[400px] bg-gray-100 rounded-lg">
-            <div className="text-center text-gray-500">
-              <p className="text-lg">No images available</p>
-            </div>
-          </div>
-        );
-      }
+    if (formDataJson.imageUrls) {
+      formDataJson.imageUrls.forEach((url, index) => {
+        formData.append(`imageUrls[${index}]`, url);
+      });
+    }
+
+    Array.from(formDataJson.imageFiles).forEach((imageFile) => {
+      formData.append("imageFiles", imageFile);
+    });
+
+  // apiMutate(formData);
+  });
+const roomStatusOptions = ["Available","Booked","Maintenance"];
+
+  if (!isAdmin) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+        <div className="bg-white rounded-lg shadow-md p-8 max-w-md w-full text-center">
+          <AlertCircle className="w-12 h-12 text-amber-500 mx-auto mb-4" />
+          <h2 className="text-xl font-semibold text-gray-800 mb-2">
+            Access Denied
+          </h2>
+          <p className="text-gray-600">
+            You don&apos;t have permission to view this dashboard.
+          </p>
+        </div>
+      </div>
+    );
+  }
  
-
-      return (
-        <>
-          <div className="relative w-full ">
-            {/* Main Image Container */}
-            <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] object-cover rounded-lg overflow-hidden shadow-lg group">
-              <Image
-                src={images[currentIndex]}
-                alt={`Hotel image ${currentIndex + 1}`}
-                fill
-                className="object-contain bg-black "
-                // onClick={openModal}
-                unoptimized={true}
-              />
-
-              {/* Navigation Arrows */}
-              {images.length > 1 && (
-                <>
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      goToPrevious();
-                    }}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 rounded-full p-2 shadow-lg transition-all duration-200 z-10"
-                    aria-label="Previous image"
-                  >
-                    <ChevronLeft className="w-6 h-6 text-gray-800 hover:cursor-pointer" />
-                  </button>
-     <Image
-                src={images[currentIndex]}
-                alt={`Hotel image ${currentIndex + 1}`}
-                fill
-                className="object-contain bg-black "
-                // onClick={openModal}
-                unoptimized={true}
-              />
-
-
-
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      goToNext();
-                    }}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 hover:bg-opacity-100 rounded-full p-2 shadow-lg transition-all duration-200 z-10"
-                    aria-label="Next image"
-                  >
-                    <ChevronRight className="w-6 h-6 text-gray-800 hover:cursor-pointer" />
-                  </button>
-                </>
-              )}
-
-              {/* Image Counter */}
-              {images.length > 1 && (
-                <div className="absolute top-4 left-4 bg-black bg-opacity-60 text-white  rounded-full text-sm">
-                  {currentIndex + 1} / {images.length}
-                </div>
-              )}
-            </div>
-
-            {/* Thumbnail Navigation */}
-            {images.length > 1 && (
-              <div className="flex justify-center mt-4 space-x-2 overflow-x-auto pb-2">
-                {images.map((image, index) => (
-                  <button
-                    key={index}
-                    onClick={() => goToSlide(index)}
-                    className={`flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden border-2 transition-all duration-200 relative ${
-                      index === currentIndex
-                        ? "border-blue-500 opacity-100"
-                        : "border-gray-300 opacity-70 hover:opacity-100"
-                    }`}
-                  >
-                    <Image
-                      src={image}
-                      alt={`Thumbnail ${index + 1}`}
-                      fill
-                      className="object-cover "
-                      unoptimized={true}
-                    />
-                  </button>
-                ))}
-              </div>
-            )}
-
-          </div>
-        </>
-      );
-    };
 
     return (
       // <div className="container mx-auto px-4 py-8 mt-24 mb-10">
       <div className="mt-8">
-        <div className=" bg-white/70 backdrop-blur-md border-b border-slate-200/40">
-          <div className=" flex items-center justify-between px-4 py-4">
-            <h1 className="text-xl sm:text-xl font-extrabold text-gray-800 leading-tight">
-              {hotel.name}
-            </h1>
-            <Link
-              href="/allrooms"
-              className="inline-flex items-center rounded-xl  bg-blue-800 hover:cursor-pointer  px-4 py-2 text-white font-semibold shadow hover:from-red-700 hover:to-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-400 focus:ring-offset-2 transition-all text-sm"
-            >
-              View All Rooms
-            </Link>
-          </div>
+   
+     
+         <form  onSubmit={onSubmit} >
+    <div className="min-h-screen   bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+      {/* Header Section */}
+   <div className="sticky  top-0 z-20 bg-white/70 backdrop-blur-md border-b border-slate-200/40">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
+          <h1 className="text-lg underline sm:text-xl font-bold text-slate-800">
+            Add Room
+          </h1>
+          <Link
+            href="/dashboard"
+            className="inline-flex items-center rounded-xl bg-gradient-to-r from-blue-700 to-rose-600 px-4 py-2 text-white font-semibold shadow hover:from-red-700 hover:to-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-400 focus:ring-offset-2 transition-all text-sm" 
+          >
+            Go to Dashboard 
+          </Link>
         </div>
-        <div className="flex justify-between">
+      </div>
 
-        <p className="text-lg text-gray-600 flex items-center mt-1">
-          <FaMapMarkerAlt className="mr-2 text-red-500" />
-          {hotel?.city}
-        </p>
-          <div className="flex items-center  mr-4">
-                  <span className="text-sm text-gray-600 font-medium">PKR</span>
-                  <p className="text-2xl font-bold text-green-600">
-                    {hotel?.pricePerNight}
-                  </p>
-                  <span className="text-sm text-gray-500 ml-1">per night</span>
-                </div> 
-        </div>
-        <div className="bg-white rounded-lg shadow-xl overflow-hidden">
-          <div className="">
-            {/* Images Section with Built-in Slider */}
-            {images.length > 0 && (
-              <div className="mb-8">
-                <ImageSlider />
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+        <div className="bg-white/70 backdrop-blur-sm rounded-2xl lg:rounded-3xl shadow-xl border border-white/20 overflow-hidden">
+          <div className="divide-y divide-slate-100">
+            
+            {/* Basic Information Section */}
+            <div className="p-6 sm:p-8 lg:p-10">
+              <div className="flex items-center space-x-3 mb-8">
+                <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">1</span>
+                </div>
+                <h2 className="text-xl md:text-2xl font-bold text-slate-800">Basic Information</h2>
               </div>
-            )}
-            {/* <div className="sticky   top-0 z-20 bg-white/70 backdrop-blur-md border-b border-slate-200/40"> */}
-              {/* <div className=" flex  items-center  justify-center "> */}
-        
 
-                
-                    
-      
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+                {/* Hotel Name */}
+                <div className="space-y-2">
+                  <label className="block text-sm font-semibold text-slate-700">
+                    Hotel Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Enter hotel name"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/50 backdrop-blur-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-slate-400"
+                    {...register("name", { required: "Hotel name is required" })}
+                  />
+                  {errors.name && (
+                    <p className="text-red-500 text-sm font-medium flex items-center space-x-1">
+                      <span>⚠</span>
+                      <span>{errors.name.message}</span>
+                    </p>
+                  )}
+                </div>
 
-          
+                {/* City */}
+                <div className="space-y-2">
+                  <label className="block text-sm font-semibold text-slate-700">
+                    City <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Enter city name"
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/50 backdrop-blur-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-slate-400"
+                    {...register("city", { required: "City is required" })}
+                  />
+                  {errors.city && (
+                    <p className="text-red-500 text-sm font-medium flex items-center space-x-1">
+                      <span>⚠</span>
+                      <span>{errors.city.message}</span>
+                    </p>
+                  )}
+                </div>
+{/* Rooms  */}
 
-            <hr className="my-6 border-gray-200" />
-
-            {/* Description */}
-            {hotel?.description && (
-              <div className="mb-6">
-                <h2 className="text-2xl  underline font-semibold text-gray-700 mb-3">
-                  About :
-                </h2>
-                <p className="text-gray-700 leading-relaxed whitespace-pre-wrap">
-                  <span className="tracking-tight text-sm">
-                    {hotel?.description}
-                  </span>
-                </p>
-              </div>
-            )}
-
-            {/* Room Status/Count */}
-            {hotel?.roomStatus && (
-              <div className="mb-6">
-                <p className="text-green-600 flex items-center">
-                  <FaBed className="mr-2 text-blue-500" size={32} />
-                  Room :
-                  <span className="bg-white  font-extrabold font-xl ml-2">
-                    {hotel.roomStatus}
-                  </span>
-                </p>
-              </div>
-            )}
-
-            {/* Facilities */}
-            {hotel?.facilities && hotel.facilities.length > 0 && (
-              <div className="mb-6">
-                <h2 className="text-2xl font-semibold text-gray-700 mb-3 underline">
-                  Facilities :
-                </h2>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                  {hotel?.facilities?.map((facility, index) => (
-                    <div
-                      key={index}
-                      className="flex items-center bg-gray-100 p-3 rounded-md shadow-sm text-gray-700 hover:bg-blue-50 transition-colors duration-200"
+  <div className="space-y-2">
+                    <label className="block text-sm font-semibold text-slate-700">
+                      Room Status <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/50 backdrop-blur-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                      {...register("roomStatus", { required: "Room status is required" })}
                     >
-                      <span className="text-sm font-serif">{facility}</span>
-                    </div>
-                  ))}
+                      <option value="">Select room status</option>
+                      {roomStatusOptions.map((status) => (
+                        <option key={status} value={status}>
+                          {status}
+                        </option>
+                      ))}
+                    </select>
+                    {errors.roomStatus && (
+                      <p className="text-red-500 text-sm font-medium flex items-center space-x-1">
+                        <span>⚠</span>
+                        <span>{errors.roomStatus.message}</span>
+                      </p>
+                    )}
+                  </div>
+
+                {/* Description - Full Width */}
+                <div className="lg:col-span-2 space-y-2">
+                  <label className="block text-sm font-semibold text-slate-700">
+                    Description <span className="text-red-500">*</span>
+                  </label>
+                  <textarea
+                    rows={4}
+                    placeholder="Describe your hotel's unique features, amenities, and what makes it special..."
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white/50 backdrop-blur-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-slate-400 resize-none"
+                    {...register("description", { required: "Description is required" })}
+                  />
+                  {errors.description && (
+                    <p className="text-red-500 text-sm font-medium flex items-center space-x-1">
+                      <span>⚠</span>
+                      <span>{errors.description.message}</span>
+                    </p>
+                  )}
+                </div>
+
+                {/* Price */}
+                <div className="space-y-2">
+                  <label className="block text-sm font-semibold text-slate-700">
+                    Price per Night <span className="text-red-500">*</span>
+                  </label>
+                  <div className="relative">
+                    <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-500 font-medium">$</span>
+                    <input
+                      type="number"
+                      min="0"
+                      step="1"
+                      placeholder="0"
+                      className="w-full pl-8 pr-4 py-3 rounded-xl border border-slate-200 bg-white/50 backdrop-blur-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-slate-400"
+                      {...register("pricePerNight", { 
+                        required: "Price is required",
+                        min: { value: 1, message: "Price must be greater than 0" }
+                      })}
+                    />
+                  </div>
+                  {errors.pricePerNight && (
+                    <p className="text-red-500 text-sm font-medium flex items-center space-x-1">
+                      <span>⚠</span>
+                      <span>{errors.pricePerNight.message}</span>
+                    </p>
+                  )}
                 </div>
               </div>
-            )}
-
-            {/* Last Updated */}
-            {/* {hotel?.lastUpdated && (
-            <div className="mt-8 text-sm text-gray-500 text-right underline">
-              Last updated: {new Date(hotel.lastUpdated).toLocaleDateString()}
             </div>
-          )} */}
+
+            {/* Hotel Type Section */}
+            <div className="p-6 sm:p-8 lg:p-10">
+              <div className="flex items-center space-x-3 mb-8">
+                <div className="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">2</span>
+                </div>
+                <h2 className="text-xl md:text-2xl font-bold text-slate-800">Hotel Type</h2>
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+                {hotelTypes.map((type) => (
+                  <label key={type} className="group cursor-pointer">
+                    <div className="relative p-4 rounded-xl border-2 border-slate-200 bg-white/50 backdrop-blur-sm transition-all duration-200 group-hover:border-blue-300 group-hover:shadow-md has-[:checked]:border-blue-500 has-[:checked]:bg-blue-50 has-[:checked]:shadow-md">
+                      <input
+                        type="radio"
+                        value={type}
+                        className="sr-only"
+                        {...register("type", { required: "Please select a hotel type" })}
+                      />
+                      <div className="text-center">
+                        <div className="text-sm font-semibold text-slate-700 group-hover:text-blue-600">
+                          {type}
+                        </div>
+                      </div>
+                      <div className="absolute top-2 right-2 w-4 h-4 rounded-full border-2 border-slate-300 bg-white group-has-[:checked]:border-blue-500 group-has-[:checked]:bg-blue-500">
+                        <div className="w-2 h-2 rounded-full bg-white absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-has-[:checked]:opacity-100"></div>
+                      </div>
+                    </div>
+                  </label>
+                ))}
+              </div>
+              {errors.type && (
+                <p className="mt-4 text-red-500 text-sm font-medium flex items-center space-x-1">
+                  <span>⚠</span>
+                  <span>{errors.type.message}</span>
+                </p>
+              )}
+            </div>
+
+            {/* Facilities Section */}
+            <div className="p-6 sm:p-8 lg:p-10">
+              <div className="flex items-center space-x-3 mb-8">
+                <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">3</span>
+                </div>
+                <h2 className="text-xl md:text-2xl font-bold text-slate-800">Facilities & Amenities</h2>
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                {hotelFacilities.map((facility) => (
+                  <label key={facility} className="group cursor-pointer">
+                    <div className="relative p-4 rounded-xl border-2 border-slate-200 bg-white/50 backdrop-blur-sm transition-all duration-200 group-hover:border-purple-300 group-hover:shadow-md has-[:checked]:border-purple-500 has-[:checked]:bg-purple-50 has-[:checked]:shadow-md">
+                      <input
+                        type="checkbox"
+                        value={facility}
+                        className="sr-only"
+                        {...register("facilities", {
+                          validate: (facilities) => {
+                            return facilities && facilities.length > 0 ? true : "Select at least one facility";
+                          },
+                        })}
+                      />
+                      <div className="text-center">
+                        <div className="text-sm font-semibold text-slate-700 group-hover:text-purple-600">
+                          {facility}
+                        </div>
+                      </div>
+                      <div className="absolute top-2 right-2 w-4 h-4 rounded border-2 border-slate-300 bg-white group-has-[:checked]:border-purple-500 group-has-[:checked]:bg-purple-500">
+                        <div className="w-2 h-2 text-white text-xs flex items-center justify-center opacity-0 group-has-[:checked]:opacity-100">✓</div>
+                      </div>
+                    </div>
+                  </label>
+                ))}
+              </div>
+              {errors.facilities && (
+                <p className="mt-4 text-red-500 text-sm font-medium flex items-center space-x-1">
+                  <span>⚠</span>
+                  <span>{errors.facilities.message}</span>
+                </p>
+              )}
+            </div>
+
+            {/* Images Section */}
+            <div className="p-6 sm:p-8 lg:p-10">
+              <div className="flex items-center space-x-3 mb-8">
+                <div className="w-8 h-8 bg-gradient-to-r from-pink-500 to-rose-500 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">4</span>
+                </div>
+                <h2 className="text-xl md:text-2xl font-bold text-slate-800">Hotel Images</h2>
+              </div>
+
+              <div className="space-y-4">
+                <div className="border-2 border-dashed border-slate-300 rounded-xl p-1 text-center bg-white/30 backdrop-blur-sm hover:border-rose-400 transition-colors duration-200">
+                  <div className="space-y-4">
+                    {/* <div className="w-16 h-16 mx-auto bg-gradient-to-r from-rose-400 to-pink-500 rounded-full flex items-center justify-center">
+                      <span className="text-white text-2xl">📷</span>
+                    </div> */}
+                    <div>
+                      <label className="cursor-pointer">
+                        <span className="text-lg font-semibold text-slate-700 hover:text-rose-600 transition-colors">
+                          Click to upload images📷
+                        </span>
+                        <input
+                          type="file"
+                          multiple
+                          accept="image/*"
+                          className="sr-only"
+                          {...register("imageFiles", {
+                            validate: (files) => {
+                              if (!files || files.length === 0) return "Please select at least one image";
+                              if (files.length > 6) return "Maximum 6 images allowed";
+                              return true;
+                            }
+                          })}
+                        />
+                      </label>
+                      <p className="text-sm text-slate-500 mt-2">
+                        Upload 1-6 high-quality images (JPG, PNG, WebP)
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                {errors.imageFiles && (
+                <p className="text-red-500 text-sm font-medium flex items-center space-x-1">
+                  <span>⚠</span>
+                  <span>{errors.imageFiles.message}</span>
+                </p>
+              )}
+              </div>
+            </div>
+
+           
+              <span className="flex justify-center items-center mb-3">
+          <button
+            disabled={isLoading}
+            type="submit"
+            className="bg-blue-600 hover:cursor-pointer text-white p-4 font-bold hover:bg-green-500 text-xl disabled:bg-gray-500"
+          >
+            {isLoading ? "Saving..." : "Save"}
+          </button>
+        </span>
           </div>
         </div>
-      
+      </div>
+    </div>
+    </form>
      
      
 
