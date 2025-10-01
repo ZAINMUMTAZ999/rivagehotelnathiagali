@@ -96,6 +96,21 @@ const deleteJobApi = async (hotelId: string) => {
 
   return await response.json();
 };
+const upadteHotelBYId = async(hotelId: string, hotelFormData: FormData) => {
+  // Now the API implementation can use both parameters correctly:
+  const response = await fetch(`${Base_Url_API}/v2/edit/${hotelId}`, {
+      method: "PUT",
+      body: hotelFormData,
+      credentials: "include",
+  });
+   if (!response.ok) {
+    const errorData = await response.json().catch(() => ({}));
+    throw new Error(errorData.message || "Failed to delete job");
+  }
+
+  return await response.json();
+  
+}
 const AddHotelApi = async (hotelFormData: FormData) => {
   try {
     const response = await fetch(`${Base_Url_API}/v2/addRoom`, {
@@ -602,5 +617,6 @@ export {
   AddBookingApi,
   GetAllBookingsApi,
   EditHotelById,
-  deleteJobApi
+  deleteJobApi,
+  upadteHotelBYId
 };
