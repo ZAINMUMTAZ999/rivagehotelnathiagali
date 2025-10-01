@@ -40,7 +40,7 @@ export default function Dashboard() {
       <div className="w-full max-w-4xl text-center">
         {/* Heading */}
         <h1 className="text-4xl font-bold text-blue-800 mb-20">
-          Rivage Cottage Resort Nathia Gali
+          Arcadian Resort Nathia Gali
         </h1>
         <h2 className="text-3xl underline font-extrabold tracking-widest text-gray-800 mb-8">
           Admin Dashboard
