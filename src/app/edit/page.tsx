@@ -129,7 +129,7 @@ import { useState } from "react";
 import { addHotelTypes } from "../components/AddHotel"; 
 import Pagination from "../components/Pagination";
 import SearchHotelsBar from "../components/searchHotelsBar";
-import { Trash2 } from 'lucide-react'; // ⬅️ Icon for the delete button
+import { Heading2, Trash2 } from 'lucide-react'; // ⬅️ Icon for the delete button
 
 
 export default function EditDashboard() {
@@ -194,12 +194,12 @@ export default function EditDashboard() {
 {/*       <div className=""> */}
         {/* Heading */}
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-xl sm:text-xl font-bold text-gray-900">
-            My Hotels
-          </h1>
+          <Heading2 className="text-xl sm:text-xl font-bold text-gray-900">
+            Edit/Delete Hotels
+          </Heading2>
           <Link
             href="/addroom"
-            className="rounded-md bg-blue-600 px-2 py-1 text-sm font-semibold text-white shadow hover:bg-blue-700 transition"
+            className="rounded-md bg-blue-600 flex justify-center items-center text-sm font-semibold text-white shadow hover:bg-blue-700 transition"
           >
             Add Hotel
           </Link>
