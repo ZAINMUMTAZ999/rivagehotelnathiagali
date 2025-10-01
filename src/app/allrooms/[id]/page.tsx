@@ -78,6 +78,7 @@ const MyHotelsById = () =>
       data: hotel,
       isLoading,
       isError,
+
     } = useQuery<addHotelTypes>({
           queryKey: ["id"],
       queryFn: () => getHotelApiBId(id),
@@ -413,11 +414,11 @@ const MyHotelsById = () =>
             )}
 
             {/* Last Updated */}
-            {/* {hotel?.lastUpdated && (
+            {hotel?.lastUpdated && (
             <div className="mt-8 text-sm text-gray-500 text-right underline">
               Last updated: {new Date(hotel.lastUpdated).toLocaleDateString()}
             </div>
-          )} */}
+          )}
           </div>
         </div>
         {/* <AddReviewById/> */}

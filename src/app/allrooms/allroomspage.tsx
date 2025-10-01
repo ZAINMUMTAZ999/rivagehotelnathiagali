@@ -198,9 +198,15 @@ const searchParams = {
             )}
             <div className="p-5 sm:p-6 flex-grow flex flex-col justify-between">
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 leading-tight truncate">
+                <div className="flex justify-between ">
+
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 leading-tight truncate">
                   {hotel.name}
-                </h2>
+                </h3>
+                <p className="text-lg sm:text-lg font-semibold text-green-500 mb-2 tracking-tighter underline truncate">
+                 {hotel.roomStatus}
+                </p>
+                </div>
                 <p className="text-gray-600 text-sm sm:text-base mb-4 line-clamp-3">
                   {hotel.description}
                 </p>
