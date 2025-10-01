@@ -73,7 +73,7 @@ export default function Dashboard() {
           </Link>
 
           <Link
-            href="/crudrooms"
+            href="/edit"
             className="group block rounded-xl bg-white p-6 shadow-md hover:shadow-lg transition hover:-translate-y-1"
           >
             <p className="text-xl font-semibold text-gray-800 group-hover:text-blue-600">

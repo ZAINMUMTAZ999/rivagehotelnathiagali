@@ -97,6 +97,24 @@ const AddHotelApi = async (hotelFormData: FormData) => {
     throw new Error("Something Went Wrong!");
   }
 };
+const EditHotelById = async (hotelId: string):Promise<addHotelTypes> => {
+  try {
+    const response = await fetch(`${Base_Url_API}/v2/edit/${hotelId}`, {
+ 
+      credentials: "include",
+   
+    });
+
+    if (!response.ok) {
+      throw new Error("Something Went Wrong!");
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.log(error);
+    throw new Error("Something Went Wrong!");
+  }
+};
 const AddHeroImageApi = async (hotelFormData: FormData) => {
   try {
     const response = await fetch(`${Base_Url_API}/v3/addHeroImage`, {
@@ -565,5 +583,6 @@ export {
   getHotelApiBId,
   AddReviewEachHotelById,
   AddBookingApi,
-  GetAllBookingsApi
+  GetAllBookingsApi,
+  EditHotelById
 };
