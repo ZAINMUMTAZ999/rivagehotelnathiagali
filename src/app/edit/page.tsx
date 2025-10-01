@@ -191,15 +191,15 @@ export default function EditDashboard() {
   
   return (
     <main className="min-h-screen bg-gray-50 p-6">
-      <div className=" mx-auto">
+{/*       <div className=""> */}
         {/* Heading */}
         <div className="flex justify-between items-center mb-6">
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
+          <h1 className="text-xl sm:text-xl font-bold text-gray-900">
             My Hotels
           </h1>
           <Link
             href="/addroom"
-            className="rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow hover:bg-blue-700 transition"
+            className="rounded-md bg-blue-600 px-2 py-1 text-sm font-semibold text-white shadow hover:bg-blue-700 transition"
           >
             Add Hotel
           </Link>
@@ -274,7 +274,7 @@ export default function EditDashboard() {
           pages={apiResponse?.pagination?.pages || 1}
           onPageChange={(newPage) => setPage(newPage)}
         />
-      </div>
+{/*       </div> */}
       </div>
     </main>
   );
