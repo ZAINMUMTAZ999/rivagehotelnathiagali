@@ -253,9 +253,9 @@ export default function EditDashboard() {
   <div className="max-w-7xl mx-auto">
     {/* Header Section */}
     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-8">
-      <Heading2 className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">
+      <span className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">
         Edit/Delete Hotels
-      </Heading2>
+      </span>
       <Link
         href="/addroom"
         className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg hover:bg-blue-700 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all duration-200 ease-in-out transform hover:scale-105"
