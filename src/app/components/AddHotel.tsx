@@ -92,7 +92,122 @@ const navigate= useRouter();
   apiMutate(formData);
   });
 const roomStatusOptions = ["Available","Booked","Maintenance"];
+ if(isLoading){
+      return(
+         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+      {/* Header Section Skeleton */}
+      <div className="sticky top-0 z-20 bg-white/70 backdrop-blur-md border-b border-slate-200/40">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
+          <div className="h-6 sm:h-7 bg-gray-200 rounded-lg w-32 animate-pulse"></div>
+          <div className="h-10 bg-gray-200 rounded-xl w-40 animate-pulse"></div>
+        </div>
+      </div>
 
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+        <div className="bg-white/70 backdrop-blur-sm rounded-2xl lg:rounded-3xl shadow-xl border border-white/20 overflow-hidden">
+          <div className="divide-y divide-slate-100">
+            
+            {/* Basic Information Section Skeleton */}
+            <div className="p-6 sm:p-8 lg:p-10">
+              <div className="flex items-center space-x-3 mb-8">
+                <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-lg animate-pulse"></div>
+                <div className="h-7 bg-gray-200 rounded-lg w-48 animate-pulse"></div>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+                {/* Hotel Name Skeleton */}
+                <div className="space-y-2">
+                  <div className="h-5 bg-gray-200 rounded w-32 animate-pulse"></div>
+                  <div className="h-12 bg-gray-100 rounded-xl border border-slate-200 animate-pulse"></div>
+                </div>
+
+                {/* City Skeleton */}
+                <div className="space-y-2">
+                  <div className="h-5 bg-gray-200 rounded w-24 animate-pulse"></div>
+                  <div className="h-12 bg-gray-100 rounded-xl border border-slate-200 animate-pulse"></div>
+                </div>
+
+                {/* Room Status Skeleton */}
+                <div className="space-y-2">
+                  <div className="h-5 bg-gray-200 rounded w-36 animate-pulse"></div>
+                  <div className="h-12 bg-gray-100 rounded-xl border border-slate-200 animate-pulse"></div>
+                </div>
+
+                {/* Description Skeleton - Full Width */}
+                <div className="lg:col-span-2 space-y-2">
+                  <div className="h-5 bg-gray-200 rounded w-28 animate-pulse"></div>
+                  <div className="h-28 bg-gray-100 rounded-xl border border-slate-200 animate-pulse"></div>
+                </div>
+
+                {/* Price Skeleton */}
+                <div className="space-y-2">
+                  <div className="h-5 bg-gray-200 rounded w-40 animate-pulse"></div>
+                  <div className="h-12 bg-gray-100 rounded-xl border border-slate-200 animate-pulse"></div>
+                </div>
+              </div>
+            </div>
+
+            {/* Hotel Type Section Skeleton */}
+            <div className="p-6 sm:p-8 lg:p-10">
+              <div className="flex items-center space-x-3 mb-8">
+                <div className="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg animate-pulse"></div>
+                <div className="h-7 bg-gray-200 rounded-lg w-40 animate-pulse"></div>
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
+                  <div key={item} className="p-4 rounded-xl border-2 border-slate-200 bg-white/50 backdrop-blur-sm animate-pulse">
+                    <div className="h-5 bg-gray-200 rounded w-full"></div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Facilities Section Skeleton */}
+            <div className="p-6 sm:p-8 lg:p-10">
+              <div className="flex items-center space-x-3 mb-8">
+                <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg animate-pulse"></div>
+                <div className="h-7 bg-gray-200 rounded-lg w-56 animate-pulse"></div>
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map((item) => (
+                  <div key={item} className="p-4 rounded-xl border-2 border-slate-200 bg-white/50 backdrop-blur-sm animate-pulse">
+                    <div className="h-5 bg-gray-200 rounded w-full"></div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Images Section Skeleton */}
+            <div className="p-6 sm:p-8 lg:p-10">
+              <div className="flex items-center space-x-3 mb-8">
+                <div className="w-8 h-8 bg-gradient-to-r from-pink-500 to-rose-500 rounded-lg animate-pulse"></div>
+                <div className="h-7 bg-gray-200 rounded-lg w-44 animate-pulse"></div>
+              </div>
+
+              <div className="space-y-4">
+                <div className="border-2 border-dashed border-slate-300 rounded-xl p-8 text-center bg-white/30 backdrop-blur-sm">
+                  <div className="space-y-4 flex flex-col items-center">
+                    <div className="w-16 h-16 bg-gray-200 rounded-full animate-pulse"></div>
+                    <div className="h-6 bg-gray-200 rounded w-48 animate-pulse"></div>
+                    <div className="h-4 bg-gray-200 rounded w-64 animate-pulse"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Submit Button Skeleton */}
+            <div className="flex justify-center items-center p-6 sm:p-8">
+              <div className="h-14 bg-gray-200 rounded-lg w-40 animate-pulse"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      )
+    }
   if (!isAdmin) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
@@ -107,6 +222,7 @@ const roomStatusOptions = ["Available","Booked","Maintenance"];
         </div>
       </div>
     );
+   
   }
   return (
        <form  onSubmit={onSubmit} >
