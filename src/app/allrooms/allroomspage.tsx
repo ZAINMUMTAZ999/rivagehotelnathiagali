@@ -226,7 +226,7 @@ const searchParams = {
                  
                   <div className="flex items-center text-gray-700 font-semibold">
                     <BiMoney className="mr-2 text-purple-500 flex-shrink-0" />
-                    <span>PKR : {hotel.pricePerNight} / night</span>
+                    <span>From PKR : {hotel.pricePerNight} / night</span>
                   </div>
                 </div>
 

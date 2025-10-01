@@ -217,7 +217,7 @@ export default function EditDashboard() {
               <h2 className="text-xl font-semibold text-gray-800 mb-2">
                 {hotel.name}
               </h2>
-              <p className="text-gray-600 mb-4">{hotel.description}</p>
+              <p className="text-gray-600 mb-4"> Hotel Description: {hotel.description}</p>
 
               {/* Grid Info */}
               <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-3 mb-4 text-sm text-gray-700">
