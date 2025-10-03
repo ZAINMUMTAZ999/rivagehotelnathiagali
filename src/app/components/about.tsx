@@ -86,7 +86,7 @@ const AboutUs = () => {
       <section className="bg-white py-16 md:py-24">
         <div className="container mx-auto px-4 max-w-5xl text-center">
           <motion.h2 className="text-3xl md:text-4xl font-bold text-indigo-800 mb-10" >
-            Where Nathia Gali Charm <span className="text-emerald-600">Comes Alive</span>
+            Where hotel Charm <span className="text-emerald-600">Comes Alive</span>
           </motion.h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {three && (
@@ -103,7 +103,7 @@ const AboutUs = () => {
             )}
             <motion.div className="order-1 lg:order-2 text-center lg:text-left">
               <p className="text-lg md:text-xl leading-relaxed text-gray-700 mb-4">
-                More than just a location, Nathia Gali is an integral part of your Rivage Cottage Resort Nathia Gali experience. We celebrate its misty mornings, the whispering pines, and the invigorating mountain air. Our architecture and ambiance are designed to seamlessly blend with the natural surroundings, offering breathtaking views from every window.
+                More than just a location, Islamabad is an integral part of your hotel experience. We celebrate its misty mornings, the whispering pines, and the invigorating mountain air. Our architecture and ambiance are designed to seamlessly blend with the natural surroundings, offering breathtaking views from every window.
               </p>
               <p className="text-md md:text-lg leading-relaxed text-gray-600">
                 Immerse yourself in the local culture, explore scenic trails, or simply unwind on our terraces, soaking in the serene beauty that only Nathi Gali can offer. At Rivage Cottage Resort, Nathia Gali isn&lsquo;t just outside your door; it&lsquo;s part of your stay.
@@ -116,7 +116,7 @@ const AboutUs = () => {
       {/* Our Promise: What Makes Us Unique */}
       <section className="container mx-auto px-4 py-16 md:py-24">
         <motion.h2 className="text-3xl md:text-4xl font-bold text-center text-indigo-800 mb-12">
-          The <span className="text-emerald-600">Rivage Cottage Resort</span> Promise
+          The <span className="text-emerald-600">Hotel</span> Promise
         </motion.h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
            <motion.div className="bg-white p-8 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300 text-center border-t-4 border-indigo-500" 

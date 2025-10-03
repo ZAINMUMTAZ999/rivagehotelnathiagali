@@ -100,7 +100,7 @@ register,
                 <Phone className="w-6 h-6" />
               </div>
               <span className="text-gray-700 font-medium text-base sm:text-lg group-hover:text-pink-600 transition-colors">
-               +92 328 9330350
+               +92 324 6288217
               </span>
             </a>
 
@@ -110,7 +110,7 @@ register,
                 <Mail className="w-6 h-6" />
               </div>
               <span className="text-gray-700 font-medium text-base sm:text-lg group-hover:text-purple-600 transition-colors">
-   awaissardar944@gmail.com
+   mzainmumtaz99@gmail.com
               </span>
             </a>
 
@@ -119,7 +119,7 @@ register,
               <div className="w-12 h-12 bg-blue-100 text-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
                 <MapPin className="w-6 h-6" />
               </div>
-              <span className="text-gray-700 font-medium text-base sm:text-lg">Upper Nathia Gali Rd, Nathia Gali, 22280, Pakistan</span>
+              <span className="text-gray-700 font-medium text-base sm:text-lg">Islamabad, Pakistan</span>
             </div>
           </div>
         </div>

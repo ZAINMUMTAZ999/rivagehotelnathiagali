@@ -40,7 +40,7 @@ export default function Dashboard() {
       <div className="w-full max-w-4xl text-center">
         {/* Heading */}
         <h1 className="text-4xl font-bold text-blue-800 mb-20">
-          Arcadian Resort Nathia Gali
+          HotelWebApp
         </h1>
         <h2 className="text-3xl underline font-extrabold tracking-widest text-gray-800 mb-8">
           Admin Dashboard
@@ -91,7 +91,7 @@ export default function Dashboard() {
               Bookings📖
             </p>
             <p className="mt-2 text-gray-500 text-sm">
-              ArcadianResort Bookings.
+              Your Bookings.
             </p>
           </Link>
           <Link
@@ -102,7 +102,7 @@ export default function Dashboard() {
               All Contacts👥
             </p>
             <p className="mt-2 text-gray-500 text-sm">
-              ArcadianResort all listed Contacts.
+               All listed Contacts.
             </p>
           </Link>
         </div>
