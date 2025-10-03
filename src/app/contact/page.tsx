@@ -3,13 +3,13 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: {
-    default: "Contact ArcadianResort – Luxury Hotel in Nathia Gali",
-    template: "%s | ArcadianResort"
+    default: "Contact Hotel – Luxury Hotel in Nathia Gali",
+    template: "%s | Hotel"
   },
   description: 
-    "Get in touch with ArcadianResort in Nathia Gali for bookings, inquiries, and reservations. Enjoy luxury stays, breathtaking mountain views, and exceptional hospitality. Call +92 328 9330350.",
+    "Get in touch with Hotel in Nathia Gali for bookings, inquiries, and reservations. Enjoy luxury stays, breathtaking mountain views, and exceptional hospitality. Call +92 328 9330350.",
   keywords: [
-    "ArcadianResort contact Nathia Gali",
+    "Hotel contact Nathia Gali",
     "hotel bookings Nathia Gali",
     "luxury hotel Nathia Gali",
     "resort reservations Pakistan",
@@ -23,22 +23,22 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contact ArcadianResort – Luxury Hotel in Nathia Gali",
     description: 
-      "Reach out to ArcadianResort in Nathia Gali for reservations, inquiries, and more. Experience comfort, nature, and top-class hospitality.",
-    url: "https://arcadianresort.com/contact",
+      "Reach out to Hotel in Nathia Gali for reservations, inquiries, and more. Experience comfort, nature, and top-class hospitality.",
+    // url: "https://arcadianresort.com/contact",
     type: "website",
-    siteName: "ArcadianResort",
+    siteName: "Hotel",
     images: [
       {
         url: "/contact-og-image.jpg", // add an image in /public
         width: 1200,
         height: 630,
-        alt: "ArcadianResort hotel contact page with mountain view"
+        alt: "Hotel hotel contact page with mountain view"
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact ArcadianResort – Luxury Hotel in Nathia Gali",
+    title: "Contact Hotel – Luxury Hotel in Nathia Gali",
     description: 
       "Contact ArcadianResort in Nathia Gali for bookings, inquiries, and reservations. Enjoy luxury stays and stunning mountain views.",
     images: ["/contact-twitter-image.jpg"]
@@ -47,9 +47,9 @@ export const metadata: Metadata = {
     index: true,
     follow: true
   },
-  alternates: {
-    canonical: "https://arcadianresort.com/contact"
-  },
+  // alternates: {
+  //   canonical: "https://arcadianresort.com/contact"
+  // },
   other: {
     'application/ld+json': JSON.stringify([
       {

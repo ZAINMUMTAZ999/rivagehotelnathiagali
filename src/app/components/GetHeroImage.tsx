@@ -74,7 +74,7 @@ export default function GetHeroImageHomepage() {
       text-4xl sm:text-xl md:text-6xl lg:text-7xl
       leading-snug
     ">
-      Arcadian Resort Nathiagali
+      HotelWebApp Islamabad
     </h1>
 
     {/* Subheading / Tagline */}

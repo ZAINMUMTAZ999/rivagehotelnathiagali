@@ -82,7 +82,7 @@ const Footer = () => {
       >
         <Phone size={16} className="mr-2 flex-shrink-0 text-gray-600 group-hover:text-white transition-colors" />
         <span className="group-hover:underline group-hover:text-white transition-colors">
-          +92328-9330350
+          +92324-6288217
         </span>
       </a>
     </div>
@@ -91,7 +91,7 @@ const Footer = () => {
 
       {/* Bothrefm Line */}
       <div className="mt-12  border-purple-700 pt-6 text-center text-sm text-white">
-        &copy; {new Date().getFullYear()} ArcadianResort. All rights reserved.
+        &copy; {new Date().getFullYear()} HotelWebApp. All rights reserved.
       </div>
     </footer>
   );

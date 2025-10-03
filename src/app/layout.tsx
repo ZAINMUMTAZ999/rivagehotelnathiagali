@@ -7,8 +7,8 @@ import Providers from "./utils/page";
 
 export const metadata: Metadata = {
   title: {
-    default: "ArcadianResort - Hotel in Nathia Gali",
-    template: "%s | ArcadianResort",
+    default: "HotelWebApp -  in Islamabad",
+    template: "%s | SekaiSpace",
   
  
   },
@@ -16,13 +16,13 @@ export const metadata: Metadata = {
     icons: {
     icon: "/logo.svg", 
   },
-  description: "ArcadianResort Luxury Hotel in Nathia Gali to stay and enjoy the nature scenory.",
-  metadataBase: new URL("https://arcadianresort.com"), 
+  description: "Hotel Luxury Hotel in Islamabd to stay and enjoy the nature scenory.",
+  // metadataBase: new URL("https://.com"), 
   openGraph: {
     type: "website",
-    siteName: "ArcadianResort",
-    title: "ArcadianResort - Hotel in Nathia Gali",
-    description: "Hotel in Nathia Gali ArcadianResort.Northern Areas Hotel",
+    siteName: "hotel",
+    title: "hotel - Hotel in Nathia Gali",
+    description: "Hotel in Northern Areas Hotel",
   },
   robots: {
     index: true,
