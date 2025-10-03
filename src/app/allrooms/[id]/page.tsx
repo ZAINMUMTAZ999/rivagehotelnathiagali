@@ -72,7 +72,7 @@ const MyHotelsById = () =>
      console.log("idParams", id);
 
   const whatsappUrl = `https://wa.me/923246288217?text=${encodeURIComponent(
-    `Hello! I'm interested in this hotel: https://rivagehotelnathiagali.vercel.app/allrooms/${id}`
+    `Hello! I'm interested in this hotel: https://demosekaispacehotelapp.vercel.app/allrooms/${id}`
   )}`;
     const {
       data: hotel,
