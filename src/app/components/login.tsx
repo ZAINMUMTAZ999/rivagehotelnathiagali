@@ -69,6 +69,7 @@ const togglePasswordVisibility = () => {
           Email:
           <input
             type="email"
+            defaultValue="demosekaisapce@gmail.com"
             className="border rounded w-full py-1 px-2 font-normal"
             {...register("email", { required: "Email is required" })}
           />
@@ -83,6 +84,7 @@ const togglePasswordVisibility = () => {
           Password:
           <input
             type={passwordType}
+            defaultValue="ASNG03333!"
             className="border rounded w-full py-1 px-2 font-normal"
             {...register("password", {
               minLength: {

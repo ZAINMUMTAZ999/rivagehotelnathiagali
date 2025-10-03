@@ -37,7 +37,7 @@ const Header = () => {
             priority
           />
           <span className="text-lg sm:text-xl font-bold text-white">
-            <b>ArcadianResort</b>
+            <b>HotelWebApp</b>
           </span>
         </Link>
 
@@ -135,7 +135,7 @@ const Header = () => {
             priority
           />
           <span className="text-sm sm:text-sm font-bold text-white">
-            <b>ArcadianResort</b>
+            <b>HotelWebApp</b>
           </span>
         </Link>
             </div>
