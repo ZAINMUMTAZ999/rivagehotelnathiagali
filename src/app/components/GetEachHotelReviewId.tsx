@@ -24,14 +24,7 @@ console.log("HotelReviewById",reviewsData);
 
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // const scroll = (direction: "left" | "right") => {
-  //   if (containerRef.current) {
-  //     containerRef.current.scrollBy({
-  //       left: direction === "left" ? -320 : 320,
-  //       behavior: "smooth",
-  //     });
-  //   }
-  // };
+
 
   const MAX_MESSAGE_LENGTH = 120;
 
