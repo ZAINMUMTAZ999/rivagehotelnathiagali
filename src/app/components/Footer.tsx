@@ -12,7 +12,7 @@ const Footer = () => {
 
             <span className="text-xl sm:text-xl font-bold text-white">
                 <b>
-                  ArcadianResort
+                  HotelWebApp
                   </b>
               
               </span>
@@ -34,7 +34,7 @@ const Footer = () => {
 
         {/* Company */}
         <div>
-          <h3 className="text-lg font-semibold mb-4">ArcadianResort</h3>
+          <h3 className="text-lg font-semibold mb-4">HotelWebApp</h3>
           <ul className="space-y-2 text-sm text-purple-100 underline">
             <li><Link href="/about" className="hover:text-white">About Us</Link></li>
             {/* <li><Link href="/allBlogs" className="hover:text-white">Blogs</Link></li> */}
@@ -70,7 +70,7 @@ const Footer = () => {
   href="mailhref:mzainmumtaz99@gmail.com"
   className="group-hover:underline text-white group-hover:text-white transition-colors underline  hover:text-red-400"
 >
-  awaissardar944@gmail.com
+  mzainmumtaz99@gmail.com
 </a>
 
       </span>
