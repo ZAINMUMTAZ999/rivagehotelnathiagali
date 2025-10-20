@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { User, Phone, DollarSign, Clock, Calendar, Search, MoreVertical, Trash2, Edit, Eye, Loader2, AlertCircle } from "lucide-react";
+import { User, Phone, DollarSign, Clock, Calendar, MoreVertical,  AlertCircle } from "lucide-react";
 import Link from "next/link";
 import { AddBookingTypes, GetAllBookingsApi } from "../../Api";
 import { useQuery } from "@tanstack/react-query";
@@ -26,7 +26,7 @@ export default function Bookings() {
     searchParams.phoneNumber,
     searchParams.page,
   ];
-  const { data: bookingsData, isLoading, isError, error } = useQuery({
+  const { data: bookingsData, isLoading } = useQuery({
     queryKey: queryKey,
     queryFn:  () => GetAllBookingsApi(searchParams),
   });
