@@ -77,12 +77,12 @@ export type addReviewTypes = {
 };
 
 // const Base_Url_API = "http://localhost:8000";
-const Base_Url_API = "https://68f678bd8aeddedb9b2323c8--voluble-kringle-0e3364.netlify.app";
-const API_PREFIX = "/api"; // <-- Required prefix confirmed by Postman success
+const Base_Url_API = "https://68f678bd8aeddedb9b2323c8--voluble-kringle-0e3364.netlify.app/api";
+// const API_PREFIX = "/api"; // <-- Required prefix confirmed by Postman success
 
 const deleteJobApi = async (hotelId: string) => {
   // The final constructed URL is now correct: ...app/v2/delete/hotelId
-  const response = await fetch(`${Base_Url_API}${API_PREFIX}/delete/${hotelId}`, {
+  const response = await fetch(`${Base_Url_API}/delete/${hotelId}`, {
     method: "DELETE",
     credentials: "include",
     headers: {
