@@ -77,8 +77,8 @@ export type addReviewTypes = {
 };
 
 // const Base_Url_API = "http://localhost:8000";
-const Base_Url_API = "https://srivagehotel-new.up.railway.app";
-const API_PREFIX = "/v2"; // <-- Required prefix confirmed by Postman success
+const Base_Url_API = "https://68f678bd8aeddedb9b2323c8--voluble-kringle-0e3364.netlify.app";
+const API_PREFIX = "/api"; // <-- Required prefix confirmed by Postman success
 
 const deleteJobApi = async (hotelId: string) => {
   // The final constructed URL is now correct: ...app/v2/delete/hotelId
