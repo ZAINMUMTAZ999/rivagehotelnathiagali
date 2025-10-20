@@ -31,18 +31,7 @@ export default function Bookings() {
     queryFn:  () => GetAllBookingsApi(searchParams),
   });
   const data = bookingsData?.data;
-//   console.log("booking Data",data)
-//   const [searchTerm, setSearchTerm] = useState("");
-//   const [filterStatus, setFilterStatus] = useState<string>("all");
 
-  // Filter bookings based on search
-//   const filteredBookings = bookingsData?.filter(booking => {
-//     const matchesSearch = booking.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-//                          booking.phoneNumber.includes(searchTerm);
-//     return matchesSearch;
-//   }) || [];
-
-  // Format date helper
   const formatDate = (date: Date) => {
     return new Date(date).toLocaleDateString('en-US', {
       year: 'numeric',
