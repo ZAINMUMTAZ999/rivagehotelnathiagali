@@ -15,42 +15,9 @@ export const metadata: Metadata = {
     "client login ArcadianResort",
     "manage bookings Nathia Gali",
     "luxury hotel account access",
-    "reservation management ArcadianResort",
-    "secure login Nathia Gali hotel"
-  ],
-  icons: {
-    icon: "/logo.svg"
-  },
-  openGraph: {
-    title: "Login – ArcadianResort Nathia Gali",
-    description: 
-      "Access your ArcadianResort account to manage bookings, view reservations, and enjoy a seamless hotel experience in Nathia Gali.",
-    url: "https://arcadianresort.com/login",
-    type: "website",
-    siteName: "ArcadianResort",
-    images: [
-      {
-        url: "/login-og-image.jpg", // optional image in /public
-        width: 1200,
-        height: 630,
-        alt: "ArcadianResort login page"
-      }
-    ]
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Login – ArcadianResort Nathia Gali",
-    description: 
-      "Securely log in to your ArcadianResort account to manage your bookings and reservations at our luxury hotel in Nathia Gali.",
-    images: ["/login-twitter-image.jpg"]
-  },
-  robots: {
-    index: false, // usually login pages are not indexed
-    follow: true
-  },
-  alternates: {
-    canonical: "https://arcadianresort.com/login"
-  }
+    "reservation management ArcadianResort"
+    // "secure login Nathia Gali hotel"
+  ]
 };
 
 
