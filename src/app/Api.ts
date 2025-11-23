@@ -77,7 +77,8 @@ export type addReviewTypes = {
 };
 
 // const Base_Url_API = "http://localhost:8000";
-const Base_Url_API = "https://68f6f5efa6f752d8731aaae9--lustrous-zabaione-c106a8.netlify.app/api";
+// const Base_Url_API = "https://68f6f5efa6f752d8731aaae9--lustrous-zabaione-c106a8.netlify.app/api";
+const Base_Url_API = "https://6922ba3af5a9c242d2818743--lustrous-zabaione-c106a8.netlify.app/api";
 // const API_PREFIX = "/api"; // <-- Required prefix confirmed by Postman success
 
 const deleteJobApi = async (hotelId: string) => {
