@@ -71,7 +71,7 @@ const MyHotelsById = () =>
     const { id } = useParams<{ id: string }>();
      console.log("idParams", id);
 
-  const whatsappUrl = `https://wa.me/923246288217?text=${encodeURIComponent(
+  const whatsappUrl = `https://wa.me/923459280907?text=${encodeURIComponent(
     `Hello! I'm interested in this hotel: https://demosekaispacehotelapp.vercel.app/allrooms/${id}`
   )}`;
     const {
