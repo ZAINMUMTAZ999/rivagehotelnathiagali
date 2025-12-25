@@ -78,7 +78,6 @@ const Base_Url_API = "https://694d4889fa81b7e9329b6455--tubular-cocada-88adfb.ne
 
 
 const deleteJobApi = async (hotelId: string) => {
-  // The final constructed URL is now correct: ...app/v2/delete/hotelId
   const response = await fetch(`${Base_Url_API}/delete/${hotelId}`, {
     method: "DELETE",
     credentials: "include",
