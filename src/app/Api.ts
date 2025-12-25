@@ -77,44 +77,12 @@ export type addReviewTypes = {
 };
 
 // const Base_Url_API = "http://localhost:8000";
-// const Base_Url_API = "https://68f6f5efa6f752d8731aaae9--lustrous-zabaione-c106a8.netlify.app/api";
-const Base_Url_API = "https://6922ba3af5a9c242d2818743--lustrous-zabaione-c106a8.netlify.app/api";
-// const API_PREFIX = "/api"; // <-- Required prefix confirmed by Postman success
 
-const deleteJobApi = async (hotelId: string) => {
-  // The final constructed URL is now correct: ...app/v2/delete/hotelId
-  const response = await fetch(`${Base_Url_API}/delete/${hotelId}`, {
-    method: "DELETE",
-    credentials: "include",
-    headers: {
-      "Content-Type": "application/json"
-    }
-  });
+const Base_Url_API = "https://694d4889fa81b7e9329b6455--tubular-cocada-88adfb.netlify.app/api";
 
-  if (!response.ok) {
-    const errorData = await response.json().catch(() => ({}));
-    throw new Error(errorData.message || "Failed to delete job");
-  }
 
-  return await response.json();
-};
-// const deleteJobApi = async (hotelId: string) => {
-//   const response = await fetch(`${Base_Url_API}/delete/${hotelId}`, {
-//     method: "DELETE",
-//     credentials: "include",
-//     headers: {
-//       "Content-Type": "application/json"
-//     }
-//     // No body needed for simple deletion by ID
-//   });
 
-//   if (!response.ok) {
-//     const errorData = await response.json().catch(() => ({}));
-//     throw new Error(errorData.message || "Failed to delete job");
-//   }
 
-//   return await response.json();
-// };
 const upadteHotelBYId = async(hotelId: string, hotelFormData: FormData) => {
   // Now the API implementation can use both parameters correctly:
   const response = await fetch(`${Base_Url_API}/v2/edit/${hotelId}`, {
@@ -636,6 +604,5 @@ export {
   AddBookingApi,
   GetAllBookingsApi,
   EditHotelById,
-  deleteJobApi,
   upadteHotelBYId
 };
