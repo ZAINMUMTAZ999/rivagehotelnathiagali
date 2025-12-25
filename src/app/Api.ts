@@ -70,18 +70,30 @@ export type addReviewTypes = {
   _id: string;
 
   name: string;
-  // email: string;
-  // phoneNumber: number;
-  // interestedIn: string;
   message: string;
 };
 
 // const Base_Url_API = "http://localhost:8000";
-
 const Base_Url_API = "https://694d4889fa81b7e9329b6455--tubular-cocada-88adfb.netlify.app/api";
 
 
+const deleteJobApi = async (hotelId: string) => {
+  // The final constructed URL is now correct: ...app/v2/delete/hotelId
+  const response = await fetch(`${Base_Url_API}/delete/${hotelId}`, {
+    method: "DELETE",
+    credentials: "include",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  });
 
+  if (!response.ok) {
+    const errorData = await response.json().catch(() => ({}));
+    throw new Error(errorData.message || "Failed to delete job");
+  }
+
+  return await response.json();
+};
 
 const upadteHotelBYId = async(hotelId: string, hotelFormData: FormData) => {
   // Now the API implementation can use both parameters correctly:
@@ -604,5 +616,6 @@ export {
   AddBookingApi,
   GetAllBookingsApi,
   EditHotelById,
+  deleteJobApi,
   upadteHotelBYId
 };
