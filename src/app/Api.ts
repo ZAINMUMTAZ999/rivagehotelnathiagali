@@ -95,7 +95,7 @@ const deleteJobApi = async (hotelId: string) => {
 };
 
 const upadteHotelBYId = async(hotelId: string, hotelFormData: FormData) => {
-  // Now the API implementation can use both parameters correctly:
+ 
   const response = await fetch(`${Base_Url_API}/v2/edit/${hotelId}`, {
       method: "PUT",
       body: hotelFormData,
