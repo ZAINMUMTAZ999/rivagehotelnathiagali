@@ -48,7 +48,7 @@ const togglePasswordVisibility = () => {
  
       await queryClient.invalidateQueries({ queryKey: ["validateToken"] });
       
-      router.push("/");
+      router.push("/dashboard");
     },
     onError: (error:Error) => {
       showToast({ type: "ERROR", message: error?.message });
@@ -156,7 +156,7 @@ const togglePasswordVisibility = () => {
       type="submit"
       className="w-full rounded-md bg-blue-600 px-4 py-2 font-medium
                  text-white transition hover:bg-blue-700 focus:outline-none focus:ring-2
-                 focus:ring-blue-400"
+                 focus:ring-blue-400 hover:cursor-pointer"
     >
       Submit
     </button>
