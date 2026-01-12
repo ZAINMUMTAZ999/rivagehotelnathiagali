@@ -5,6 +5,8 @@ import { AppNotifyProvider } from "./context/AppNotify";
 import { SearchContextProvider } from "./context/SearchContext";
 import Providers from "./utils/page";
 import PwaInstallPrompt from "./components/PwaInstallPrompt";
+
+
 export const metadata: Metadata = {
   title: "HotelWebApp - in Islamabad",
   description: "Luxury Hotel in Islamabad to stay and enjoy the nature scenery.",
@@ -17,7 +19,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>
+      <body style={{ touchAction: "pan-x pan-y" }}> {/* prevents pinch zoom on iOS */}
         <Providers>
           <SearchContextProvider>
             <AppNotifyProvider>
