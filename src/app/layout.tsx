@@ -5,32 +5,18 @@ import { AppNotifyProvider } from "./context/AppNotify";
 import { SearchContextProvider } from "./context/SearchContext";
 import Providers from "./utils/page";
 import PwaInstallPrompt from "./components/PwaInstallPrompt";
-
 export const metadata: Metadata = {
-  title: {
-    default: "HotelWebApp - in Islamabad",
-    template: "%s | SekaiSpace",
-  },
+  title: "HotelWebApp - in Islamabad",
   description: "Luxury Hotel in Islamabad to stay and enjoy the nature scenery.",
-  
-  // Existing icons
-  icons: {
-    icon: "/logo.svg",
-  },
-
-  // Add these two lines for PWA
-  manifest: "/manifest.json",      // link to your manifest
-  themeColor: "#000000",           // matches your manifest.json
+  icons: { icon: "/logo.svg" },
+  manifest: "/manifest.json",
+  themeColor: "#000000",
+  viewport: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
 };
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-        />
-      </head>
       <body>
         <Providers>
           <SearchContextProvider>
