@@ -7,16 +7,19 @@ import Providers from "./utils/page";
 
 export const metadata: Metadata = {
   title: {
-    default: "HotelWebApp -  in Islamabad",
+    default: "HotelWebApp - in Islamabad",
     template: "%s | SekaiSpace",
+  },
+  description: "Luxury Hotel in Islamabad to stay and enjoy the nature scenery.",
   
- 
+  // Existing icons
+  icons: {
+    icon: "/logo.svg",
   },
 
-    icons: {
-    icon: "/logo.svg", 
-  },
-  description: "Hotel Luxury Hotel in Islamabd to stay and enjoy the nature scenory."
+  // Add these two lines for PWA
+  manifest: "/manifest.json",      // link to your manifest
+  themeColor: "#000000",           // matches your manifest.json
 };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
