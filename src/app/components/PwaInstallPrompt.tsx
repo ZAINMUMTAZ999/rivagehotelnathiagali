@@ -1,13 +1,14 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useEffect, useState } from "react";
 
 export default function PwaInstallPrompt() {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
   const [showBanner, setShowBanner] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handler = (e: any) => {
       e.preventDefault();
       setDeferredPrompt(e);
@@ -36,9 +37,9 @@ export default function PwaInstallPrompt() {
   if (!showBanner) return null;
 
   return (
-    <div className="fixed bottom-5 right-5 bg-gray-500 p-4 shadow-xl rounded-xl flex items-center gap-3 z-50">
-      <span className="font-stretch-normal text-white font-serif">
-        Install Application for faster access!
+    <div className="fixed bottom-5 right-5 bg-white p-4 shadow-xl rounded-xl flex items-center gap-3 z-50">
+      <span className="font-medium text-gray-800">
+        Install HotelWebApp for faster access!
       </span>
       <button
         onClick={handleInstall}
