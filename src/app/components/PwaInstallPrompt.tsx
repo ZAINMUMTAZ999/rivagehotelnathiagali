@@ -37,11 +37,11 @@ export default function PwaInstallPrompt() {
   if (!showBanner) return null;
 
   return (
-    <div className=" absolute top-20   z-30 bg-gray-800 text-white p-3 shadow-lg rounded-3xl flex  justify-end items-center gap-3 animate-slide-in">
+    <div className=" absolute bottom-6 left-6   z-30 bg-gray-800 text-white p-3 shadow-lg rounded-3xl flex items-center gap-3 animate-slide-in">
       <span className="font-medium">Install APP!</span>
       <button
         onClick={handleInstall}
-        className="px-4 font-serif py-1 bg-blue-600 rounded-lg hover:bg-blue-700 hover:cursor-pointer transition"
+        className="px-4 font-serif py-1 bg-blue-600 rounded-2xl hover:bg-blue-700 hover:cursor-pointer transition"
       >
         Install
       </button>
