@@ -19,7 +19,7 @@ const WhatsAppLinkButton: React.FC<WhatsAppLinkButtonProps> = ({
 
   return (
     // hidden on md+ screens, visible only on small devices
-    <div className="fixed bottom-6 right-6 z-50 md:hidden">
+    <div className="fixed bottom-4 right-5 z-30 md:hidden">
       <div className="relative group">
         {/* Floating Action Button */}
         <button
