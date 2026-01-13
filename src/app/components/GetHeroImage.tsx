@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { addHeroImageTypes, heroImageApi } from "../Api";
 import WhatsAppLinkButton from "./WA";
 import Link from "next/link";
+import PwaInstallPrompt from "./PwaInstallPrompt";
 // import { Button } from "./ui/button";
 
 export default function GetHeroImageHomepage() {
@@ -98,6 +99,7 @@ export default function GetHeroImageHomepage() {
       </button>
     </Link>
 
+        <PwaInstallPrompt />
     {/* WhatsApp floating button */}
     <div className="fixed bottom-6 right-6 z-50">
       <WhatsAppLinkButton
