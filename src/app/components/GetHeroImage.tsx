@@ -104,7 +104,7 @@ export default function GetHeroImageHomepage() {
     <div className="fixed bottom-4 right-6 z-30">
       <WhatsAppLinkButton
         phoneNumber="923459280907"
-        message="Book your resort stay—message us!"s
+        message="Book your resort stay—message us!"
       />
     </div>
   </div>
