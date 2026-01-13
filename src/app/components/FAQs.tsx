@@ -37,7 +37,7 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="w-full bg-gray-50 py-12 px-4">
+    <section className="max-w-7xl bg-gray-50 py-12 px-4 hover:cursor-pointer">
       <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
         Frequently Asked Questions
       </h2>
