@@ -45,11 +45,11 @@ export default function FAQSection() {
         {faqs.map((faq, index) => (
           <div
             key={index}
-            className="border border-gray-300 rounded-lg shadow-sm bg-white cursor-pointer hover:cursor-pointer"
+            className="border border-gray-300 rounded-lg shadow-sm bg-white "
           >
             <button
               onClick={() => toggleFAQ(index)}
-              className="w-full flex justify-between items-center px-6 py-4 text-left font-medium text-gray-800 hover:bg-gray-100"
+              className="w-full flex justify-between items-center cursor-pointer hover:cursor-pointer px-6 py-4 text-left font-medium text-gray-800 hover:bg-gray-100"
             >
               {faq.question}
               <span className="text-xl">{openIndex === index ? "-" : "+"}</span>
