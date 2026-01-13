@@ -37,11 +37,11 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="max-w-7xl bg-gray-50 py-12 px-4 hover:cursor-pointer">
+    <section className="w-full bg-gray-50 py-12 px-4">
       <h2 className="text-3xl font-bold text-center mb-8 text-gray-800">
         Frequently Asked Questions
       </h2>
-      <div className="space-y-4">
+      <div className="w-full space-y-4">
         {faqs.map((faq, index) => (
           <div
             key={index}
@@ -49,7 +49,7 @@ export default function FAQSection() {
           >
             <button
               onClick={() => toggleFAQ(index)}
-              className=" flex justify-between items-center px-6 py-4 text-left font-medium text-gray-800 hover:bg-gray-100"
+              className="w-full flex justify-between items-center px-6 py-4 text-left font-medium text-gray-800 hover:bg-gray-100"
             >
               {faq.question}
               <span className="text-xl">{openIndex === index ? "-" : "+"}</span>
