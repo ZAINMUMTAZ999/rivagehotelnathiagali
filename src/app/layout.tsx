@@ -5,6 +5,7 @@ import { AppNotifyProvider } from "./context/AppNotify";
 import { SearchContextProvider } from "./context/SearchContext";
 import Providers from "./utils/page";
 import PwaInstallPrompt from "./components/PwaInstallPrompt";
+// import PwaInstallPrompt from "./components/PwaInstallPrompt";
 
 
 export const metadata: Metadata = {

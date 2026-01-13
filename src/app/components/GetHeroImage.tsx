@@ -5,18 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { addHeroImageTypes, heroImageApi } from "../Api";
 import WhatsAppLinkButton from "./WA";
 import Link from "next/link";
-import PwaInstallPrompt from "./PwaInstallPrompt";
-import { Metadata } from "next";
 // import { Button } from "./ui/button";
-
-export const metadata: Metadata = {
-  title: "HotelWebApp - in Islamabad",
-  description: "Luxury Hotel in Islamabad to stay and enjoy the nature scenery.",
-  icons: { icon: "/logo.svg" },
-  manifest: "/manifest.json",
-  themeColor: "#000000",
-  viewport: "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-}
 
 export default function GetHeroImageHomepage() {
   const { data, isLoading, isError, error } = useQuery<
@@ -64,8 +53,6 @@ export default function GetHeroImageHomepage() {
 
   return (
    <div className="relative w-full h-screen">
-    
-            <PwaInstallPrompt />
   <Image
     src={img}
     alt="ArcadianResort"
