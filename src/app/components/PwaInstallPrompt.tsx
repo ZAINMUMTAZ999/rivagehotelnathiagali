@@ -7,6 +7,7 @@ export default function PwaInstallPrompt() {
   const [showBanner, setShowBanner] = useState(false);
 
   useEffect(() => {
+    // Listen for PWA install prompt
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handler = (e: any) => {
       e.preventDefault();
@@ -36,16 +37,22 @@ export default function PwaInstallPrompt() {
   if (!showBanner) return null;
 
   return (
-    <div className="fixed top-16 right-10 bg-gray-500 p-2 shadow-xl rounded-4xl flex items-center gap-0 z-50 mt-6">
-      <span className="font-serif text-white">
-        Install Application for faster access!
+    <div className="fixed top-16 right-10 z-50 bg-gray-800 text-white p-4 shadow-lg rounded-3xl flex items-center gap-3 animate-slide-in">
+      <span className="font-medium">
+        Install this app for a better experience!
       </span>
       <button
         onClick={handleInstall}
-        className="px-3 py-1 bg-blue-600 text-white rounded-lg gap-2 hover:bg-blue-700 hover:cursor-pointer"
+        className="px-4 py-1 bg-blue-600 rounded-lg hover:bg-blue-700 transition"
       >
         Install
-      </button> 
+      </button>
+      <button
+        onClick={() => setShowBanner(false)}
+        className="ml-2 font-bold text-gray-300 hover:text-white"
+      >
+        ×
+      </button>
     </div>
   );
 }

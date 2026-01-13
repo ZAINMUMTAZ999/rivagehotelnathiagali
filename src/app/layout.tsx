@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body style={{ touchAction: "pan-x pan-y" }}> {/* prevents pinch zoom on iOS */}
+      <body style={{ touchAction: "pan-x pan-y" }}> 
         <Providers>
           <SearchContextProvider>
             <AppNotifyProvider>
