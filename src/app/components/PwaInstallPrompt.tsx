@@ -37,8 +37,8 @@ export default function PwaInstallPrompt() {
   if (!showBanner) return null;
 
   return (
-    <div className="fixed top-5 right-5 bg-gray-500 p-2 shadow-xl rounded-xl flex items-center gap-3 z-50">
-      <span className="font-medium text-white">
+    <div className="fixed top-10 right-8 bg-gray-500 p-2 shadow-xl rounded-4xl flex items-center gap-0 z-50">
+      <span className="font-serif text-white">
         Install Application for faster access!
       </span>
       <button
