@@ -37,7 +37,7 @@ export default function PwaInstallPrompt() {
   if (!showBanner) return null;
 
   return (
-    <div className="top-16 right-10  bg-gray-800 text-white p-0 shadow-lg rounded-3xl flex items-center gap-3 animate-slide-in">
+    <div className="top-16 right-10 z-50 bg-gray-800 text-white p-0 shadow-lg rounded-3xl flex items-center gap-3 animate-slide-in">
       <span className="font-medium">
         Install APP!
       </span>
