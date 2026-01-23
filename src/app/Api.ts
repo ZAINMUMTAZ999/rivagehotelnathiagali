@@ -74,7 +74,8 @@ export type addReviewTypes = {
 };
 
 // const Base_Url_API = "http://localhost:8000";
-const Base_Url_API = "https://joyful-otter-53707a.netlify.app/api";
+// const Base_Url_API = "https://joyful-otter-53707a.netlify.app/api";
+const Base_Url_API = "https://697385a4e2934a6439456455--joyful-otter-53707a.netlify.app/api";
 
 
 const deleteJobApi = async (hotelId: string) => {
