@@ -86,7 +86,7 @@ const UserProfile = () => {
         <div className="absolute -bottom-3 -right-3 w-10 h-10 sm:w-12 sm:h-12 bg-gray-300 rounded-full shadow-md"></div>
       </div>
 
-      {/* Caption placeholder */}
+     
       <div className="w-3/4 h-4 sm:h-5 bg-gray-300 rounded text-center"></div>
     </div>
 
