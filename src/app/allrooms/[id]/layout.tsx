@@ -2,7 +2,7 @@
 
 import { Metadata } from "next"
 
-const Base_Url_API = "https://deft-choux-8f7a7b.netlify.app/api";
+const Base_Url_API = "https://69bbbc634f9a1a6001986497--astonishing-medovik-a8ea1e.netlify.app/api";
 
 export async function generateMetadata({
   params,
