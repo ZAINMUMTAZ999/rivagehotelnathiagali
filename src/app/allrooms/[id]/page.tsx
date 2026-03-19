@@ -10,7 +10,6 @@ import {
 
 import { getHotelApiBId } from "../../Api";
 import Image from "next/image";
-// import { useParams } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/app/components/ui/button";
 import { useState } from "react";
