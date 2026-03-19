@@ -1,17 +1,18 @@
-
-
 // app/allrooms/[id]/layout.tsx
 
 import { Metadata } from "next"
+
 const Base_Url_API = "https://deft-choux-8f7a7b.netlify.app/api";
 
 export async function generateMetadata({
   params,
 }: {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }): Promise<Metadata> {
   try {
-    const res = await fetch(`${Base_Url_API}/v2/rooms/${params.id}`, {
+    const { id } = await params  // ← await it
+
+    const res = await fetch(`${Base_Url_API}/v2/rooms/${id}`, {
       cache: "no-store",
     })
 
@@ -46,4 +47,3 @@ export default function HotelLayout({
 }) {
   return <>{children}</>
 }
-
