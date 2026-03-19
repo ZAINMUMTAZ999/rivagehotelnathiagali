@@ -9,7 +9,6 @@ import {
 } from "react-icons/fa";
 
 import { getHotelApiBId } from "../../Api";
-// import { AppContext } from "@/context/AppNotify";
 import Image from "next/image";
 // import { useParams } from "next/navigation";
 import Link from "next/link";
