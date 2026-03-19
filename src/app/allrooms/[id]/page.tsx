@@ -36,16 +36,7 @@ export type addHotelTypes = {
   roomStatus: string;
   lastUpdated: Date;
 };
-// const  BookNowButton=()=> {
-//   // ✅ Get the dynamic id from the current URL
-//   const { id } = useParams<{ id: string }>();
 
-//   // ✅ Build the WhatsApp link including this hotel’s page URL
-//   const whatsappUrl = `https://wa.me/923459280907?text=${encodeURIComponent(
-//     `Hello! I'm interested in this hotel: https://your-domain.com/allrooms/${id}`
-//   )}`
-// };
-// type Props = { id: string };
 const MyHotelsById = () =>
   // { params }: { params: { id: string } }
   {
