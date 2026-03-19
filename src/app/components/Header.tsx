@@ -37,7 +37,7 @@ const Header = () => {
             priority
           />
           <span className="text-lg sm:text-xl font-bold text-white">
-            <b>HotelWebApp</b>
+            <b>HotelWebAPP</b>
           </span>
         </Link>
 
