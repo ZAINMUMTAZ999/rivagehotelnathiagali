@@ -221,17 +221,18 @@ const SearchHotelsBar = () => {
                   Searching...
                 </div>
               ) : (
-                <>
-                  <Search className="mr-2 h-4 w-4" />
+                <span className="hover:cursor-pointer
+                ">
+                  <Search className="mr-2 h-4 w-4"  />
                   Search
-                </>
+                </span>
               )}
             </button>
             <button
               type="button"
               onClick={handleReset}
               className="inline-flex justify-center items-center py-2 px-4 text-sm     active:bg-slate-500 active:text-slate-700
-                  active:scale-95 font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50"
+                  active:scale-95 font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50 hover:cursor-pointer"
             >
               <RotateCcw className="mr-2 h-4 w-4" />
               Reset
