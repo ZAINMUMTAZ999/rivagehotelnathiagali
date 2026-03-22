@@ -144,10 +144,10 @@ const Header = () => {
             className="rounded-full"
             priority
           />
-          <span className="text-sm sm:text-sm font-bold text-white 
+          <span className="text-sm sm:text-sm font-bold text-white    active:bg-slate-500 active:text-slate-700
+                  active:scale-95
         ">
-            <b className="   active:bg-slate-500 active:text-slate-700
-                  active:scale-95">HotelWebApp</b>
+            <b >HotelWebApp</b>
           </span>
         </Link>
             </div>
