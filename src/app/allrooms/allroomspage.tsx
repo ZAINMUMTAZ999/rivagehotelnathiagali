@@ -181,7 +181,11 @@ const searchParams = {
                   // to={`/allRooms/${hotel._id}`}
                   href={`/allrooms/${hotel._id}`}
             key={hotel._id}
-            className="flex flex-col bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 ease-in-out group"
+            className="flex flex-col
+            
+               active:bg-slate-500 active:text-slate-700
+                  active:scale-95
+            bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 ease-in-out group"
           >
             {hotel.imageUrls && hotel.imageUrls.length > 0 && (
               <div className="w-full h-56 md:h-64 lg:h-48 xl:h-56 overflow-hidden">
@@ -259,8 +263,7 @@ const searchParams = {
                   //  onClick={() => handleReadMore(hotel._id)}
                   className="bg-indigo-600 text-white text-sm sm:text-base font-bold py-2 px-4 rounded-lg 
                   
-                   active:bg-slate-500 active:text-slate-700
-                  scale-95
+                 
                   hover:bg-indigo-700 transition-colors duration-200 shadow-md transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 hover:cursor-pointer"
                 >
                   View Details

@@ -734,7 +734,9 @@ const MyHotelsById = () => {
           className="block mb-6 active:scale-95 transition-transform duration-150 select-none"
         >
           <Button
-            className="flex justify-center items-center w-full cursor-pointer 
+            className="flex justify-center items-center w-full cursor-pointer
+            
+            
               bg-blue-600 hover:bg-blue-700 
               active:bg-blue-800 active:scale-95
               text-white font-medium rounded-lg 
