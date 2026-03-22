@@ -91,6 +91,10 @@ export default function GetHeroImageHomepage() {
     <Link href="/allrooms">
       <button className="
         mt-6 px-6 py-3 border-2 border-gray-200 hover:bg-gray-500
+
+
+         active:bg-slate-500 active:text-slate-700
+                  scale-95
         hover:cursor-pointer
         font-serif text-base sm:text-lg md:text-xl rounded-md
         bg-gray-200 text-black transition-all duration-300

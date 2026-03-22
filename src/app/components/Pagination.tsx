@@ -23,9 +23,10 @@ const Pagination = ({ page, pages, onPageChange }: Props) => {
                 ${
                   page === p
                     ? "bg-blue-500 text-white border-blue-500"
-                    : "bg-white text-gray-800 hover:bg-gray-100 hover:cursor-pointer border-gray-300"
+                    : " active:bg-slate-500 active:text-slate-700 scale-95 bg-white text-gray-800 hover:bg-gray-100 hover:cursor-pointer  border-gray-300"
                 }`}
             >
+              
               {p}
             </button>
           </li>
