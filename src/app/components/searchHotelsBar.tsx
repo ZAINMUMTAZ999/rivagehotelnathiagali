@@ -216,7 +216,7 @@ const SearchHotelsBar = () => {
                   active:scale-95 rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
             >
               {isLoading ? (
-                <div className="flex items-center">
+                <div className="flex items-center gap-5">
                   <div className="h-4 w-4 border-2 border-white border-t-transparent rounded-full mr-2 animate-spin" />
                   Searching...
                 </div>
