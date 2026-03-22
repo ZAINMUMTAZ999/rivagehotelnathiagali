@@ -69,7 +69,9 @@ const Header = () => {
           {isAdmin && (
             <div className="flex items-center gap-2 mr-4 ">
               <Link href="/dashboard ">
-                <Button size="sm" variant="outline" className="bg-white hover:cursor-pointer text-blue-900 hover:bg-gray-300">
+                <Button size="sm" variant="outline" className="bg-white 
+         active:bg-slate-500 active:text-slate-700
+                  active:scale-95 hover:cursor-pointer text-blue-900 hover:bg-gray-300">
                   Dashboard⚙️
                 </Button>
               </Link>
@@ -82,13 +84,17 @@ const Header = () => {
             asChild
             className="bg-blue-400 hover:bg-blue-600 text-white px-4 sm:px-6"
           >
-            {isLogged ? <Logout /> : <Link href="/login">Login</Link>}
+            {isLogged ? <Logout /> : <Link href="/login" className="
+         active:bg-slate-500 active:text-slate-700
+                  active:scale-95">Login</Link>}
           </Button>
         </div>
 
         {/* Mobile menu toggle - Hidden on desktop */}
         <button
-          className="lg:hidden text-white p-2 hover:bg-blue-800 rounded-md transition-colors"
+          className="lg:hidden text-white p-2 hover:bg-blue-800 rounded-md transition-colors 
+         active:bg-slate-500 active:text-slate-700
+                  active:scale-95"
           onClick={() => setMobileNav(true)}
           aria-label="Open mobile menu"
         >
@@ -98,7 +104,9 @@ const Header = () => {
 
       {/* Mobile Sidebar Overlay */}
       <div
-        className={`fixed inset-0 z-50 lg:hidden transition-opacity duration-300 ${
+        className={`fixed inset-0 z-50 lg:hidden transition-opacity 
+         active:bg-slate-500 active:text-slate-700
+                  active:scale-95 duration-300 ${
           mobileNav 
             ? "opacity-100 pointer-events-auto" 
             : "opacity-0 pointer-events-none"
@@ -112,7 +120,9 @@ const Header = () => {
         
         {/* Sidebar */}
         <aside 
-          className={`absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-blue-900 shadow-xl transform transition-transform duration-300 ${
+          className={`absolute right-0 top-0 h-full w-80 max-w-[85vw] 
+         active:bg-slate-500 active:text-slate-700
+                  active:scale-95  bg-blue-900 shadow-xl transform transition-transform duration-300 ${
             mobileNav ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -134,13 +144,17 @@ const Header = () => {
             className="rounded-full"
             priority
           />
-          <span className="text-sm sm:text-sm font-bold text-white">
+          <span className="text-sm sm:text-sm font-bold text-white 
+         active:bg-slate-500 active:text-slate-700
+                  active:scale-95">
             <b>HotelWebApp</b>
           </span>
         </Link>
             </div>
             <button
-              className="text-white p-2 hover:bg-blue-800 rounded-md transition-colors"
+              className="text-white p-2 hover:bg-blue-800 rounded-md transition-colors 
+         active:bg-slate-500 active:text-slate-700
+                  active:scale-95"
               onClick={closeMobileNav}
               aria-label="Close mobile menu"
             >
@@ -154,18 +168,18 @@ const Header = () => {
               const isActive = pathname === nav.href;
               
               return (
-                <Link
-                  key={nav.name}
-                  href={nav.href}
-                  onClick={closeMobileNav}
-                  className={`px-4 py-3 font-medium rounded-lg mb-2 transition-all duration-200 ${
-                    isActive
-                      ? "text-black bg-[#B6E6FF] shadow-sm"
-                      : "text-white hover:bg-blue-800"
-                  }`}
-                >
-                  {nav.name}
-                </Link>
+               <Link
+  key={nav.name}
+  href={nav.href}
+  onClick={closeMobileNav}
+  className={`px-4 py-3 font-medium rounded-lg mb-2 transition-all duration-200 select-none active:scale-95 active:opacity-75 ${
+    isActive
+      ? "text-black bg-[#B6E6FF] shadow-sm active:bg-[#8fd4f5]"
+      : "text-white hover:bg-blue-800 active:bg-blue-900"
+  }`}
+>
+  {nav.name}
+</Link>
               );
             })}
 
@@ -177,7 +191,11 @@ const Header = () => {
               // </div>
                <Link href="/dashboard" onClick={closeMobileNav}>
                   <Button 
-                    className="w-full mb-2 bg-white text-blue-900 hover:bg-gray-100" 
+                    className="w-full mb-2 bg-white text-blue-900 hover:bg-gray-100
+
+   active:bg-slate-500 active:text-slate-700
+                  active:scale-95
+                    " 
                     onClick={closeMobileNav}
                   >
                      Dashboard⚙️
@@ -194,7 +212,8 @@ const Header = () => {
                 className="w-full bg-blue-400 hover:bg-blue-600 text-white"
                 onClick={closeMobileNav}
               >
-                {isLogged ? <Logout /> : <Link href="/login">Login</Link>}
+                {isLogged ? <Logout /> : <Link href="/login" className="   active:bg-slate-500 active:text-slate-700
+                  active:scale-95">Login</Link>}
               </Button>
             </div>
           </nav>

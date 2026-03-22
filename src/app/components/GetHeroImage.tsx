@@ -94,7 +94,7 @@ export default function GetHeroImageHomepage() {
 
 
          active:bg-slate-500 active:text-slate-700
-                  scale-95
+                  active:scale-95
         hover:cursor-pointer
         font-serif text-base sm:text-lg md:text-xl rounded-md
         bg-gray-200 text-black transition-all duration-300

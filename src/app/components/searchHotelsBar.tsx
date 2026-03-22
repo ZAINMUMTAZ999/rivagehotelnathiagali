@@ -166,7 +166,8 @@ const SearchHotelsBar = () => {
           <div>
             <label
               htmlFor="roomName"
-              className="block text-sm font-medium text-white"
+              className="block text-sm font-medium text-white    active:bg-slate-500 active:text-slate-700
+                  active:scale-95"
             >
               Room Search
             </label>
@@ -189,7 +190,8 @@ const SearchHotelsBar = () => {
           <div>
             <label
               htmlFor="sortOption"
-              className="block text-sm font-medium text-white"
+              className="block text-sm font-medium text-white    active:bg-slate-500 active:text-slate-700
+                  active:scale-95"
             >
               Sort by
             </label>
@@ -210,7 +212,8 @@ const SearchHotelsBar = () => {
           <div className="md:col-span-1 mt-4 flex justify-between">
             <button
               type="submit"
-              className="inline-flex justify-center py-2 px-4 text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+              className="inline-flex justify-center py-2 px-4 text-sm font-medium    active:bg-slate-500 active:text-slate-700
+                  active:scale-95 rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
             >
               {isLoading ? (
                 <div className="flex items-center">
@@ -227,7 +230,8 @@ const SearchHotelsBar = () => {
             <button
               type="button"
               onClick={handleReset}
-              className="inline-flex justify-center items-center py-2 px-4 text-sm font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50"
+              className="inline-flex justify-center items-center py-2 px-4 text-sm     active:bg-slate-500 active:text-slate-700
+                  active:scale-95 font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50"
             >
               <RotateCcw className="mr-2 h-4 w-4" />
               Reset
