@@ -122,7 +122,7 @@ const Header = () => {
         <aside 
           className={`absolute right-0 top-0 h-full w-80 max-w-[85vw] 
          active:bg-slate-500 active:text-slate-700
-                  active:scale-95  bg-blue-900 shadow-xl transform transition-transform duration-300 ${
+                    bg-blue-900 shadow-xl transform transition-transform duration-300 ${
             mobileNav ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -145,9 +145,9 @@ const Header = () => {
             priority
           />
           <span className="text-sm sm:text-sm font-bold text-white 
-         active:bg-slate-500 active:text-slate-700
-                  active:scale-95">
-            <b>HotelWebApp</b>
+        ">
+            <b className="   active:bg-slate-500 active:text-slate-700
+                  active:scale-95">HotelWebApp</b>
           </span>
         </Link>
             </div>

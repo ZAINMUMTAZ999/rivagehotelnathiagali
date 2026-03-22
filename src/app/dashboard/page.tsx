@@ -51,10 +51,10 @@ export default function Dashboard() {
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <Link
             href="/addroom"
-            className="group block rounded-xl bg-white p-6 shadow-md hover:shadow-lg transition hover:-translate-y-1"
+            className="group    active:bg-slate-500 active:text-slate-700
+                  active:scale-95 block rounded-xl bg-white p-6 shadow-md hover:shadow-lg transition hover:-translate-y-1"
           >
-            <p className="text-xl font-semibold text-gray-800 group-hover:text-blue-600    active:bg-slate-500 active:text-slate-700
-                  active:scale-95">
+            <p className="text-xl font-semibold text-gray-800 group-hover:text-blue-600">
               Add Hotel➕
             </p>
             <p className="mt-2 text-gray-500 text-sm">
@@ -64,10 +64,10 @@ export default function Dashboard() {
 
           <Link
             href="/addheroimage"
-            className="group block rounded-xl bg-white p-6 shadow-md hover:shadow-lg transition hover:-translate-y-1"
+            className="group     active:bg-slate-500 active:text-slate-700
+                  active:scale-95 block rounded-xl bg-white p-6 shadow-md hover:shadow-lg transition hover:-translate-y-1"
           >
-            <p className="text-xl font-semibold text-gray-800 group-hover:text-blue-600    active:bg-slate-500 active:text-slate-700
-                  active:scale-95">
+            <p className="text-xl font-semibold text-gray-800 group-hover:text-blue-600">
               Add Homepage Image📷
             </p>
             <p className="mt-2 text-gray-500 text-sm">
@@ -77,10 +77,10 @@ export default function Dashboard() {
 
           <Link
             href="/edit"
-            className="group block rounded-xl bg-white p-6 shadow-md hover:shadow-lg transition hover:-translate-y-1"
+            className="group    active:bg-slate-500 active:text-slate-700
+                  active:scale-95 block rounded-xl bg-white p-6 shadow-md hover:shadow-lg transition hover:-translate-y-1"
           >
-            <p className="text-xl font-semibold text-gray-800 group-hover:text-blue-600    active:bg-slate-500 active:text-slate-700
-                  active:scale-95">
+            <p className="text-xl font-semibold text-gray-800 group-hover:text-blue-600    ">
               Edit/Delete Rooms🏨
             </p>
             <p className="mt-2 text-gray-500 text-sm">
