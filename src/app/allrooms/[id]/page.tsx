@@ -692,6 +692,7 @@ const MyHotelsById = () => {
           <Link
             href="/allrooms"
             className="inline-flex items-center rounded-xl 
+            
               bg-blue-800 hover:bg-blue-900 
               active:bg-blue-950 active:scale-95
               px-4 py-2 text-white font-semibold shadow 

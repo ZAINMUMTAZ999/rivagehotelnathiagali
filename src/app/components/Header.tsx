@@ -106,7 +106,7 @@ const Header = () => {
       <div
         className={`fixed inset-0 z-50 lg:hidden transition-opacity 
          active:bg-slate-500 active:text-slate-700
-                  active:scale-95 duration-300 ${
+                   duration-300 ${
           mobileNav 
             ? "opacity-100 pointer-events-auto" 
             : "opacity-0 pointer-events-none"
