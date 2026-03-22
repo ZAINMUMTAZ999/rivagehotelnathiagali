@@ -221,7 +221,7 @@ const SearchHotelsBar = () => {
                   Searching...
                 </div>
               ) : (
-                <span className="hover:cursor-pointer
+                <span className="hover:cursor-pointer flex flex-row
                 ">
                   <Search className="mr-2 h-4 w-4"  />
                   Search
