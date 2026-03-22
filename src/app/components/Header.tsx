@@ -54,7 +54,7 @@ const Header = () => {
                   ${
                     isActive
                       ? "text-black bg-[#B6E6FF] shadow-sm"
-                      : "text-white font-extrabold tracking-wide hover:bg-[#B8E6FF] hover:text-black"
+                      : "text-white font-extrabold tracking-wide hover:bg-[#B8E6FF] hover:text-black "
                   }
                 `}
               >
@@ -212,8 +212,7 @@ const Header = () => {
                 className="w-full bg-blue-400 hover:bg-blue-600 text-white"
                 onClick={closeMobileNav}
               >
-                {isLogged ? <Logout /> : <Link href="/login" className="   active:bg-slate-500 active:text-slate-700
-                  active:scale-95">Login</Link>}
+                {isLogged ? <Logout /> : <Link href="/login" >Login</Link>}
               </Button>
             </div>
           </nav>

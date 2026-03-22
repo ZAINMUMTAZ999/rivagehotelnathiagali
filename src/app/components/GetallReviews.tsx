@@ -92,7 +92,8 @@ const { data: reviewsData, isLoading, isError, error } = useQuery<addReviewTypes
 <div className="w-full flex justify-end">
   <Link
     href="/addreview"
-    className="group inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white
+    className="group    active:bg-slate-500 active:text-slate-700
+                  active:scale-95 inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white
     px-4 py-2 sm:px-5 sm:py-2.5 md:px-6 md:py-3
     text-sm sm:text-base
     rounded-lg sm:rounded-xl
@@ -101,7 +102,7 @@ const { data: reviewsData, isLoading, isError, error } = useQuery<addReviewTypes
     transition-all duration-200"
   >
     <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
-    <span>Add Review</span>
+    <span >Add Review</span>
   </Link>
 </div>
 

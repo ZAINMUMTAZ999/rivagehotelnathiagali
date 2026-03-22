@@ -27,7 +27,8 @@ export default function Dashboard() {
           The page you are looking for does not exist or has been moved.
         </p>
         <Link href="/">
-          <button className="px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+          <button className="px-6 py-3    active:bg-slate-500 active:text-slate-700
+                  active:scale-95 bg-green-500 hover:bg-green-600 text-white font-semibold rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
             Go to Home
           </button>
         </Link>
@@ -52,7 +53,8 @@ export default function Dashboard() {
             href="/addroom"
             className="group block rounded-xl bg-white p-6 shadow-md hover:shadow-lg transition hover:-translate-y-1"
           >
-            <p className="text-xl font-semibold text-gray-800 group-hover:text-blue-600">
+            <p className="text-xl font-semibold text-gray-800 group-hover:text-blue-600    active:bg-slate-500 active:text-slate-700
+                  active:scale-95">
               Add Hotel➕
             </p>
             <p className="mt-2 text-gray-500 text-sm">
@@ -64,7 +66,8 @@ export default function Dashboard() {
             href="/addheroimage"
             className="group block rounded-xl bg-white p-6 shadow-md hover:shadow-lg transition hover:-translate-y-1"
           >
-            <p className="text-xl font-semibold text-gray-800 group-hover:text-blue-600">
+            <p className="text-xl font-semibold text-gray-800 group-hover:text-blue-600    active:bg-slate-500 active:text-slate-700
+                  active:scale-95">
               Add Homepage Image📷
             </p>
             <p className="mt-2 text-gray-500 text-sm">
@@ -76,7 +79,8 @@ export default function Dashboard() {
             href="/edit"
             className="group block rounded-xl bg-white p-6 shadow-md hover:shadow-lg transition hover:-translate-y-1"
           >
-            <p className="text-xl font-semibold text-gray-800 group-hover:text-blue-600">
+            <p className="text-xl font-semibold text-gray-800 group-hover:text-blue-600    active:bg-slate-500 active:text-slate-700
+                  active:scale-95">
               Edit/Delete Rooms🏨
             </p>
             <p className="mt-2 text-gray-500 text-sm">
@@ -85,9 +89,11 @@ export default function Dashboard() {
           </Link>
           <Link
             href="/addbookings"
-            className="group block rounded-xl bg-white p-6 shadow-md hover:shadow-lg transition hover:-translate-y-1"
+            className="group block rounded-xl    active:bg-slate-500 active:text-slate-700
+                  active:scale-95 bg-white p-6 shadow-md hover:shadow-lg transition hover:-translate-y-1"
           >
-            <p className="text-xl font-semibold text-gray-800 group-hover:text-blue-600">
+            <p className="text-xl font-semibold text-gray-800 group-hover:text-blue-600   
+">
               Bookings📖
             </p>
             <p className="mt-2 text-gray-500 text-sm">
@@ -96,9 +102,10 @@ export default function Dashboard() {
           </Link>
           <Link
             href="/allcontactusers"
-            className="group block rounded-xl bg-white p-6 shadow-md hover:shadow-lg transition hover:-translate-y-1"
+            className="group block rounded-xl bg-white p-6 shadow-md hover:shadow-lg     active:bg-slate-500 active:text-slate-700
+                  active:scale-95 transition hover:-translate-y-1"
           >
-            <p className="text-xl font-semibold text-gray-800 group-hover:text-blue-600">
+            <p className="text-xl font-semibold text-gray-800 group-hover:text-blue-600 ">
               All Contacts👥
             </p>
             <p className="mt-2 text-gray-500 text-sm">

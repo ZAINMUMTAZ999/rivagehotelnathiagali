@@ -21,6 +21,7 @@ const router=useRouter();
         muatteion.mutate()
     }
     return (
-        <Button className="flex w-full justify-center items-center bg-red-500 hover:bg-red-300 flex-1 hover:cursor-pointer text-white font-bold p-1 rounded" onClick={submition}>Logout</Button>
+        <Button className="flex w-full justify-center items-center bg-red-500 hover:bg-red-300 flex-1 hover:cursor-pointer text-white font-bold p-1 rounded    active:bg-slate-500 active:text-slate-700
+                  active:scale-95" onClick={submition}>Logout</Button>
     )
 }
