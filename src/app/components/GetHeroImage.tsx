@@ -90,14 +90,14 @@ export default function GetHeroImageHomepage() {
     {/* Rooms Button */}
     <Link href="/allrooms">
       <button className="
-        mt-6 px-6 py-3 border-2 border-blue-200 hover:bg-blue-950
+        mt-6 px-6 py-3 border-2 border-blue-200 
 
 
          active:bg-slate-500 active:text-slate-700
                   active:scale-95
         hover:cursor-pointer
         font-serif text-base sm:text-lg md:text-xl rounded-md
-        bg-blue-900 text-white transition-all duration-300
+        bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300
       ">
         View Rooms
       </button>

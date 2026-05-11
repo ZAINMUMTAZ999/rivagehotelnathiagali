@@ -191,7 +191,7 @@ const Header = () => {
               // </div>
                <Link href="/dashboard" onClick={closeMobileNav}>
                   <Button 
-                    className="w-full mb-2 bg-white text-blue-900 hover:bg-gray-100
+                    className="w-full mb-2  text-white bg-blue-600 hover:bg-blue-700
 
    active:bg-slate-500 active:text-slate-700
                   active:scale-95
@@ -209,7 +209,7 @@ const Header = () => {
             <div className="border-t border-blue-800 pt-4 mt-4">
               <Button
                 asChild
-                className="w-full bg-blue-400 hover:bg-blue-600 text-white"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white"
                 onClick={closeMobileNav}
               >
                 {isLogged ? <Logout /> : <Link href="/login" >Login</Link>}

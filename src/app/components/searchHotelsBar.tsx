@@ -157,7 +157,7 @@ const SearchHotelsBar = () => {
 
   return (
     <div className="flex justify-center items-center px-4 mt-5">
-      <div className="bg-blue-950 p-3 rounded-lg">
+      <div className="bg-blue-600  p-3 rounded-lg">
         <form
           onSubmit={handleSubmit}
           className="grid grid-cols-1 md:grid-cols-3 gap-4"
@@ -213,7 +213,7 @@ const SearchHotelsBar = () => {
             <button
               type="submit"
               className="inline-flex justify-center py-2 px-4 text-sm font-medium    active:bg-slate-500 active:text-slate-700
-                  active:scale-95 rounded-md text-white bg-blue-900 hover:bg-blue-950"
+                  active:scale-95 rounded-md text-white bg-blue-600 hover:bg-blue-700"
             >
               {isLoading ? (
                 <div className="flex items-center gap-5">
@@ -232,7 +232,8 @@ const SearchHotelsBar = () => {
               type="button"
               onClick={handleReset}
               className="inline-flex justify-center items-center py-2 px-4 text-sm     active:bg-slate-500 active:text-slate-700
-                  active:scale-95 font-medium rounded-md text-white bg-blue-900 hover:bg-blue-950 hover:cursor-pointer"
+                  active:scale-95 font-medium rounded-md text-white 
+                  bg-blue-600 hover:bg-blue-700 hover:cursor-pointer"
             >
               <RotateCcw className="mr-2 h-4 w-4" />
               Reset

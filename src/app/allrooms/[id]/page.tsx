@@ -685,7 +685,7 @@ const MyHotelsById = () => {
       {/* Header */}
       <div className="bg-white/70 backdrop-blur-md border-b border-slate-200/40 sticky top-0 z-10">
         <div className="flex items-center justify-between px-4 py-4">
-          <h1 className="text-2xl font-extrabold text-blue-900 leading-tight">
+          <h1 className="text-2xl font-extrabold text-white  leading-tight">
             {hotel.name}
           </h1>
           {/* ✅ Press effect on "View All Rooms" link */}
@@ -693,7 +693,7 @@ const MyHotelsById = () => {
             href="/allrooms"
             className="inline-flex items-center rounded-xl 
             
-              bg-blue-900 hover:bg-blue-950 
+   bg-blue-600 hover:bg-blue-700
               active:bg-blue-950 active:scale-95
               px-4 py-2 text-white font-semibold shadow 
               transition-all duration-150 text-sm 
@@ -736,9 +736,7 @@ const MyHotelsById = () => {
         >
           <Button
             className="flex justify-center items-center w-full cursor-pointer
-            
-            
-              bg-blue-900 hover:bg-blue-950 
+    bg-blue-600 hover:bg-blue-700
               active:bg-blue-950 active:scale-95
               text-white font-medium rounded-lg 
               transition-all duration-150 shadow-lg py-3 
@@ -811,7 +809,7 @@ const MyHotelsById = () => {
 
       {/* ✅ Press effect on "Add Review" button */}
       <Button
-        className="bg-blue-900 hover:bg-blue-950 
+        className="bg-blue-600 hover:bg-blue-700
           active:bg-blue-950 active:scale-95
           mt-4 px-6 py-3 font-semibold rounded-lg shadow-md 
           transition-all duration-150 select-none"
