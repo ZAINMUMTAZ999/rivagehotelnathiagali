@@ -685,7 +685,7 @@ const MyHotelsById = () => {
       {/* Header */}
       <div className="bg-white/70 backdrop-blur-md border-b border-slate-200/40 sticky top-0 z-10">
         <div className="flex items-center justify-between px-4 py-4">
-          <h1 className="text-2xl font-extrabold text-gray-800 leading-tight">
+          <h1 className="text-2xl font-extrabold text-blue-900 leading-tight">
             {hotel.name}
           </h1>
           {/* ✅ Press effect on "View All Rooms" link */}
@@ -693,7 +693,7 @@ const MyHotelsById = () => {
             href="/allrooms"
             className="inline-flex items-center rounded-xl 
             
-              bg-blue-800 hover:bg-blue-900 
+              bg-blue-900 hover:bg-blue-950 
               active:bg-blue-950 active:scale-95
               px-4 py-2 text-white font-semibold shadow 
               transition-all duration-150 text-sm 
@@ -713,7 +713,7 @@ const MyHotelsById = () => {
         </p>
         <div className="flex items-baseline">
           <span className="text-sm text-gray-600 font-medium mr-1">PKR</span>
-          <p className="text-3xl font-bold text-green-600">
+          <p className="text-3xl font-bold text-white">
             {hotel?.pricePerNight}
           </p>
           <span className="text-sm text-gray-500 ml-1">per night</span>
@@ -738,8 +738,8 @@ const MyHotelsById = () => {
             className="flex justify-center items-center w-full cursor-pointer
             
             
-              bg-blue-600 hover:bg-blue-700 
-              active:bg-blue-800 active:scale-95
+              bg-blue-900 hover:bg-blue-950 
+              active:bg-blue-950 active:scale-95
               text-white font-medium rounded-lg 
               transition-all duration-150 shadow-lg py-3 
               focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
@@ -811,7 +811,7 @@ const MyHotelsById = () => {
 
       {/* ✅ Press effect on "Add Review" button */}
       <Button
-        className="bg-blue-700 hover:bg-blue-800 
+        className="bg-blue-900 hover:bg-blue-950 
           active:bg-blue-950 active:scale-95
           mt-4 px-6 py-3 font-semibold rounded-lg shadow-md 
           transition-all duration-150 select-none"

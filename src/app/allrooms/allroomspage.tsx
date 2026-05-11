@@ -261,10 +261,10 @@ const searchParams = {
                   // to={`/allRooms/${hotel._id}`}
                   href={`/allrooms/${hotel._id}`}
                   //  onClick={() => handleReadMore(hotel._id)}
-                  className="bg-indigo-600 text-white text-sm sm:text-base font-bold py-2 px-4 rounded-lg 
+                  className="bg-blue-900 text-white text-sm sm:text-base font-bold py-2 px-4 rounded-lg 
                   
                  
-                  hover:bg-indigo-700 transition-colors duration-200 shadow-md transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 hover:cursor-pointer"
+                  hover:bg-blue-950 transition-colors duration-200 shadow-md transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 hover:cursor-pointer"
                 >
                   View Details
                 </Link>

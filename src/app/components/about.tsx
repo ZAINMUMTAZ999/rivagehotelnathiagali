@@ -147,7 +147,7 @@ const AboutUs = () => {
       </section>
 
       {/* Call to Action/Invitation */}
-      <section className="bg-indigo-700 text-white py-16 md:py-12 text-center">
+      <section className=" text-white py-16 md:py-12 text-center">
         <motion.div className="container mx-auto px-4" >
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             Your Nathia Gali Story Starts Here.
@@ -157,7 +157,7 @@ const AboutUs = () => {
           </p>
           <Link
             href="/allrooms" 
-            className="inline-block bg-blue-900 hover:text-blue-950 text-white font-bold py-4 px-10 rounded-full shadow-xl hover:bg-emerald-300 hover:scale-105 transition-all duration-300 ease-in-out text-lg uppercase tracking-wide"
+            className="inline-block bg-blue-900 hover:text-blue-950 text-white font-bold py-4 px-10 rounded-full shadow-xl  hover:scale-105 transition-all duration-300 ease-in-out text-lg uppercase tracking-wide"
           >
             Explore Our Rooms
           </Link>
