@@ -713,7 +713,7 @@ const MyHotelsById = () => {
         </p>
         <div className="flex items-baseline">
           <span className="text-sm text-gray-600 font-medium mr-1">PKR</span>
-          <p className="text-3xl font-bold text-white">
+          <p className="text-3xl font-bold text-black">
             {hotel?.pricePerNight}
           </p>
           <span className="text-sm text-gray-500 ml-1">per night</span>
