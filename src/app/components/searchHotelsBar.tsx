@@ -157,7 +157,7 @@ const SearchHotelsBar = () => {
 
   return (
     <div className="flex justify-center items-center px-4 mt-5">
-      <div className="bg-blue-600  p-3 rounded-lg">
+      <div className="bg-blue-900  p-3 rounded-lg">
         <form
           onSubmit={handleSubmit}
           className="grid grid-cols-1 md:grid-cols-3 gap-4"

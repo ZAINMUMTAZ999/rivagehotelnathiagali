@@ -685,7 +685,7 @@ const MyHotelsById = () => {
       {/* Header */}
       <div className="bg-white/70 backdrop-blur-md border-b border-slate-200/40 sticky top-0 z-10">
         <div className="flex items-center justify-between px-4 py-4">
-          <h1 className="text-2xl font-extrabold text-white  leading-tight">
+          <h1 className="text-2xl font-extrabold text-black  leading-tight">
             {hotel.name}
           </h1>
           {/* ✅ Press effect on "View All Rooms" link */}

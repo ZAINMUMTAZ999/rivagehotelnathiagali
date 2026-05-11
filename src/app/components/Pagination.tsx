@@ -22,8 +22,8 @@ const Pagination = ({ page, pages, onPageChange }: Props) => {
               className={`px-3 py-1 rounded-md border transition-all hover:cursor-pointer duration-150 
                 ${
                   page === p
-                    ? "bg-blue-500 text-white border-blue-500"
-                    : " active:bg-slate-500 active:text-slate-700 scale-95 bg-white text-gray-800 hover:bg-gray-100 hover:cursor-pointer  border-gray-300"
+                    ? "bg-blue-600 text-white border-blue-500"
+                    : " active:bg-slate-500 active:text-slate-700 scale-95 bg-white text-white hover:bg-blue-700 hover:cursor-pointer  border-gray-300"
                 }`}
             >
               
