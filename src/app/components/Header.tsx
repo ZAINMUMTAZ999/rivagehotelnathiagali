@@ -82,7 +82,7 @@ const Header = () => {
           {/* Desktop Login Button */}
           <Button
             asChild
-            className="bg-blue-400 hover:bg-blue-600 text-white px-4 sm:px-6"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-4 sm:px-6"
           >
             {isLogged ? <Logout /> : <Link href="/login" className="
          active:bg-slate-500 active:text-slate-700

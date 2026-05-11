@@ -4,9 +4,10 @@ import { Mountain,  HeartHandshake,  Stars } from 'lucide-react'; // More evocat
 
 
 
-import one from '../assets/p1.jpeg';
-import two from'../assets/p2.jpeg'; // Optional: if you want a visual for the story
-import three from '../assets/p3.jpeg'; // Optional: an image that captures Murree's spirit
+// import one from '../assets/p1.jpeg';
+// import one from "../assets/"
+// import two from'../assets/p2.jpeg'; // Optional: if you want a visual for the story
+// import three from '../assets/p3.jpeg'; // Optional: an image that captures Murree's spirit
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -28,14 +29,16 @@ const AboutUs = () => {
 
   return (
     <motion.div
-      className="bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen text-gray-800"
+      className="min-h-screen text-gray-800"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
     >
  
 
-      <div className="relative h-72 md:h-96 lg:h-[500px] bg-cover bg-center" style={{ backgroundImage: `url(${[one.src]})` }}>
+      <div className="relative h-72 md:h-96 lg:h-[500px] bg-cover bg-center" 
+      // style={{ backgroundImage: `url(${[one.src]})` }}
+      >
         <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center p-4">
           <motion.h1
             className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white text-center drop-shadow-2xl leading-tight"
@@ -60,13 +63,13 @@ const AboutUs = () => {
       <section className="container mx-auto px-4 py-16 md:py-24">
         <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div className="lg:order-2">
-            {two && (
+            {/* {two && (
               <Image
                 src={two}
                 alt="Our Origin Story at Holiday Resort Hotel"
                 className="rounded-xl shadow-2xl object-cover w-full h-72 md:h-96 lg:h-auto max-w-full lg:max-w-none transform hover:scale-105 transition-transform duration-500 ease-in-out"
               />
-            )}
+            )} */}
           </motion.div>
           <motion.div className="lg:order-1 text-center lg:text-left">
             <h2 className="text-3xl md:text-4xl font-bold text-indigo-800 mb-6 leading-snug">
@@ -89,7 +92,7 @@ const AboutUs = () => {
             Where hotel Charm <span className="text-emerald-600">Comes Alive</span>
           </motion.h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {three && (
+            {/* {three && (
               <motion.div className="order-2 lg:order-1">
                 <Image
                  src={three}
@@ -100,7 +103,7 @@ const AboutUs = () => {
                   className="rounded-xl shadow-2xl object-cover w-full h-72 md:h-96 max-w-full transform hover:scale-105 transition-transform duration-500 ease-in-out"
                 />
               </motion.div>
-            )}
+            )} */}
             <motion.div className="order-1 lg:order-2 text-center lg:text-left">
               <p className="text-lg md:text-xl leading-relaxed text-gray-700 mb-4">
                 More than just a location, Islamabad is an integral part of your hotel experience. We celebrate its misty mornings, the whispering pines, and the invigorating mountain air. Our architecture and ambiance are designed to seamlessly blend with the natural surroundings, offering breathtaking views from every window.
@@ -146,7 +149,7 @@ const AboutUs = () => {
       </section>
 
       {/* Call to Action/Invitation */}
-      <section className="bg-indigo-700 text-white py-16 md:py-24 text-center">
+      <section className=" text-white py-16 md:py-24 text-center">
         <motion.div className="container mx-auto px-4" >
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             Your Nathia Gali Story Starts Here.
@@ -156,7 +159,7 @@ const AboutUs = () => {
           </p>
           <Link
             href="/allrooms" 
-            className="inline-block bg-emerald-400 text-indigo-900 font-bold py-4 px-10 rounded-full shadow-xl hover:bg-emerald-300 hover:scale-105 transition-all duration-300 ease-in-out text-lg uppercase tracking-wide"
+            className="inline-block bg-blue-900 hover:bg-blue-950 text-white font-bold py-4 px-10 rounded-full shadow-xl hover:bg-emerald-300 hover:scale-105 transition-all duration-300 ease-in-out text-lg uppercase tracking-wide"
           >
             Explore Our Rooms
           </Link>
