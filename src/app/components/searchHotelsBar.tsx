@@ -200,7 +200,7 @@ const SearchHotelsBar = () => {
               value={sortOption}
               onChange={(e) => setSortOption(e.target.value)}
               className="mt-1 block bg-white w-full pl-3 pr-10 py-2 text-base border-gray-300
-             focus:outline-none focus:ring-indigo-500 sm:text-sm rounded-md"
+             focus:outline-none focus:ring-indigo-500 sm:text-sm rounded-md hover:cursor-pointer"
             >
               <option value="">Sort by Price</option>
               <option value="priceDesc">High to Low</option>
