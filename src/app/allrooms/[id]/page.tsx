@@ -180,6 +180,7 @@ queryKey: ["hotel", id],
                   bg-white bg-opacity-80 hover:bg-opacity-100 
                   active:bg-slate-200 active:scale-95
                   rounded-full p-3 shadow-lg 
+                  hover:cursor-pointer
                   transition-all duration-150 z-10 
                   hover:scale-105 select-none"
                 aria-label="Previous image"
@@ -193,7 +194,7 @@ queryKey: ["hotel", id],
                   goToNext();
                 }}
                 className="absolute right-4 top-1/2 -translate-y-1/2 
-                  bg-white bg-opacity-80 hover:bg-opacity-100 
+                  bg-white bg-opacity-80 hover:bg-opacity-100  hover:cursor-pointer
                   active:bg-slate-200 active:scale-95
                   rounded-full p-3 shadow-lg 
                   transition-all duration-150 z-10 
@@ -227,7 +228,7 @@ queryKey: ["hotel", id],
                   ${
                     index === currentIndex
                       ? "border-blue-600 opacity-100 ring-2 ring-blue-300"
-                      : "border-gray-300 opacity-70 hover:opacity-90"
+                      : "border-gray-300 opacity-70 hover:opacity-90 hover:cursor-pointer"
                   }`}
               >
                 <Image
