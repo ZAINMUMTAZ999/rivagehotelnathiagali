@@ -227,7 +227,7 @@ queryKey: ["hotel", id],
                   active:scale-95 active:opacity-80
                   ${
                     index === currentIndex
-                      ? "border-blue-600 opacity-100 ring-2 ring-blue-300"
+                      ? "border-blue-600 opacity-100 ring-2 ring-blue-300 hover:cursor-pointer"
                       : "border-gray-300 opacity-70 hover:opacity-90 hover:cursor-pointer"
                   }`}
               >
