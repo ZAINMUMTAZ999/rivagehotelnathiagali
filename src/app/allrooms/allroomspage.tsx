@@ -142,21 +142,65 @@ const searchParams = {
 
   if (!hotelData ) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-[calc(100vh-200px)] bg-gray-50 rounded-lg shadow-lg p-8 m-4 sm:m-6 md:m-8">
-        <p className="text-3xl font-extrabold text-gray-800 mb-6 text-center">Please Refresh By going home page then try!</p>
-     
-           <button
-          
-       onClick={() =>window.location.href = '/'}
-      className="w-full rounded-md bg-blue-600 px-4 py-2 font-medium justify-center items-center text-center
-                 text-white transition hover:bg-blue-700 focus:outline-none focus:ring-2
-                 focus:ring-blue-400"
-    >
-     HomePage
-    </button>
-        {/* </Link> */}
-       
+      <div className="container mx-auto py-8 mt-12 px-4 sm:px-6 lg:px-8 animate-pulse">
+  {/* Heading skeleton */}
+  {/* <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
+    <div className="w-40 sm:w-64 h-10 bg-gray-300 rounded"></div>
+  </div> */}
+
+  {/* Grid of hotel cards */}
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6 sm:gap-8">
+    {Array(4).fill(0).map((_, idx) => (
+      <div
+        key={idx}
+        className="flex flex-col bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100"
+      >
+        {/* Image placeholder */}
+        <div className="w-full h-56 md:h-64 lg:h-48 xl:h-56 bg-gray-300"></div>
+
+        {/* Card content skeleton */}
+        <div className="p-5 sm:p-6 flex-grow flex flex-col justify-between">
+          <div className="space-y-3">
+            {/* Hotel name */}
+            <div className="w-3/4 h-6 bg-gray-300 rounded"></div>
+            {/* Hotel description */}
+            <div className="w-full h-4 bg-gray-200 rounded"></div>
+            <div className="w-5/6 h-4 bg-gray-200 rounded"></div>
+            {/* Hotel facilities */}
+            <div className="w-2/3 h-4 bg-gray-200 rounded"></div>
+
+            {/* Location / Type / Price */}
+            <div className="grid grid-cols-2 gap-2 mt-2">
+              <div className="h-4 bg-gray-300 rounded w-full"></div>
+              <div className="h-4 bg-gray-300 rounded w-full"></div>
+              <div className="h-4 bg-gray-300 rounded w-full"></div>
+            </div>
+
+            {/* Key facilities tags */}
+            <div className="flex flex-wrap gap-2 mt-2">
+              {Array(5).fill(0).map((_, i) => (
+                <div key={i} className="w-16 h-5 bg-gray-200 rounded-full"></div>
+              ))}
+            </div>
+          </div>
+
+          {/* Button placeholder */}
+          <div className="flex justify-end mt-4 pt-4 border-t border-gray-100">
+            <div className="w-24 h-8 bg-gray-300 rounded"></div>
+          </div>
+        </div>
       </div>
+    ))}
+  </div>
+
+  {/* Pagination skeleton */}
+  <div className="mt-8 flex justify-center space-x-2">
+    {Array(3).fill(0).map((_, idx) => (
+      <div key={idx} className="w-8 h-8 bg-gray-300 rounded-full"></div>
+    ))}
+  </div>
+</div>
+
     );
   }
 
