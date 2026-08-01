@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -12,6 +11,19 @@ import { getHotelApi } from "../Api";
 import Pagination from "../components/Pagination";
 import { useSearchContext } from "../context/SearchContext";
 import SearchHotelsBar from "../components/searchHotelsBar";
+
+// Define your Hotel interface to replace 'any'
+interface Hotel {
+  _id: string;
+  name: string;
+  roomStatus?: string;
+  description: string;
+  city: string;
+  type: string;
+  pricePerNight: number;
+  imageUrls?: string[];
+  facilities?: string[];
+}
 
 export default function AllRoomPage() {
   const search = useSearchContext();
@@ -35,10 +47,8 @@ export default function AllRoomPage() {
     queryFn: () => getHotelApi(searchParams),
   });
 
-  // Always default to an empty array so .length and .map are safe
-  const hotelData = apiResponse?.data || [];
+  const hotelData: Hotel[] = apiResponse?.data || [];
 
-  // Catch genuine network/server errors only
   if (isError) {
     return (
       <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-r from-purple-100 via-pink-100 to-yellow-100 px-4">
@@ -61,7 +71,7 @@ export default function AllRoomPage() {
 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-      {/* 1. HEADER & SEARCH BAR (ALWAYS VISIBLE) */}
+      {/* 1. HEADER & SEARCH BAR */}
       <div className="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4">
         <h1 className="text-3xl mt-2 sm:text-4xl lg:text-5xl font-extrabold text-gray-800 text-center sm:text-left">
           Our Rooms
@@ -69,7 +79,7 @@ export default function AllRoomPage() {
         <SearchHotelsBar />
       </div>
 
-      {/* 2. LOADING STATE (Skeletons in grid only) */}
+      {/* 2. LOADING STATE */}
       {isLoading && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6 sm:gap-8 animate-pulse">
           {Array(4)
@@ -79,10 +89,7 @@ export default function AllRoomPage() {
                 key={idx}
                 className="flex flex-col bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100"
               >
-                {/* Image Skeleton */}
                 <div className="w-full h-56 md:h-64 lg:h-48 xl:h-56 bg-gray-300"></div>
-
-                {/* Content Skeleton */}
                 <div className="p-5 sm:p-6 flex-grow flex flex-col justify-between">
                   <div className="space-y-3">
                     <div className="w-3/4 h-6 bg-gray-300 rounded"></div>
@@ -102,7 +109,7 @@ export default function AllRoomPage() {
         </div>
       )}
 
-      {/* 3. EMPTY STATE (Only after loading finishes with 0 rooms) */}
+      {/* 3. EMPTY STATE */}
       {!isLoading && hotelData.length === 0 && (
         <div className="flex flex-col items-center justify-center min-h-[300px] bg-gray-50 rounded-lg shadow-md p-8 my-4">
           <p className="text-2xl font-extrabold text-gray-800 mb-6 text-center">
@@ -117,10 +124,10 @@ export default function AllRoomPage() {
         </div>
       )}
 
-      {/* 4. DATA STATE (Displays rooms when ready) */}
+      {/* 4. DATA STATE */}
       {!isLoading && hotelData.length > 0 && (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6 sm:gap-8">
-          {hotelData.map((hotel: any) => (
+          {hotelData.map((hotel) => (
             <Link
               href={`/allrooms/${hotel._id}`}
               key={hotel._id}
@@ -173,7 +180,7 @@ export default function AllRoomPage() {
                         Key Facilities:
                       </h3>
                       <div className="flex flex-wrap gap-2">
-                        {hotel.facilities.slice(0, 5).map((facility: string, index: number) => (
+                        {hotel.facilities.slice(0, 5).map((facility, index) => (
                           <span
                             key={index}
                             className="bg-blue-50 text-blue-700 text-xs sm:text-sm px-3 py-1 rounded-full border border-blue-200 shadow-sm"
@@ -202,6 +209,7 @@ export default function AllRoomPage() {
         </div>
       )}
 
+      {/* 5. PAGINATION */}
       <div className="mt-8">
         <Pagination
           page={apiResponse?.pagination?.page || 1}
