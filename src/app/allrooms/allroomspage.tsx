@@ -202,7 +202,6 @@ export default function AllRoomPage() {
         </div>
       )}
 
-      {/* 5. PAGINATION */}
       <div className="mt-8">
         <Pagination
           page={apiResponse?.pagination?.page || 1}
