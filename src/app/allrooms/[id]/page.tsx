@@ -295,23 +295,33 @@ queryKey: ["hotel", id],
         )}
 
         {/* ✅ Press effect on "Book Now" button */}
-        <Link
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block mb-6 active:scale-95 transition-transform duration-150 select-none"
-        >
-          <Button
-            className="flex justify-center items-center w-72 cursor-pointer
-    bg-blue-600 hover:bg-blue-700
-              active:bg-blue-950 active:scale-95
-              text-white font-medium rounded-lg 
-              transition-all duration-150 shadow-lg py-3 
-              focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-          >
-            Book Now Pay Later
-          </Button>
-        </Link>
+      <Link
+  href={whatsappUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex justify-center mb-6 active:scale-95 transition-transform duration-150 select-none"
+>
+  <Button
+    className="
+      w-full sm:w-72
+      flex justify-center items-center
+      cursor-pointer
+      bg-blue-600 hover:bg-blue-700
+      active:bg-blue-950 active:scale-95
+      text-white font-medium
+      rounded-lg
+      py-3
+      shadow-lg
+      transition-all duration-150
+      focus:outline-none
+      focus:ring-2
+      focus:ring-blue-500
+      focus:ring-offset-2
+    "
+  >
+    Book Now Pay Later
+  </Button>
+</Link>
 
         {/* Accommodation Type */}
         <div className="text-md text-gray-500 mt-1 mb-4">
