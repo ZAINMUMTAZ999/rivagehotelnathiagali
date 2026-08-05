@@ -156,7 +156,7 @@ queryKey: ["hotel", id],
     }
 
     return (
-      <div className="relative w-full">
+      <div className="relative w-72">
         {/* Main Image Container */}
         <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] rounded-xl overflow-hidden shadow-xl group">
           <Image

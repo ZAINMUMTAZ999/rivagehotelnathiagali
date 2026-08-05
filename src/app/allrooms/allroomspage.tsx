@@ -100,9 +100,9 @@ export default function AllRoomPage() {
                       <div className="h-4 bg-gray-300 rounded w-full"></div>
                     </div>
                   </div>
-                  <div className="flex justify-end mt-4 pt-4 border-t border-gray-100">
+                  {/* <div className="flex justify-end mt-4 pt-4 border-t border-gray-100">
                     <div className="w-24 h-8 bg-gray-300 rounded"></div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             ))}
