@@ -249,7 +249,7 @@ queryKey: ["hotel", id],
 
   return (
     // <div className="mt-8 w-3/4">
-    <div className="mx-auto mt-8 w-full max-w-7xl px-4 lg:px-8 -mt-4">
+    <div className="mx-auto mt-2 w-full max-w-7xl px-4 lg:px-8 ">
       {/* Header */}
       <div className="bg-white/70 backdrop-blur-md border-b border-slate-200/40 sticky top-0 z-10">
         <div className="flex items-center justify-between px-4 py-4">
