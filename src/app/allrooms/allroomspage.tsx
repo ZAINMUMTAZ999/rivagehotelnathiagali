@@ -198,11 +198,11 @@ export default function AllRoomPage() {
                   )}
                 </div>
 
-                <div className="flex justify-end mt-4 pt-4 border-t border-gray-100">
+                {/* <div className="flex justify-end mt-4 pt-4 border-t border-gray-100">
                   <span className="bg-blue-600 text-white text-sm sm:text-base font-bold py-2 px-4 rounded-lg shadow-md transition-colors duration-200">
                     View Details
                   </span>
-                </div>
+                </div> */}
               </div>
             </Link>
           ))}
