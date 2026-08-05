@@ -33,9 +33,14 @@ console.log("HotelReviewById",reviewsData);
       <div className="max-w-6xl mx-auto px-4 mt-12">
         <div className="animate-pulse">
           <div className="h-8 bg-gray-200 rounded w-64 mb-6"></div>
-          <div className="flex space-x-4">
-            {[1].map((i) => (
+          <div className="hidden lg:flex space-x-4">
+            {[1, 2, 3].map((i) => (
               <div key={i} className="min-w-[320px] h-48 bg-gray-200 rounded-xl"></div>
+            ))}
+          </div>
+          <div className="hidden sm:flex space-x-4 md:hidden">
+            {[1].map((i) => (
+              <div key={i} className="min-w-[300px] h-32 bg-gray-200 rounded-xl"></div>
             ))}
           </div>
         </div>
