@@ -156,7 +156,7 @@ queryKey: ["hotel", id],
     }
 
     return (
-      <div className="relative w-72">
+      <div className="relative w-full">
         {/* Main Image Container */}
         <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] rounded-xl overflow-hidden shadow-xl group">
           <Image
@@ -247,7 +247,7 @@ queryKey: ["hotel", id],
   };
 
   return (
-    <div className="mt-8">
+    <div className="mt-8 w-3/4">
       {/* Header */}
       <div className="bg-white/70 backdrop-blur-md border-b border-slate-200/40 sticky top-0 z-10">
         <div className="flex items-center justify-between px-4 py-4">
@@ -301,7 +301,7 @@ queryKey: ["hotel", id],
           className="block mb-6 active:scale-95 transition-transform duration-150 select-none"
         >
           <Button
-            className="flex justify-center items-center w-full cursor-pointer
+            className="flex justify-center items-center w-72 cursor-pointer
     bg-blue-600 hover:bg-blue-700
               active:bg-blue-950 active:scale-95
               text-white font-medium rounded-lg 
