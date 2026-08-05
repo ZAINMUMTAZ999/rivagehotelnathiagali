@@ -67,7 +67,8 @@ queryKey: ["hotel", id],
 
   if (isLoading) {
     return (
-      <div className="mt-8 space-y-6">
+      // <div className="mt-8 space-y-6">
+      <div className="mx-auto mt-8 w-full max-w-7xl px-4 lg:px-8">
         <div className="relative w-full">
           <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] rounded-lg overflow-hidden shadow-lg bg-gray-200 animate-pulse">
             <div className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-gray-300 rounded-full shadow-md" />
@@ -377,11 +378,11 @@ queryKey: ["hotel", id],
         )}
 
         {/* Last Updated */}
-        {hotel?.lastUpdated && (
+        {/* {hotel?.lastUpdated && (
           <div className="mt-8 text-sm text-gray-500 text-right">
             Last updated: {new Date(hotel.lastUpdated).toLocaleDateString()}
           </div>
-        )}
+        )} */}
       </div>
 
       {/* ✅ Press effect on "Add Review" button */}
