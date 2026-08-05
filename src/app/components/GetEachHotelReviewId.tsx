@@ -40,7 +40,7 @@ console.log("HotelReviewById",reviewsData);
           </div>
           <div className="hidden sm:flex space-x-4 md:hidden">
             {[1].map((i) => (
-              <div key={i} className="min-w-[300px] h-32 bg-gray-200 rounded-xl"></div>
+              <div key={i} className="min-w-[320px] h-48 bg-gray-200 rounded-xl"></div>
             ))}
           </div>
         </div>
