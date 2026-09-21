@@ -193,19 +193,16 @@ export default function Bookings() {
       <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Page Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-5 sm:mb-6">
-
-          <h1 className="text-lg sm:text-xl md:text-2xl font-bold underline text-slate-800">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
+          <h1 className="text-lg underline sm:text-xl font-bold text-slate-800">
             All Bookings
           </h1>
-
           <Link
             href="/dashboard"
-            className="inline-flex items-center justify-center w-full sm:w-auto rounded-xl bg-gradient-to-r from-blue-700 to-rose-600 px-4 sm:px-5 py-2.5 text-sm sm:text-base text-white font-semibold shadow hover:from-red-700 hover:to-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-400 focus:ring-offset-2 transition-all"
+            className="inline-flex items-center rounded-xl bg-blue-600  px-4 py-2 text-white font-semibold shadow hover:from-red-700 hover:to-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-400 focus:ring-offset-2 transition-all text-sm" 
           >
-            Go to Dashboard
+            Go to Dashboard 
           </Link>
-
         </div>
 
         {/* Search */}

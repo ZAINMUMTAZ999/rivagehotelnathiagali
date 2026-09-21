@@ -71,69 +71,7 @@ export default function ContactUS() {
 
       {/* Main Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-8 sm:py-12 md:py-16 lg:py-20 flex flex-col lg:flex-row items-center justify-center gap-8 sm:gap-10 lg:gap-16 relative z-10">
-
-        {/* Contact Information */}
-        <div className="w-full lg:w-5/12 text-center lg:text-left">
-
-          <div className="mb-8 sm:mb-10">
-
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-3 sm:mb-4 tracking-tight">
-              Get in Touch
-            </h1>
-
-            <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-md mx-auto lg:mx-0 leading-relaxed">
-              Have a project in mind or just want to say hi? We would love to hear
-              from you!
-            </p>
-
-          </div>
-
-          {/* Contact Details */}
-          <div className="space-y-5 sm:space-y-6 flex flex-col items-center lg:items-start">
-
-            {/* Phone */}
-            <a
-              href="tel:+923246288217"
-              className="flex items-center gap-3 sm:gap-4 group w-full max-w-sm lg:max-w-none"
-            >
-              <div className="w-11 h-11 sm:w-12 sm:h-12 bg-pink-100 text-pink-500 rounded-full flex items-center justify-center flex-shrink-0">
-                <Phone className="w-5 h-5 sm:w-6 sm:h-6" />
-              </div>
-
-              <span className="text-gray-700 font-medium text-sm sm:text-base md:text-lg group-hover:text-pink-600 transition-colors break-all">
-                +92 324 6288217
-              </span>
-            </a>
-
-            {/* Email */}
-            <a
-              href="mailto:mzainmumtaz99@gmail.com"
-              className="flex items-center gap-3 sm:gap-4 group w-full max-w-sm lg:max-w-none"
-            >
-              <div className="w-11 h-11 sm:w-12 sm:h-12 bg-purple-100 text-purple-500 rounded-full flex items-center justify-center flex-shrink-0">
-                <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
-              </div>
-
-              <span className="text-gray-700 font-medium text-sm sm:text-base md:text-lg group-hover:text-purple-600 transition-colors break-all">
-                mzainmumtaz99@gmail.com
-              </span>
-            </a>
-
-            {/* Address */}
-            <div className="flex items-center gap-3 sm:gap-4 w-full max-w-sm lg:max-w-none">
-              <div className="w-11 h-11 sm:w-12 sm:h-12 bg-blue-100 text-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
-                <MapPin className="w-5 h-5 sm:w-6 sm:h-6" />
-              </div>
-
-              <span className="text-gray-700 font-medium text-sm sm:text-base md:text-lg">
-                Islamabad, Pakistan
-              </span>
-            </div>
-
-          </div>
-        </div>
-
-        {/* Contact Form */}
+   {/* Contact Form */}
         <form
           onSubmit={onSubmits}
           className="w-full lg:w-7/12 bg-white p-5 sm:p-6 md:p-8 lg:p-10 rounded-2xl shadow-2xl"
@@ -272,6 +210,68 @@ export default function ContactUS() {
 
           </div>
         </form>
+        {/* Contact Information */}
+        <div className="w-full lg:w-5/12 text-center lg:text-left">
+
+          <div className="mb-8 sm:mb-10">
+
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-3 sm:mb-4 tracking-tight">
+              Get in Touch
+            </h1>
+
+            <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-md mx-auto lg:mx-0 leading-relaxed">
+              Have a project in mind or just want to say hi? We would love to hear
+              from you!
+            </p>
+
+          </div>
+
+          {/* Contact Details */}
+          <div className="space-y-5 sm:space-y-6 flex flex-col items-center lg:items-start">
+
+            {/* Phone */}
+            <a
+              href="tel:+923246288217"
+              className="flex items-center gap-3 sm:gap-4 group w-full max-w-sm lg:max-w-none"
+            >
+              <div className="w-11 h-11 sm:w-12 sm:h-12 bg-pink-100 text-pink-500 rounded-full flex items-center justify-center flex-shrink-0">
+                <Phone className="w-5 h-5 sm:w-6 sm:h-6" />
+              </div>
+
+              <span className="text-gray-700 font-medium text-sm sm:text-base md:text-lg group-hover:text-pink-600 transition-colors break-all">
+                +92 324 6288217
+              </span>
+            </a>
+
+            {/* Email */}
+            <a
+              href="mailto:mzainmumtaz99@gmail.com"
+              className="flex items-center gap-3 sm:gap-4 group w-full max-w-sm lg:max-w-none"
+            >
+              <div className="w-11 h-11 sm:w-12 sm:h-12 bg-purple-100 text-purple-500 rounded-full flex items-center justify-center flex-shrink-0">
+                <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
+              </div>
+
+              <span className="text-gray-700 font-medium text-sm sm:text-base md:text-lg group-hover:text-purple-600 transition-colors break-all">
+                mzainmumtaz99@gmail.com
+              </span>
+            </a>
+
+            {/* Address */}
+            <div className="flex items-center gap-3 sm:gap-4 w-full max-w-sm lg:max-w-none">
+              <div className="w-11 h-11 sm:w-12 sm:h-12 bg-blue-100 text-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                <MapPin className="w-5 h-5 sm:w-6 sm:h-6" />
+              </div>
+
+              <span className="text-gray-700 font-medium text-sm sm:text-base md:text-lg">
+                Islamabad, Pakistan
+              </span>
+            </div>
+
+          </div>
+        </div>
+
+     
 
       </div>
     </main>
