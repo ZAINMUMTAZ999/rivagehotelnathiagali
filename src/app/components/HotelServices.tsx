@@ -69,7 +69,7 @@ const HotelServicesSection: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 text-center mb-8 md:mb-16">
         <motion.h2
-          className="text-xl  md:text-3xl lg:text-5xl xl:text-6xl font-extrabold text-indigo-800 mb-4"
+          className="text-2xl  md:text-3xl lg:text-5xl xl:text-6xl font-extrabold text-indigo-800 mb-4"
           variants={itemVariants} // Animate the title
         >
           Our Signature Hotel Services
@@ -98,7 +98,7 @@ const HotelServicesSection: React.FC = () => {
               md:text-xl lg:text-2xl font-semibold text-gray-900 mb-3">
                 {service.title}
               </h3>
-              <p className="text-gray-700 text-sm md:text-lg leading-relaxed">
+              <p className="text-sm md:text-lg lg:text-xl text-gray-700 leading-relaxed">
                 {service.description}
               </p>
             </motion.div>
