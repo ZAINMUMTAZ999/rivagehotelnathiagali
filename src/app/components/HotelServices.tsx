@@ -60,7 +60,7 @@ const HotelServicesSection: React.FC = () => {
 
   return (
     <motion.section
-      className="bg-white py-6 sm:py-8 md:py-12 lg:py-24 xl:py-32"
+      className="bg-white py-4 sm:py-6 md:py-8 lg:py-24 xl:py-32"
     //   variants={sectionVariants}
       initial="hidden"
       whileInView="visible" // Animate when the section comes into view
