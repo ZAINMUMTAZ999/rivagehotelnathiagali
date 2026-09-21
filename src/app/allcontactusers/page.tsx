@@ -141,24 +141,22 @@ const GetAllContacts = () => {
     <div className="min-h-screen bg-white">
 
       {/* Header */}
-      <header className="sticky top-0 z-20 bg-white/90 backdrop-blur-md border-b border-slate-200/60 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-5">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
-
-            <h1 className="text-lg sm:text-xl md:text-2xl font-bold underline text-slate-800">
-              All Contacts
-            </h1>
-
-            <Link
-              href="/dashboard"
-              className="inline-flex items-center justify-center w-full sm:w-auto rounded-xl bg-gradient-to-r from-blue-700 to-rose-600 px-4 sm:px-5 py-2.5 text-sm sm:text-base text-white font-semibold shadow hover:from-red-700 hover:to-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-400 focus:ring-offset-2 transition-all"
-            >
-              Go to Dashboard
-            </Link>
-
-          </div>
+      {/* <header className="sticky top-0 z-20 bg-white/90 backdrop-blur-md border-b border-slate-200/60 shadow-sm"> */}
+                    
+            
+            
+ <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
+          <h1 className="text-lg underline sm:text-xl font-bold text-slate-800">
+            All Contacts
+          </h1>
+          <Link
+            href="/dashboard"
+            className="inline-flex items-center rounded-xl bg-blue-600  px-4 py-2 text-white font-semibold shadow hover:from-red-700 hover:to-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-400 focus:ring-offset-2 transition-all text-sm" 
+          >
+            Go to Dashboard 
+          </Link>
         </div>
-      </header>
+      {/* </header> */}
 
       {/* Main */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">

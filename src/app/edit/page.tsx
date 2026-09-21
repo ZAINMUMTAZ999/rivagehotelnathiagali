@@ -133,18 +133,21 @@ export default function EditDashboard() {
    <main className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 px-4 py-6 sm:px-6 lg:px-8">
   <div className="max-w-7xl mx-auto">
     {/* Header Section */}
-    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-8">
-      <span className="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight">
-        Edit/Delete Hotels
-      </span>
-      <Link
-        href="/addroom"
-        className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg hover:bg-blue-700 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all duration-200 ease-in-out transform hover:scale-105"
-      >
-        <span className="mr-2">+</span>
-        Add Hotel
-      </Link>
-    </div>
+ 
+  <div className="max-w-7xl mx-auto flex items-center justify-between px-4 py-4">
+          <h1 className="text-lg underline sm:text-xl font-bold text-slate-800">
+            Edit/Delete
+          </h1>
+          <Link
+            href="/dashboard"
+            className="inline-flex items-center rounded-xl bg-blue-600  px-4 py-2 text-white font-semibold shadow hover:from-red-700 hover:to-rose-700 focus:outline-none focus:ring-2 focus:ring-rose-400 focus:ring-offset-2 transition-all text-sm" 
+          >
+            Go to Dashboard 
+          </Link>
+        </div>
+      
+ 
+ 
     
     <SearchHotelsBar />
 
