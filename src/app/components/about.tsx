@@ -1,169 +1,231 @@
 "use client";
-import { motion } from 'framer-motion';
-import { Mountain,  HeartHandshake,  Stars } from 'lucide-react'; // More evocative icons
 
+import { Mountain, HeartHandshake, Stars } from "lucide-react";
 
+import one from "../assets/p1.jpeg";
+import two from "../assets/p2.jpeg";
+import three from "../assets/p3.jpeg";
 
-import one from '../assets/p1.jpeg';
-// import one1 from "./assets/p1.jpeg";
-import two from'../assets/p2.jpeg'; // Optional: if you want a visual for the story
-import three from '../assets/p3.jpeg'; // Optional: an image that captures Murree's spirit
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
 
 const AboutUs = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15, // Slightly faster stagger for a fluid feel
-      },
-    },
-  };
-
-  // const itemVariants = {
-  //   hidden: { opacity: 0, y: 30 },
-  //   visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 10 } },
-  // };
-
   return (
-    <motion.div
-      className="bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen text-gray-800"
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-    >
- 
+    <div className="bg-gradient-to-br from-gray-50 to-blue-50 min-h-screen text-gray-800">
 
-      <div className="relative h-72 md:h-96 lg:h-[500px] bg-cover bg-center" style={{ backgroundImage: `url(${[one.src]})` }}>
-        <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col items-center justify-center p-4">
-          <motion.h1
-            className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white text-center drop-shadow-2xl leading-tight"
-            initial={{ y: -70, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.9, ease: "easeOut" }}
-          >
-            Our Story: A Legacy in the <span className="text-emerald-300">Heart of Nathia Gali</span>
-          </motion.h1>
-          <motion.p
-            className="text-lg md:text-xl text-white text-center mt-4 max-w-3xl"
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
-          >
-            More than a hotel, we are a destination woven into the very fabric of Nathia Gali charm.
-          </motion.p>
+      {/* Hero */}
+      <div className="relative h-72 sm:h-80 md:h-96 lg:h-[500px]">
+        <Image
+          src={one}
+          alt="Rivage Cottage Resort"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+
+        <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 text-center">
+
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-tight drop-shadow-2xl max-w-6xl">
+            Our Story: A Legacy in the{" "}
+            <span className="text-emerald-300">
+              Heart of Nathia Gali
+            </span>
+          </h1>
+
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white mt-4 sm:mt-5 max-w-3xl leading-relaxed">
+            More than a hotel, we are a destination woven into the very fabric
+            of Nathia Gali charm.
+          </p>
+
         </div>
       </div>
 
       {/* The Origin Story */}
-      <section className="container mx-auto px-4 py-16 md:py-24">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <motion.div className="lg:order-2">
-            {two && (
-              <Image
-                src={two}
-                alt="Our Origin Story at Holiday Resort Hotel"
-                className="rounded-xl shadow-2xl object-cover w-full h-72 md:h-96 lg:h-auto max-w-full lg:max-w-none transform hover:scale-105 transition-transform duration-500 ease-in-out"
-              />
-            )}
-          </motion.div>
-          <motion.div className="lg:order-1 text-center lg:text-left">
-            <h2 className="text-3xl md:text-4xl font-bold text-indigo-800 mb-6 leading-snug">
-              From a Vision to Your <span className="text-emerald-600">Perfect Retreat</span>
-            </h2>
-            <p className="text-lg md:text-xl leading-relaxed text-gray-700 mb-4">
-              Our journey began over two decades ago with a simple, yet profound dream: to create a sanctuary where the majesty of Nathia  Gali mountains meets unparalleled comfort. Born from a love for this serene landscape, Holiday Resort Hotel was meticulously designed not just as a place to stay, but as an experience to cherish.
-            </p>
-            <p className="text-md md:text-lg leading-relaxed text-gray-600">
-              Every stone laid, every view framed, and every service offered, reflects our commitment to harmonizing luxury with nature&lsquo;s tranquility. We invite you to step into a legacy of hospitality where every visit feels like coming home.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-10 sm:py-12 md:py-16 lg:py-24">
 
-      {/* The Murree Essence */}
-      <section className="bg-white py-16 md:py-24">
-        <div className="container mx-auto px-4 max-w-5xl text-center">
-          <motion.h2 className="text-3xl md:text-4xl font-bold text-indigo-800 mb-10" >
-            Where hotel Charm <span className="text-emerald-600">Comes Alive</span>
-          </motion.h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {three && (
-              <motion.div className="order-2 lg:order-1">
-                <Image
-                 src={three}
-                  alt="Nathia Gali Natural Beauty"
-                   width={400}
-  height={300}
-  unoptimized
-                  className="rounded-xl shadow-2xl object-cover w-full h-72 md:h-96 max-w-full transform hover:scale-105 transition-transform duration-500 ease-in-out"
-                />
-              </motion.div>
-            )}
-            <motion.div className="order-1 lg:order-2 text-center lg:text-left">
-              <p className="text-lg md:text-xl leading-relaxed text-gray-700 mb-4">
-                More than just a location, Islamabad is an integral part of your hotel experience. We celebrate its misty mornings, the whispering pines, and the invigorating mountain air. Our architecture and ambiance are designed to seamlessly blend with the natural surroundings, offering breathtaking views from every window.
-              </p>
-              <p className="text-md md:text-lg leading-relaxed text-gray-600">
-                Immerse yourself in the local culture, explore scenic trails, or simply unwind on our terraces, soaking in the serene beauty that only Nathi Gali can offer. At Rivage Cottage Resort, Nathia Gali isn&lsquo;t just outside your door; it&lsquo;s part of your stay.
-              </p>
-            </motion.div>
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-14 items-center">
+
+          {/* Image */}
+          <div className="lg:order-2">
+            <Image
+              src={two}
+              alt="Our Origin Story at Holiday Resort Hotel"
+              className="rounded-xl shadow-2xl object-cover w-full h-64 sm:h-72 md:h-96 lg:h-[450px]"
+            />
+          </div>
+
+          {/* Text */}
+          <div className="lg:order-1 text-center lg:text-left">
+
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-indigo-800 mb-5 sm:mb-6 leading-snug">
+              From a Vision to Your{" "}
+              <span className="text-emerald-600">
+                Perfect Retreat
+              </span>
+            </h2>
+
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-700 mb-4">
+              Our journey began over two decades ago with a simple, yet
+              profound dream: to create a sanctuary where the majesty of Nathia
+              Gali mountains meets unparalleled comfort. Born from a love for
+              this serene landscape, Holiday Resort Hotel was meticulously
+              designed not just as a place to stay, but as an experience to
+              cherish.
+            </p>
+
+            <p className="text-base sm:text-lg leading-relaxed text-gray-600">
+              Every stone laid, every view framed, and every service offered,
+              reflects our commitment to harmonizing luxury with nature&apos;s
+              tranquility. We invite you to step into a legacy of hospitality
+              where every visit feels like coming home.
+            </p>
+
           </div>
         </div>
       </section>
 
-      {/* Our Promise: What Makes Us Unique */}
-      <section className="container mx-auto px-4 py-16 md:py-24">
-        <motion.h2 className="text-3xl md:text-4xl font-bold text-center text-indigo-800 mb-12">
-          The <span className="text-emerald-600">Hotel</span> Promise
-        </motion.h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-           <motion.div className="bg-white p-8 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300 text-center border-t-4 border-indigo-500" 
-          >
-            <Mountain className="h-12 w-12 text-indigo-600 mx-auto mb-4" />
-            <h4 className="text-xl font-semibold text-gray-900 mb-3">Panoramic Serenity</h4>
-            <p className="text-gray-700">
-              Wake up to stunning vistas and let the crisp mountain air rejuvenate your soul. Every room is a window NathiaGali  majestic beauty.
-            </p>
-          </motion.div>
-          <motion.div className="bg-white p-8 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300 text-center border-t-4 border-indigo-500" 
-          >
-            <HeartHandshake className="h-12 w-12 text-indigo-600 mx-auto mb-4" />
-            <h4 className="text-xl font-semibold text-gray-900 mb-3">Heartfelt Hospitality</h4>
-            <p className="text-gray-700">
-              Experience warmth and genuine care from a team dedicated to anticipating your needs and making your stay effortless.
-            </p>
-          </motion.div>
-          <motion.div className="bg-white p-8 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300 text-center border-t-4 border-indigo-500" >
-            <Stars className="h-12 w-12 text-indigo-600 mx-auto mb-4" />
-            <h4 className="text-xl font-semibold text-gray-900 mb-3">Unforgettable Moments</h4>
-            <p className="text-gray-700">
-              From exquisite dining to curated local experiences, we craft memories that linger long after you&lsquo;ve left our hills.
-            </p>
-          </motion.div>
+      {/* Nathia Gali Essence */}
+      <section className="bg-white py-10 sm:py-12 md:py-16 lg:py-24">
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 text-center">
+
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-indigo-800 mb-8 sm:mb-10 md:mb-12">
+            Where Hotel Charm{" "}
+            <span className="text-emerald-600">
+              Comes Alive
+            </span>
+          </h2>
+
+          <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-14 items-center">
+
+            {/* Image */}
+            <div className="order-2 lg:order-1">
+              <Image
+                src={three}
+                alt="Nathia Gali Natural Beauty"
+                width={800}
+                height={600}
+                className="rounded-xl shadow-2xl object-cover w-full h-64 sm:h-72 md:h-96 lg:h-[450px]"
+              />
+            </div>
+
+            {/* Text */}
+            <div className="order-1 lg:order-2 text-center lg:text-left">
+
+              <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-700 mb-4">
+                More than just a location, Nathia Gali is an integral part of
+                your hotel experience. We celebrate its misty mornings, the
+                whispering pines, and the invigorating mountain air. Our
+                architecture and ambiance are designed to seamlessly blend
+                with the natural surroundings, offering breathtaking views
+                from every window.
+              </p>
+
+              <p className="text-base sm:text-lg leading-relaxed text-gray-600">
+                Immerse yourself in the local culture, explore scenic trails,
+                or simply unwind on our terraces, soaking in the serene beauty
+                that only Nathia Gali can offer. At Rivage Cottage Resort,
+                Nathia Gali isn&apos;t just outside your door; it&apos;s part
+                of your stay.
+              </p>
+
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Call to Action/Invitation */}
-      <section className=" text-black py-16 md:py-12 text-center">
-        <motion.div className="container mx-auto px-4" >
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+      {/* Hotel Promise */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-10 sm:py-12 md:py-16 lg:py-24">
+
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-indigo-800 mb-8 sm:mb-10 md:mb-12">
+          The{" "}
+          <span className="text-emerald-600">
+            Hotel
+          </span>{" "}
+          Promise
+        </h2>
+
+        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+
+          {/* Card 1 */}
+          <div className="bg-white p-5 sm:p-6 md:p-8 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300 text-center border-t-4 border-indigo-500">
+
+            <Mountain className="h-10 w-10 sm:h-12 sm:w-12 text-indigo-600 mx-auto mb-4" />
+
+            <h4 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3">
+              Panoramic Serenity
+            </h4>
+
+            <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+              Wake up to stunning vistas and let the crisp mountain air
+              rejuvenate your soul. Every room is a window to Nathia Gali&apos;s
+              majestic beauty.
+            </p>
+
+          </div>
+
+          {/* Card 2 */}
+          <div className="bg-white p-5 sm:p-6 md:p-8 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300 text-center border-t-4 border-indigo-500">
+
+            <HeartHandshake className="h-10 w-10 sm:h-12 sm:w-12 text-indigo-600 mx-auto mb-4" />
+
+            <h4 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3">
+              Heartfelt Hospitality
+            </h4>
+
+            <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+              Experience warmth and genuine care from a team dedicated to
+              anticipating your needs and making your stay effortless.
+            </p>
+
+          </div>
+
+          {/* Card 3 */}
+          <div className="bg-white p-5 sm:p-6 md:p-8 rounded-lg shadow-xl hover:shadow-2xl transition-shadow duration-300 text-center border-t-4 border-indigo-500">
+
+            <Stars className="h-10 w-10 sm:h-12 sm:w-12 text-indigo-600 mx-auto mb-4" />
+
+            <h4 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3">
+              Unforgettable Moments
+            </h4>
+
+            <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
+              From exquisite dining to curated local experiences, we craft
+              memories that linger long after you&apos;ve left our hills.
+            </p>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="text-black py-10 sm:py-12 md:py-16 lg:py-20 text-center">
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">
             Your Nathia Gali Story Starts Here.
           </h2>
-          <p className="text-lg md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed">
-            Discover the magic of Nathia Gali, enhanced by the comfort and authentic charm of Rivage Cottage Resort. We are ready to welcome you.
+
+          <p className="text-base sm:text-lg md:text-xl mb-7 sm:mb-10 max-w-3xl mx-auto leading-relaxed">
+            Discover the magic of Nathia Gali, enhanced by the comfort and
+            authentic charm of Rivage Cottage Resort. We are ready to welcome
+            you.
           </p>
+
           <Link
-            href="/allrooms" 
-            className="inline-block bg-blue-900 hover:text-white text-white font-bold py-4 px-10 rounded-full shadow-xl  hover:scale-105 transition-all duration-300 ease-in-out text-lg uppercase tracking-wide"
+            href="/allrooms"
+            className="inline-flex items-center justify-center bg-blue-900 hover:bg-blue-800 text-white font-bold py-3 sm:py-4 px-7 sm:px-10 rounded-full shadow-xl transition-colors duration-300 text-sm sm:text-base md:text-lg uppercase tracking-wide"
           >
             Explore Our Rooms
           </Link>
-        </motion.div>
+
+        </div>
       </section>
-    </motion.div>
+
+    </div>
   );
 };
 

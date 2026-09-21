@@ -6,7 +6,6 @@ import { addHeroImageTypes, heroImageApi } from "../Api";
 import WhatsAppLinkButton from "./WA";
 import Link from "next/link";
 import PwaInstallPrompt from "./PwaInstallPrompt";
-// import { Button } from "./ui/button";
 
 export default function GetHeroImageHomepage() {
   const { data, isLoading, isError, error } = useQuery<
@@ -17,102 +16,132 @@ export default function GetHeroImageHomepage() {
     queryFn: heroImageApi,
   });
 
+  /* Loading */
   if (isLoading) {
     return (
-      <div className="relative w-full h-screen bg-gray-200 animate-pulse">
-        {/* Overlay skeleton for heading and button */}
+      <div className="relative w-full min-h-screen bg-gray-200 animate-pulse">
         <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center px-4">
-          {/* Heading placeholder */}
-          <div className="w-3/4 h-12 sm:h-14 md:h-16 lg:h-20 bg-gray-400 rounded mb-6"></div>
+          <div className="w-3/4 max-w-3xl h-10 sm:h-14 md:h-16 lg:h-20 bg-gray-400 rounded mb-6" />
 
-          {/* Button placeholder */}
-          <div className="w-32 h-10 bg-gray-400 rounded mb-4"></div>
-
-          {/* Subtitle placeholder */}
-          {/* <div className="w-2/3 h-6 sm:h-8 md:h-10 bg-gray-400 rounded"></div> */}
+          <div className="w-32 sm:w-40 h-10 bg-gray-400 rounded" />
         </div>
       </div>
     );
   }
 
+  /* Error */
   if (isError) {
     return (
-      <div className="max-w-6xl mx-auto px-4 mt-12">
-        <div className="bg-red-50 border border-red-200 rounded-lg p-6 text-center">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 mt-8 sm:mt-10 md:mt-12">
+        <div className="bg-red-50 border border-red-200 rounded-lg p-4 sm:p-6 text-center">
           <p className="text-red-600 font-medium">
             Refresh to load Homepage Image
           </p>
-          <p className="text-red-500 text-sm mt-1">{error.message}</p>
+
+          <p className="text-red-500 text-sm mt-1 break-words">
+            {error.message}
+          </p>
         </div>
       </div>
     );
   }
 
-  const img = data?.imageFile ;
-//   console.log(data?.imageFile)
+  const img = data?.imageFile;
+
   if (!img) return null;
 
   return (
-   <div className="relative w-full h-screen">
-  <Image
-    src={img}
-    alt="ArcadianResort"
-    fill
-    className="object-cover object-center"
-    priority
-  />
+    <div className="relative w-full min-h-screen">
 
-  {/* Overlay */}
-  <div className="
-    absolute inset-0 bg-black/40 flex flex-col items-center
-    justify-start sm:justify-center px-4
-    pt-56 sm:pt-0
-    text-center
-  ">
-    {/* Main Heading */}
-    <h1 className="
-      text-gray-300 font-extrabold tracking-tight
-      text-4xl sm:text-xl md:text-6xl lg:text-7xl
-      leading-snug
-    ">
-      HotelWebApp Islamabad
-    </h1>
+      {/* Hero Image */}
+      <Image
+        src={img}
+        alt="Arcadian Resort"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center"
+      />
 
-    {/* Subheading / Tagline */}
-    <h2 className="
-      mt-4 text-gray-200 font-semibold tracking-wide
-      text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl
-      max-w-3xl leading-relaxed
-    ">
-      Nestled amidst whispering pines, our resort offers an unparalleled blend of comfort, luxury, and breathtaking mountain vistas.
-    </h2>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center px-4 sm:px-6 md:px-8 text-center">
 
-    {/* Rooms Button */}
-    <Link href="/allrooms">
-      <button className="
-        mt-6 px-6 py-3 border-2 border-blue-200 
+        {/* Main Heading */}
+        <h1
+          className="
+            text-gray-200 font-extrabold tracking-tight
+            text-3xl
+            sm:text-4xl
+            md:text-5xl
+            lg:text-6xl
+            xl:text-7xl
+            leading-tight
+            max-w-5xl
+          "
+        >
+          HotelWebApp Islamabad
+        </h1>
 
+        {/* Subheading */}
+        <h2
+          className="
+            mt-4 sm:mt-5 md:mt-6
+            text-gray-200 font-semibold tracking-wide
+            text-base
+            sm:text-lg
+            md:text-xl
+            lg:text-2xl
+            xl:text-3xl
+            max-w-3xl
+            leading-relaxed
+          "
+        >
+          Nestled amidst whispering pines, our resort offers an unparalleled
+          blend of comfort, luxury, and breathtaking mountain vistas.
+        </h2>
 
-         active:bg-slate-500 active:text-slate-700
-                  active:scale-95
-        hover:cursor-pointer
-        font-serif text-base sm:text-lg md:text-xl rounded-md
-        bg-blue-600 hover:bg-blue-700 text-white transition-all duration-300
-      ">
-        View Rooms
-      </button>
-    </Link>
+        {/* Rooms Button */}
+        <Link href="/allrooms">
+          <button
+            className="
+              mt-6 sm:mt-7 md:mt-8
+              px-5 py-2.5
+              sm:px-6 sm:py-3
+              md:px-7 md:py-3.5
+              border-2 border-blue-200
+              active:bg-slate-500
+              active:text-slate-700
+              active:scale-95
+              cursor-pointer
+              font-serif
+              text-sm
+              sm:text-base
+              md:text-lg
+              lg:text-xl
+              rounded-md
+              bg-blue-600
+              hover:bg-blue-700
+              text-white
+              transition-all
+              duration-300
+            "
+          >
+            View Rooms
+          </button>
+        </Link>
 
         <PwaInstallPrompt />
-    {/* WhatsApp floating button */}
-    <div className="fixed bottom-4 right-6 z-30">
-      <WhatsAppLinkButton
-        phoneNumber="923459280907"
-        message="Book your resort stay—message us!"
-      />
-    </div>
-  </div>
-</div>
 
+      </div>
+
+      {/* WhatsApp Floating Button */}
+      <div className="fixed bottom-4 right-4 sm:right-6 z-30">
+        <WhatsAppLinkButton
+          phoneNumber="923459280907"
+          message="Book your resort stay—message us!"
+        />
+      </div>
+
+    </div>
   );
 }
