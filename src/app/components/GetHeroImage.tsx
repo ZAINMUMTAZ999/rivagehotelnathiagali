@@ -135,7 +135,7 @@ export default function GetHeroImageHomepage() {
       </div>
 
       {/* WhatsApp Floating Button */}
-    <div className="fixed bottom-4 right-4 sm:right-6 z-30 scale-[0.8] origin-bottom-right">
+    <div className="fixed bottom-4 right-4 sm:right-6 z-30 scale-[0.9] origin-bottom-right">
   <WhatsAppLinkButton
     phoneNumber="923459280907"
     message="Book your resort stay—message us!"
