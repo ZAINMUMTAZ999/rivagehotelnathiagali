@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { FaSquareWhatsapp } from "react-icons/fa6";
 
@@ -14,26 +16,31 @@ const WhatsAppLinkButton: React.FC<WhatsAppLinkButtonProps> = ({
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       message
     )}`;
-    window.open(url, "_blank");
+
+    window.open(url, "_blank", "noopener,noreferrer");
   };
 
   return (
-    // hidden on md+ screens, visible only on small devices
-    <div className="fixed bottom-4 right-5 z-30 md:hidden">
+    <div className="fixed bottom-4 right-4 sm:bottom-5 sm:right-5 z-30">
       <div className="relative group">
-        {/* Floating Action Button */}
+
+        {/* Floating WhatsApp Button */}
         <button
+          type="button"
           onClick={handleClick}
-          className="bg-gradient-to-r from-green-400 to-green-600 hover:from-green-500 hover:to-green-700 text-white w-16 h-16 rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-110 transition-all duration-300 flex items-center justify-center animate-pulse hover:animate-none"
           aria-label="Chat on WhatsApp"
+          className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-r from-green-400 to-green-600 hover:from-green-500 hover:to-green-700 text-white shadow-2xl hover:shadow-3xl transform hover:scale-110 active:scale-95 transition-all duration-300 animate-pulse hover:animate-none"
         >
-          <FaSquareWhatsapp size={42} />
+          <FaSquareWhatsapp className="w-9 h-9 sm:w-[42px] sm:h-[42px]" />
         </button>
 
-        {/* Tooltip (appears on hover) */}
-        <div className="absolute right-20 top-1/2 transform -translate-y-1/2 bg-gray-900 text-white text-sm px-3 py-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap pointer-events-none">
-          <span className="font-medium">Chat with us on WhatsApp</span>
+        {/* Tooltip */}
+        <div className="absolute right-[calc(100%+12px)] top-1/2 -translate-y-1/2 hidden sm:block bg-gray-900 text-white text-xs sm:text-sm px-3 py-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+          <span className="font-medium">
+            Chat with us on WhatsApp
+          </span>
         </div>
+
       </div>
     </div>
   );

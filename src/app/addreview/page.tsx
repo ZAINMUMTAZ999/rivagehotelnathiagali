@@ -1,54 +1,47 @@
-"use client"
-import { AddReviewApi } from "../Api";
+"use client";
+
+import { AddReviewApi, addReviewTypes } from "../Api";
 import { AppContext } from "../context/AppNotify";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
-// import { addReviewTypes } from "../../../backend/src/models/addReview.models";
-import {addReviewTypes} from "../Api";
 import { Button } from "../components/ui/button";
-import {  Send, ArrowLeft, MessageSquare } from "lucide-react";
-// import { Link, useNavigate } from "react-router-dom";
-
+import { Send, ArrowLeft, MessageSquare } from "lucide-react";
 import { useEffect, useRef } from "react";
-import Link from "next/link.js";
-import { useRouter } from "next/navigation.js";
-// import Toast from "./Toast";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
-export default function AddReview  () {
+export default function AddReview() {
   const { showToast } = AppContext();
+
   const {
     handleSubmit,
     register,
     formState: { errors },
-    // reset,
-    // handleSubmit,
-    
     watch,
   } = useForm<addReviewTypes>();
 
   const formRef = useRef<HTMLDivElement>(null);
+
   const message = watch("message", "");
   const characterCount = message?.length || 0;
 
-  // Scroll to top when component mounts - multiple approaches for reliability
+  const router = useRouter();
+
   useEffect(() => {
-    // Force immediate scroll to absolute top
     const scrollToTop = () => {
       window.scrollTo(0, 0);
       document.documentElement.scrollTop = 0;
       document.body.scrollTop = 0;
-      
-      // Also try setting scroll position on the html element
-      const htmlElement = document.querySelector('html');
+
+      const htmlElement = document.querySelector("html");
+
       if (htmlElement) {
         htmlElement.scrollTop = 0;
       }
     };
 
-    // Execute immediately
     scrollToTop();
 
-    // Execute again after a short delay to ensure it works after React renders
     const timer1 = setTimeout(scrollToTop, 0);
     const timer2 = setTimeout(scrollToTop, 100);
 
@@ -57,171 +50,211 @@ export default function AddReview  () {
       clearTimeout(timer2);
     };
   }, []);
-const router=useRouter();
-  // const toast=<Toast/>;
-  const { mutate: addReview,isPending: isLoading } = useMutation(
-    {
-        mutationKey:["addReview"],
-        mutationFn:AddReviewApi,
-         onSuccess: () => {
-      showToast({ type: "SUCCESS", message: "Review Added!" });
-      // toast();
-      // reset(); // clear form
+
+  const { mutate: addReview, isPending: isLoading } = useMutation({
+    mutationKey: ["addReview"],
+    mutationFn: AddReviewApi,
+
+    onSuccess: () => {
+      showToast({
+        type: "SUCCESS",
+        message: "Review Added!",
+      });
+
       router.push("/");
     },
-    onError: (error: Error) => {
-      showToast({ type: "ERROR", message: error?.message });
-    }
-        
-    }
- 
-);
 
-//   const onSubmits = (data: { message: string,name:string }) => {
-//     addReview(data);
-//   };
-  const onSubmits = handleSubmit((data: { message: string,name:string })=>{
-    addReview(data)
-  })
+    onError: (error: Error) => {
+      showToast({
+        type: "ERROR",
+        message: error?.message,
+      });
+    },
+  });
+
+  const onSubmits = handleSubmit(
+    (data: { message: string; name: string }) => {
+      addReview(data);
+    }
+  );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50" style={{ scrollBehavior: 'smooth' }}>
-      {/* Hero Section */}
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       <div className="relative overflow-hidden">
+
         {/* Background Elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-20 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob"></div>
-          <div className="absolute top-40 right-20 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000"></div>
-          <div className="absolute -bottom-8 left-40 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000"></div>
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-10 left-[-100px] sm:top-20 sm:left-10 md:left-20 w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob" />
+
+          <div className="absolute top-32 right-[-100px] sm:top-40 sm:right-10 md:right-20 w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-2000" />
+
+          <div className="absolute -bottom-8 left-10 sm:left-20 md:left-40 w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-blob animation-delay-4000" />
         </div>
 
-        <div className="relative max-w-4xl mx-auto px-6 pt-8 pb-16" id="add-review-top">
+        {/* Main Content */}
+        <div
+          className="relative w-full max-w-4xl mx-auto px-4 sm:px-6 md:px-8 pt-5 sm:pt-8 pb-10 sm:pb-16"
+          id="add-review-top"
+        >
+
           {/* Back Button */}
-          <Link 
-            href="/" 
-            className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-8 group transition-colors"
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 text-sm sm:text-base text-gray-600 hover:text-gray-900 mb-6 sm:mb-8 group transition-colors"
           >
-            <ArrowLeft className="w-5 h-5 transform group-hover:-translate-x-1 transition-transform" />
-            <span className="font-medium">Back to Home</span>
+            <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 transform group-hover:-translate-x-1 transition-transform" />
+
+            <span className="font-medium">
+              Back to Home
+            </span>
           </Link>
 
           {/* Header */}
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl mb-6 shadow-lg">
-              <MessageSquare className="w-8 h-8 text-white" />
+          <div className="text-center mb-8 sm:mb-10 md:mb-12">
+
+            <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl mb-4 sm:mb-6 shadow-lg">
+              <MessageSquare className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 px-2">
               Share Your Experience
             </h1>
-  
+
           </div>
 
           {/* Main Form */}
-          <div ref={formRef} className="max-w-2xl mx-auto">
-            <form onSubmit={onSubmits} className="space-y-8">
+          <div
+            ref={formRef}
+            className="w-full max-w-2xl mx-auto"
+          >
+            <form
+              onSubmit={onSubmits}
+              className="space-y-6 sm:space-y-8"
+            >
+
               {/* Review Card */}
-              <div className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
+              <div className="bg-white rounded-2xl sm:rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
+
                 {/* Card Header */}
-                <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-6">
+                <div className="bg-gradient-to-r from-blue-600 to-indigo-600 px-4 sm:px-6 md:px-8 py-5 sm:py-6">
                   <div className="flex items-center gap-3">
-                   
-                    <h2 className="text-white text-xl font-semibold">Write Your Review</h2>
+                    <h2 className="text-white text-lg sm:text-xl font-semibold">
+                      Write Your Review
+                    </h2>
                   </div>
                 </div>
 
                 {/* Card Body */}
-                <div className="p-8">
-                  <div className="space-y-6">
-                    {/* Textarea */}
-                    <div className="relative">
-                      {/* name */}
-                      <label className="block text-sm font-semibold text-gray-700 mb-3">
+                <div className="p-4 sm:p-6 md:p-8">
+
+                  <div className="space-y-5 sm:space-y-6">
+
+                    {/* Name */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2 sm:mb-3">
                         Name
                       </label>
-                      <div className="relative">
-                        <input
-                         
-                          placeholder="Your Name"
-                          className={`w-full p-4 border-2 rounded-xl bg-gray-50 focus:bg-white transition-all duration-300 resize-none text-gray-900 placeholder-gray-500 ${
-                            errors?.message 
-                              ? 'border-red-300 focus:border-red-500 focus:ring-red-200' 
-                              : 'border-gray-200 focus:border-blue-500 focus:ring-blue-200'
-                          } focus:ring-4 focus:outline-none`}
-                          {...register("name", {
-                            required: "Please enter your Name for add review it will visible to others!",
-                          
-                          })}
-                        />
-                         {errors?.name && (
-                        <div className="flex items-center gap-2 mt-2 text-red-600">
-                          <div className="w-4 h-4 rounded-full bg-red-100 flex items-center justify-center">
-                            <div className="w-2 h-2 rounded-full bg-red-500"></div>
+
+                      <input
+                        type="text"
+                        placeholder="Your Name"
+                        className={`w-full p-3 sm:p-4 border-2 rounded-xl bg-gray-50 focus:bg-white transition-all duration-300 text-sm sm:text-base text-gray-900 placeholder-gray-500 ${
+                          errors?.name
+                            ? "border-red-300 focus:border-red-500 focus:ring-red-200"
+                            : "border-gray-200 focus:border-blue-500 focus:ring-blue-200"
+                        } focus:ring-4 focus:outline-none`}
+                        {...register("name", {
+                          required:
+                            "Please enter your Name for add review it will visible to others!",
+                        })}
+                      />
+
+                      {errors?.name && (
+                        <div className="flex items-start gap-2 mt-2 text-red-600">
+                          <div className="w-4 h-4 mt-0.5 flex-shrink-0 rounded-full bg-red-100 flex items-center justify-center">
+                            <div className="w-2 h-2 rounded-full bg-red-500" />
                           </div>
-                          <span className="text-sm font-medium">{errors?.name.message}</span>
+
+                          <span className="text-xs sm:text-sm font-medium break-words">
+                            {errors.name.message}
+                          </span>
                         </div>
                       )}
-                        {/* meesage */}
-                      <label className="block text-sm font-semibold text-gray-700 mb-3">
+                    </div>
+
+                    {/* Review */}
+                    <div>
+                      <label className="block text-sm font-semibold text-gray-700 mb-2 sm:mb-3">
                         Your Review
                       </label>
+
                       <div className="relative">
                         <textarea
                           minLength={1}
                           maxLength={500}
                           rows={6}
                           placeholder="Tell us about your experience... What did you love? What could be improved?"
-                          className={`w-full p-4 border-2 rounded-xl bg-gray-50 focus:bg-white transition-all duration-300 resize-none text-gray-900 placeholder-gray-500 ${
-                            errors?.message 
-                              ? 'border-red-300 focus:border-red-500 focus:ring-red-200' 
-                              : 'border-gray-200 focus:border-blue-500 focus:ring-blue-200'
+                          className={`w-full p-3 sm:p-4 pb-9 border-2 rounded-xl bg-gray-50 focus:bg-white transition-all duration-300 resize-none text-sm sm:text-base text-gray-900 placeholder-gray-500 ${
+                            errors?.message
+                              ? "border-red-300 focus:border-red-500 focus:ring-red-200"
+                              : "border-gray-200 focus:border-blue-500 focus:ring-blue-200"
                           } focus:ring-4 focus:outline-none`}
                           {...register("message", {
-                            required: "Please share your thoughts with us",
+                            required:
+                              "Please share your thoughts with us",
                             minLength: {
                               value: 10,
-                              message: "Please write at least 10 characters"
-                            }
+                              message:
+                                "Please write at least 10 characters",
+                            },
                           })}
                         />
-                        
+
                         {/* Character Counter */}
                         <div className="absolute bottom-3 right-3 flex items-center gap-2">
-                          <span className={`text-xs font-medium ${
-                            characterCount > 180 ? 'text-orange-500' : 
-                            characterCount > 160 ? 'text-yellow-500' : 'text-gray-400'
-                          }`}>
+                          <span
+                            className={`text-xs font-medium ${
+                              characterCount > 450
+                                ? "text-red-500"
+                                : characterCount > 400
+                                ? "text-orange-500"
+                                : "text-gray-400"
+                            }`}
+                          >
                             {characterCount}/500
                           </span>
                         </div>
                       </div>
-                      
+
                       {errors?.message && (
-                        <div className="flex items-center gap-2 mt-2 text-red-600">
-                          <div className="w-4 h-4 rounded-full bg-red-100 flex items-center justify-center">
-                            <div className="w-2 h-2 rounded-full bg-red-500"></div>
+                        <div className="flex items-start gap-2 mt-2 text-red-600">
+                          <div className="w-4 h-4 mt-0.5 flex-shrink-0 rounded-full bg-red-100 flex items-center justify-center">
+                            <div className="w-2 h-2 rounded-full bg-red-500" />
                           </div>
-                          <span className="text-sm font-medium">{errors.message.message}</span>
+
+                          <span className="text-xs sm:text-sm font-medium break-words">
+                            {errors.message.message}
+                          </span>
                         </div>
                       )}
                     </div>
 
-                   
                   </div>
                 </div>
 
                 {/* Card Footer */}
-                <div className="bg-gray-50 px-8 py-6 border-t border-gray-100">
+                <div className="bg-gray-50 px-4 sm:px-6 md:px-8 py-5 sm:py-6 border-t border-gray-100">
+
                   <div className="flex flex-col sm:flex-row gap-4 sm:justify-between sm:items-center">
-                   
-                    
-                    <Button 
-                      type="submit" 
+
+                    <Button
+                      type="submit"
                       disabled={isLoading || characterCount === 0}
-                      className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 sm:px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                     >
                       {isLoading ? (
                         <>
-                          <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                          <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
                           <span>Publishing...</span>
                         </>
                       ) : (
@@ -231,19 +264,15 @@ const router=useRouter();
                         </>
                       )}
                     </Button>
+
                   </div>
                 </div>
-                </div>
+
               </div>
             </form>
           </div>
-
-          {/* Bottom Section */}
-          
         </div>
       </div>
-
-     
     </div>
   );
-};
+}
