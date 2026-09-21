@@ -9,14 +9,12 @@ export default function Dashboard() {
   const { isAdmin } = AppContext();
   const router = useRouter();
 
-  // Redirect non-admins
   useEffect(() => {
     if (!isAdmin) {
       router.replace("/");
     }
   }, [isAdmin, router]);
 
-  // Non-admin / loading state
   if (!isAdmin) {
     return (
       <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-r from-purple-100 via-pink-100 to-yellow-100 px-4 sm:px-6 text-center">
@@ -31,23 +29,7 @@ export default function Dashboard() {
 
           <Link
             href="/"
-            className="
-              inline-flex items-center justify-center
-              px-5 py-2.5
-              sm:px-6 sm:py-3
-              active:bg-slate-500
-              active:text-slate-700
-              active:scale-95
-              bg-green-500
-              hover:bg-green-600
-              text-white
-              font-semibold
-              text-sm sm:text-base
-              rounded-lg
-              shadow-md
-              transition
-              duration-300
-            "
+            className="inline-flex items-center justify-center px-5 py-2.5 sm:px-6 sm:py-3 active:bg-slate-500 active:text-slate-700 active:scale-95 bg-green-500 hover:bg-green-600 text-white font-semibold text-sm sm:text-base rounded-lg shadow-md transition duration-300"
           >
             Go to Home
           </Link>
@@ -57,17 +39,20 @@ export default function Dashboard() {
   }
 
   return (
-    <main className="min-h-screen px-4 sm:px-6 md:px-8 py-10 sm:py-12 md:py-16">
+    <main className="w-full px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10">
       <div className="w-full max-w-5xl mx-auto text-center">
 
-        {/* Header */}
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-800 mb-8 sm:mb-10 md:mb-12">
-          HotelWebApp
-        </h1>
+      
 
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-wide underline text-gray-800 mb-8 sm:mb-10 md:mb-12">
-          Admin Dashboard
-        </h2>
+       <div className="flex flex-col items-center mb-7 sm:mb-8 md:mb-10">
+  <div className="inline-flex items-center justify-center px-5 sm:px-7 py-2.5 sm:py-3 rounded-xl bg-blue-50 border border-blue-100 shadow-sm">
+    <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-blue-900">
+      Admin Dashboard
+    </h2>
+  </div>
+
+  <div className="mt-3 h-1 w-16 sm:w-20 rounded-full bg-blue-600" />
+</div>
 
         {/* Button Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
@@ -75,20 +60,11 @@ export default function Dashboard() {
           {/* Add Hotel */}
           <Link
             href="/addroom"
-            className="
-              group block rounded-xl bg-white
-              p-5 sm:p-6
-              shadow-md hover:shadow-lg
-              transition
-              active:bg-slate-500
-              active:text-slate-700
-              active:scale-95
-            "
+            className="group block rounded-xl bg-white p-5 sm:p-6 shadow-md hover:shadow-lg transition active:bg-slate-500 active:text-slate-700 active:scale-95"
           >
             <p className="text-lg sm:text-xl font-semibold text-gray-800 group-hover:text-blue-600">
               Add Hotel➕
             </p>
-
             <p className="mt-2 text-sm sm:text-base text-gray-500">
               Create a new hotel entry.
             </p>
@@ -97,20 +73,11 @@ export default function Dashboard() {
           {/* Homepage Image */}
           <Link
             href="/addheroimage"
-            className="
-              group block rounded-xl bg-white
-              p-5 sm:p-6
-              shadow-md hover:shadow-lg
-              transition
-              active:bg-slate-500
-              active:text-slate-700
-              active:scale-95
-            "
+            className="group block rounded-xl bg-white p-5 sm:p-6 shadow-md hover:shadow-lg transition active:bg-slate-500 active:text-slate-700 active:scale-95"
           >
             <p className="text-lg sm:text-xl font-semibold text-gray-800 group-hover:text-blue-600">
               Add Homepage Image📷
             </p>
-
             <p className="mt-2 text-sm sm:text-base text-gray-500">
               Upload hero images for the home page.
             </p>
@@ -119,20 +86,11 @@ export default function Dashboard() {
           {/* Edit Rooms */}
           <Link
             href="/edit"
-            className="
-              group block rounded-xl bg-white
-              p-5 sm:p-6
-              shadow-md hover:shadow-lg
-              transition
-              active:bg-slate-500
-              active:text-slate-700
-              active:scale-95
-            "
+            className="group block rounded-xl bg-white p-5 sm:p-6 shadow-md hover:shadow-lg transition active:bg-slate-500 active:text-slate-700 active:scale-95"
           >
             <p className="text-lg sm:text-xl font-semibold text-gray-800 group-hover:text-blue-600">
               Edit/Delete Rooms🏨
             </p>
-
             <p className="mt-2 text-sm sm:text-base text-gray-500">
               Manage and edit all listed rooms.
             </p>
@@ -141,20 +99,11 @@ export default function Dashboard() {
           {/* Bookings */}
           <Link
             href="/addbookings"
-            className="
-              group block rounded-xl bg-white
-              p-5 sm:p-6
-              shadow-md hover:shadow-lg
-              transition
-              active:bg-slate-500
-              active:text-slate-700
-              active:scale-95
-            "
+            className="group block rounded-xl bg-white p-5 sm:p-6 shadow-md hover:shadow-lg transition active:bg-slate-500 active:text-slate-700 active:scale-95"
           >
             <p className="text-lg sm:text-xl font-semibold text-gray-800 group-hover:text-blue-600">
               Bookings📖
             </p>
-
             <p className="mt-2 text-sm sm:text-base text-gray-500">
               Your Bookings.
             </p>
@@ -163,20 +112,11 @@ export default function Dashboard() {
           {/* Contacts */}
           <Link
             href="/allcontactusers"
-            className="
-              group block rounded-xl bg-white
-              p-5 sm:p-6
-              shadow-md hover:shadow-lg
-              transition
-              active:bg-slate-500
-              active:text-slate-700
-              active:scale-95
-            "
+            className="group block rounded-xl bg-white p-5 sm:p-6 shadow-md hover:shadow-lg transition active:bg-slate-500 active:text-slate-700 active:scale-95"
           >
             <p className="text-lg sm:text-xl font-semibold text-gray-800 group-hover:text-blue-600">
               All Contacts👥
             </p>
-
             <p className="mt-2 text-sm sm:text-base text-gray-500">
               All listed Contacts.
             </p>

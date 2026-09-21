@@ -81,14 +81,14 @@ export default function Page() {
         </div>
 
         {/* All Bookings */}
-        <div className="mb-5 sm:mb-6">
-          <Link
-            href="/addbookings/allbookings"
-            className="inline-flex items-center justify-center w-full sm:w-auto px-4 sm:px-5 py-2.5 rounded-lg bg-blue-600 text-sm sm:text-base font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition"
-          >
-            All Bookings
-          </Link>
-        </div>
+       <div className="mb-5 sm:mb-6 flex justify-center">
+  <Link
+    href="/addbookings/allbookings"
+    className="inline-flex items-center justify-center px-4 sm:px-5 py-2.5 rounded-lg bg-blue-600 text-sm sm:text-base font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition"
+  >
+    All Bookings
+  </Link>
+</div>
 
         {/* Main Form */}
         <div className="w-full max-w-4xl mx-auto">
