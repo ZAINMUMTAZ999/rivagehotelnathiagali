@@ -67,7 +67,7 @@ const HotelServicesSection: React.FC = () => {
       viewport={{ once: true, amount: 0.2 }} // Trigger animation once when 20% visible
     >
 
-      <div className="max-w-7xl mx-auto px-6 md:px-8 text-center mb-16">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 text-center mb-8 md:mb-16">
         <motion.h2
           className="text-xl  md:text-3xl lg:text-5xl xl:text-6xl font-extrabold text-indigo-800 mb-4"
           variants={itemVariants} // Animate the title
@@ -87,18 +87,18 @@ const HotelServicesSection: React.FC = () => {
           {services.map((service) => (
             <motion.div
               key={service.id}
-              className="bg-gray-50 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 p-4 sm:p-6 md:p-8 flex flex-col items-center text-center border-t-4 border-blue-500"
+              className="bg-gray-50 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 p-2  sm:p-4 md:p-8 flex flex-col items-center text-center border-t-4 border-blue-500"
               variants={itemVariants} // Animate each card
             >
               <div className="mb-6 bg-indigo-100 text-indigo-700 p-2 md:p-4 rounded-full inline-flex items-center justify-center shadow-inner">
                 <service.icon size={40} className="stroke-2" /> {/* Render Lucide icon */}
               </div>
               <h3 className="
-              text-sm
+              text-base
               md:text-xl lg:text-2xl font-semibold text-gray-900 mb-3">
                 {service.title}
               </h3>
-              <p className="text-gray-700 text-base md:text-lg leading-relaxed">
+              <p className="text-gray-700 text-sm md:text-lg leading-relaxed">
                 {service.description}
               </p>
             </motion.div>
