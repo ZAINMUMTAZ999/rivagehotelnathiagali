@@ -58,24 +58,7 @@ const services: ServiceItem[] = [
 ];
 
 const HotelServicesSection: React.FC = () => {
-  const itemVariants = {
-    hidden: {
-      opacity: 0,
-      x: -50,
-      y: 20,
-    },
-    visible: (index: number) => ({
-      opacity: 1,
-      x: 0,
-      y: 0,
-      transition: {
-        duration: 0.7,
-        delay: index * 0.1,
-        ease: "easeOut",
-      },
-    }),
-  };
-
+ 
   return (
     <motion.section
       className="bg-white py-4 sm:py-6 md:py-8 lg:py-24 xl:py-32"

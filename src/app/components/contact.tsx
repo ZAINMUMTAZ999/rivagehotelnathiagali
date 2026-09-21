@@ -82,7 +82,7 @@ export default function ContactUS() {
             </h1>
 
             <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-md mx-auto lg:mx-0 leading-relaxed">
-              Have a project in mind or just want to say hi? We'd love to hear
+              Have a project in mind or just want to say hi? We would love to hear
               from you!
             </p>
 
