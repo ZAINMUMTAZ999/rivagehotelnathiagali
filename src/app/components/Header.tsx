@@ -70,7 +70,7 @@ const Header = () => {
             <div className="flex items-center gap-2 mr-4 ">
               <Link href="/dashboard ">
                 <Button size="sm" variant="outline" className="bg-white 
-         active:bg-slate-500 active:text-slate-700
+         active:bg-slate-500 
                   active:scale-95 hover:cursor-pointer text-blue-900 hover:bg-gray-300">
                   Dashboard⚙️
                 </Button>
@@ -105,7 +105,7 @@ const Header = () => {
       {/* Mobile Sidebar Overlay */}
       <div
         className={`fixed inset-0 z-50 lg:hidden transition-opacity 
-         active:bg-slate-500 active:text-slate-700
+          
                    duration-300 ${
           mobileNav 
             ? "opacity-100 pointer-events-auto" 
@@ -121,7 +121,7 @@ const Header = () => {
         {/* Sidebar */}
         <aside 
           className={`absolute right-0 top-0 h-full w-80 max-w-[85vw] 
-         active:bg-slate-500 active:text-slate-700
+         
                     bg-blue-900 shadow-xl transform transition-transform duration-300 ${
             mobileNav ? "translate-x-0" : "translate-x-full"
           }`}
