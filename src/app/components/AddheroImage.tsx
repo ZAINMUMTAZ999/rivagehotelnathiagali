@@ -98,9 +98,7 @@ const UserProfile = () => {
           <div className="relative mb-4 w-full max-w-xs sm:max-w-sm md:max-w-md">
             <div className="w-full aspect-square bg-gray-200 overflow-hidden border-4 border-white shadow-md rounded-xl">
               {userProfileLoading ? (
-                 <div className="relative w-full h-full overflow-hidden rounded-xl bg-gray-200">
-    <div className="absolute inset-0 -translate-x-full animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/50 to-transparent" />
-  </div>
+                <div className="w-full h-full bg-gray-300 animate-pulse rounded-xl" />
               ) : userProfileError ? (
                 <div className="flex flex-col items-center justify-center h-full text-center p-4">
                   <AlertCircle className="w-8 h-8 text-red-500 mb-2" />
