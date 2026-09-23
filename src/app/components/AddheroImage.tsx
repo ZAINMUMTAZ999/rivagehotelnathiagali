@@ -11,7 +11,7 @@ import { AlertCircle } from "lucide-react";
 // import Link from "next/link";
 
 const UserProfile = () => {
-  const { showToast ,isAdmin} = AppContext();
+  const { showToast, isAdmin } = AppContext();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
@@ -91,9 +91,9 @@ const UserProfile = () => {
   return (
     <div className="flex justify-center items-start min-h-screen bg-gray-50 px-4 sm:px-6 lg:px-8 py-8">
 
-  
 
-<form
+
+      <form
         onSubmit={handleSubmit}
         className="w-full max-w-md sm:max-w-lg md:max-w-xl bg-white rounded-2xl shadow-lg p-6 sm:p-8"
       >
@@ -102,20 +102,23 @@ const UserProfile = () => {
           <div className="relative mb-4 w-full max-w-xs sm:max-w-sm md:max-w-md">
             <div className="w-full aspect-square bg-gray-200 overflow-hidden border-4 border-white shadow-md rounded-xl">
               {userProfileLoading ? (
-  <div className="w-full h-full bg-gray-200 animate-pulse rounded-xl" />
-):
-              imagePreview ? (
-                <Image
-                  src={imagePreview}
-                  fill
-                  alt="Profile"
-                  className="object-cover rounded-xl"
-                />
-              ) : (
-                <span className="flex justify-center items-center h-full text-center text-gray-500 text-sm sm:text-base">
-                  Upload your Homepage Image
-                </span>
-              )}
+                // <div className="w-full h-full bg-gray-200 animate-pulse rounded-xl" />
+                <div className="relative w-full h-full overflow-hidden rounded-xl bg-gray-200">
+  <div className="absolute inset-0 -translate-x-full animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/50 to-transparent" />
+</div>
+              ) :
+                imagePreview ? (
+                  <Image
+                    src={imagePreview}
+                    fill
+                    alt="Profile"
+                    className="object-cover rounded-xl"
+                  />
+                ) : (
+                  <span className="flex justify-center items-center h-full text-center text-gray-500 text-sm sm:text-base">
+                    Upload your Homepage Image
+                  </span>
+                )}
             </div>
 
             {/* Camera Icon */}
@@ -163,15 +166,14 @@ const UserProfile = () => {
           <Button
             type="submit"
             disabled={updateProfileLoading}
-            className={`px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md hover:cursor-pointer transition-colors ${
-              updateProfileLoading ? "opacity-70 cursor-not-allowed" : ""
-            }`}
+            className={`px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md hover:cursor-pointer transition-colors ${updateProfileLoading ? "opacity-70 cursor-not-allowed" : ""
+              }`}
           >
             {updateProfileLoading ? "Updating…" : "Upload Home Image"}
           </Button>
         </div>
-      </form> 
-      
+      </form>
+
     </div>
   );
 };
