@@ -8,7 +8,6 @@ import { AppContext } from "../context/AppNotify";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { AlertCircle } from "lucide-react";
-// import Link from "next/link";
 
 const UserProfile = () => {
   const { showToast, isAdmin } = AppContext();
@@ -18,6 +17,7 @@ const UserProfile = () => {
   const {
     data: userProfileData,
     isLoading: userProfileLoading,
+      isError: userProfileError,
     refetch,
   } = useQuery({
     queryKey: ["userProfile"],
@@ -71,7 +71,6 @@ const UserProfile = () => {
   };
 
 
-
   if (!isAdmin) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
@@ -107,6 +106,23 @@ const UserProfile = () => {
   <div className="absolute inset-0 -translate-x-full animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/50 to-transparent" />
 </div>
               ) :
+              userProfileError ? (
+  <div className="flex flex-col items-center justify-center h-full text-center p-4">
+    <AlertCircle className="w-8 h-8 text-red-500 mb-2" />
+
+    <p className="text-sm text-gray-600 mb-2">
+      Failed to load image
+    </p>
+
+    <button
+      type="button"
+      onClick={() => window.location.reload()}
+      className="text-sm text-blue-600 hover:text-blue-700 hover:underline cursor-pointer"
+    >
+      Refresh Page
+    </button>
+  </div>
+) :
                 imagePreview ? (
                   <Image
                     src={imagePreview}
