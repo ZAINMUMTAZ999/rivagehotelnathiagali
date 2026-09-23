@@ -81,32 +81,22 @@ export default function AllRoomPage() {
 
       {/* 2. LOADING STATE */}
       {isLoading && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-6 sm:gap-8 animate-pulse">
-          {Array(4)
-            .fill(0)
-            .map((_, idx) => (
-              <div
-                key={idx}
-                className="flex flex-col bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100"
-              >
-                <div className="w-full h-56 md:h-64 lg:h-48 xl:h-56 bg-gray-300"></div>
-                <div className="p-5 sm:p-6 flex-grow flex flex-col justify-between">
-                  <div className="space-y-3">
-                    <div className="w-3/4 h-6 bg-gray-300 rounded"></div>
-                    <div className="w-full h-4 bg-gray-200 rounded"></div>
-                    <div className="w-5/6 h-4 bg-gray-200 rounded"></div>
-                    <div className="grid grid-cols-2 gap-2 mt-2">
-                      <div className="h-4 bg-gray-300 rounded w-full"></div>
-                      <div className="h-4 bg-gray-300 rounded w-full"></div>
-                    </div>
-                  </div>
-                  {/* <div className="flex justify-end mt-4 pt-4 border-t border-gray-100">
-                    <div className="w-24 h-8 bg-gray-300 rounded"></div>
-                  </div> */}
-                </div>
-              </div>
-            ))}
-        </div>
+       <div className="relative w-full h-full overflow-hidden rounded-xl bg-gray-300">
+  <div
+    className="absolute inset-y-0 w-[2px] bg-gray-100 shadow-[0_0_12px_3px_rgba(255,255,255,0.4)]"
+    style={{
+      animation: "moveLine 0.6s linear infinite",
+      left: 0,
+    }}
+  />
+
+  <style>{`
+    @keyframes moveLine {
+      from { left: 0%; }
+      to { left: 100%; }
+    }
+  `}</style>
+</div>
       )}
 
       {/* 3. EMPTY STATE */}

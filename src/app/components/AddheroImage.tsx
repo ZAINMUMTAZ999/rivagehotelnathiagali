@@ -98,7 +98,21 @@ const UserProfile = () => {
           <div className="relative mb-4 w-full max-w-xs sm:max-w-sm md:max-w-md">
             <div className="w-full aspect-square bg-gray-200 overflow-hidden border-4 border-white shadow-md rounded-xl">
               {userProfileLoading ? (
-                <div className="w-full h-full bg-gray-300 animate-pulse rounded-xl" />
+                <div className="relative w-full h-full overflow-hidden rounded-xl bg-gray-300">
+  <div
+    className="absolute inset-y-0 w-[2px] bg-white shadow-[0_0_12px_3px_rgba(255,255,255,0.8)]"
+    style={{
+      animation: "moveLine 0.8s linear infinite",
+      left: 0,
+    }}
+  />
+  <style>{`
+    @keyframes moveLine {
+      from { left: 0%; }
+      to { left: 100%; }
+    }
+  `}</style>
+</div>
               ) : userProfileError ? (
                 <div className="flex flex-col items-center justify-center h-full text-center p-4">
                   <AlertCircle className="w-8 h-8 text-red-500 mb-2" />
