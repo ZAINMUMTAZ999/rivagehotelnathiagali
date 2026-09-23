@@ -17,11 +17,12 @@ const UserProfile = () => {
   const {
     data: userProfileData,
     isLoading: userProfileLoading,
-      isError: userProfileError,
+    isError: userProfileError,
     refetch,
   } = useQuery({
     queryKey: ["userProfile"],
     queryFn: heroImageApi,
+    enabled: isAdmin, // 👈 only fetch when the user is actually an admin
   });
 
   const { mutate: updateProfile, isPending: updateProfileLoading } =
@@ -70,7 +71,6 @@ const UserProfile = () => {
     updateProfile(profileFormData);
   };
 
-
   if (!isAdmin) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
@@ -88,10 +88,7 @@ const UserProfile = () => {
   }
 
   return (
-    <div className="flex justify-center items-start min-h-screen bg-gray-50 px-4 sm:px-6 lg:px-8 py-8">
-
-
-
+    <div className="flex justify-center items-start min-h-screen bg-white px-4 sm:px-6 lg:px-8 py-8">
       <form
         onSubmit={handleSubmit}
         className="w-full max-w-md sm:max-w-lg md:max-w-xl bg-white rounded-2xl shadow-lg p-6 sm:p-8"
@@ -101,40 +98,35 @@ const UserProfile = () => {
           <div className="relative mb-4 w-full max-w-xs sm:max-w-sm md:max-w-md">
             <div className="w-full aspect-square bg-gray-200 overflow-hidden border-4 border-white shadow-md rounded-xl">
               {userProfileLoading ? (
-                // <div className="w-full h-full bg-gray-200 animate-pulse rounded-xl" />
-                <div className="relative w-full h-full overflow-hidden rounded-xl bg-gray-200">
-  <div className="absolute inset-0 -translate-x-full animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/50 to-transparent" />
-</div>
-              ) :
-              userProfileError ? (
-  <div className="flex flex-col items-center justify-center h-full text-center p-4">
-    <AlertCircle className="w-8 h-8 text-red-500 mb-2" />
-
-    <p className="text-sm text-gray-600 mb-2">
-      Failed to load image
-    </p>
-
-    <button
-      type="button"
-      onClick={() => window.location.reload()}
-      className="text-sm text-blue-600 hover:text-blue-700 hover:underline cursor-pointer"
-    >
-      Refresh Page
-    </button>
+                 <div className="relative w-full h-full overflow-hidden rounded-xl bg-gray-200">
+    <div className="absolute inset-0 -translate-x-full animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/50 to-transparent" />
   </div>
-) :
-                imagePreview ? (
-                  <Image
-                    src={imagePreview}
-                    fill
-                    alt="Profile"
-                    className="object-cover rounded-xl"
-                  />
-                ) : (
-                  <span className="flex justify-center items-center h-full text-center text-gray-500 text-sm sm:text-base">
-                    Upload your Homepage Image
-                  </span>
-                )}
+              ) : userProfileError ? (
+                <div className="flex flex-col items-center justify-center h-full text-center p-4">
+                  <AlertCircle className="w-8 h-8 text-red-500 mb-2" />
+                  <p className="text-sm text-gray-600 mb-2">
+                    Failed to load image
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => window.location.reload()}
+                    className="text-sm text-blue-600 hover:text-blue-700 hover:underline cursor-pointer"
+                  >
+                    Refresh Page
+                  </button>
+                </div>
+              ) : imagePreview ? (
+                <Image
+                  src={imagePreview}
+                  fill
+                  alt="Profile"
+                  className="object-cover rounded-xl"
+                />
+              ) : (
+                <span className="flex justify-center items-center h-full text-center text-gray-500 text-sm sm:text-base">
+                  Upload your Homepage Image
+                </span>
+              )}
             </div>
 
             {/* Camera Icon */}
@@ -182,14 +174,14 @@ const UserProfile = () => {
           <Button
             type="submit"
             disabled={updateProfileLoading}
-            className={`px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md hover:cursor-pointer transition-colors ${updateProfileLoading ? "opacity-70 cursor-not-allowed" : ""
-              }`}
+            className={`px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-md hover:cursor-pointer transition-colors ${
+              updateProfileLoading ? "opacity-70 cursor-not-allowed" : ""
+            }`}
           >
             {updateProfileLoading ? "Updating…" : "Upload Home Image"}
           </Button>
         </div>
       </form>
-
     </div>
   );
 };
