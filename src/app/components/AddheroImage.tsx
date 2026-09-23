@@ -91,32 +91,8 @@ const UserProfile = () => {
   return (
     <div className="flex justify-center items-start min-h-screen bg-gray-50 px-4 sm:px-6 lg:px-8 py-8">
 
-{userProfileLoading  ?    <div className="flex justify-center items-start min-h-screen bg-gray-50 px-4 sm:px-6 lg:px-8 py-8 animate-pulse">
-  <div className="w-full max-w-md sm:max-w-lg md:max-w-xl bg-white rounded-2xl shadow-lg p-6 sm:p-8">
+  
 
-    {/* Image Upload Skeleton */}
-    <div className="flex flex-col items-center mb-8">
-      <div className="relative mb-4 w-full max-w-xs sm:max-w-sm md:max-w-md">
-        {/* Image placeholder */}
-        <div className="w-full aspect-square bg-gray-200 rounded-xl border-4 border-white shadow-md"></div>
-
-        {/* Camera icon placeholder */}
-        <div className="absolute -bottom-3 -right-3 w-10 h-10 sm:w-12 sm:h-12 bg-gray-300 rounded-full shadow-md"></div>
-      </div>
-
-     
-      <div className="w-3/4 h-4 sm:h-5 bg-gray-300 rounded text-center"></div>
-    </div>
-
-    {/* Submit Button Skeleton */}
-    <div className="flex justify-center">
-      <div className="w-40 sm:w-48 md:w-52 h-10 sm:h-12 bg-gray-300 rounded-md"></div>
-    </div>
-
-  </div>
-</div> 
-
-: 
 <form
         onSubmit={handleSubmit}
         className="w-full max-w-md sm:max-w-lg md:max-w-xl bg-white rounded-2xl shadow-lg p-6 sm:p-8"
@@ -125,7 +101,10 @@ const UserProfile = () => {
         <div className="flex flex-col items-center mb-8">
           <div className="relative mb-4 w-full max-w-xs sm:max-w-sm md:max-w-md">
             <div className="w-full aspect-square bg-gray-200 overflow-hidden border-4 border-white shadow-md rounded-xl">
-              {imagePreview ? (
+              {userProfileLoading ? (
+  <div className="w-full h-full bg-gray-200 animate-pulse rounded-xl" />
+):
+              imagePreview ? (
                 <Image
                   src={imagePreview}
                   fill
@@ -191,7 +170,7 @@ const UserProfile = () => {
             {updateProfileLoading ? "Updating…" : "Upload Home Image"}
           </Button>
         </div>
-      </form> } 
+      </form> 
       
     </div>
   );
