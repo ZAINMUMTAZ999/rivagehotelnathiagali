@@ -100,12 +100,13 @@ const UserProfile = () => {
               {userProfileLoading ? (
                 <div className="relative w-full h-full overflow-hidden rounded-xl bg-gray-300">
   <div
-    className="absolute inset-y-0 w-[2px] bg-white shadow-[0_0_12px_3px_rgba(255,255,255,0.8)]"
+    className="absolute inset-y-0 w-[2px] bg-gray-100 shadow-[0_0_12px_3px_rgba(255,255,255,0.4)]"
     style={{
-      animation: "moveLine 0.8s linear infinite",
+      animation: "moveLine 0.6s linear infinite",
       left: 0,
     }}
   />
+
   <style>{`
     @keyframes moveLine {
       from { left: 0%; }
