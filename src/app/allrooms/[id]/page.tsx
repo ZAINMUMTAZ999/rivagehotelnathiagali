@@ -250,7 +250,11 @@ const MyHotelsById = () => {
   };
 const handleBookNow = async () => {
   if (!isLogged) {
-    <Link href="/login">Please log in to book</Link>
+ return (
+    <Link href="/login" className="hover:cursor-pointer">
+      Please log in to book
+    </Link>
+  );
   }
 
   try {
