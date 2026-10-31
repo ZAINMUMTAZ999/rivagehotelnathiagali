@@ -3,6 +3,7 @@
 
 import { useEffect, useState } from "react";
 import { verifyPayment } from "../../Api";
+import Link from "next/link";
 
 export default function PaymentSuccessPage() {
   const [loading, setLoading] = useState(true);
@@ -75,12 +76,12 @@ export default function PaymentSuccessPage() {
         <p className="text-gray-600">{message}</p>
 
         {!loading && (
-          <a
+          <Link
             href="/"
             className="inline-block mt-6 bg-blue-600 text-white px-6 py-3 rounded-lg"
           >
             Back to Home
-          </a>
+          </Link>
         )}
 
       </div>
