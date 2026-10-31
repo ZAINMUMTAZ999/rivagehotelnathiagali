@@ -250,8 +250,7 @@ const MyHotelsById = () => {
   };
 const handleBookNow = async () => {
   if (!isLogged) {
-    setBookingError("Please log in before booking.");
-    return;
+    <Link href="/login">Please log in to book</Link>
   }
 
   try {
@@ -334,7 +333,7 @@ const handleBookNow = async () => {
   onClick={handleBookNow}
   disabled={!isLogged || bookingLoading}
   className="
-    w-full sm:w-72
+     sm:w-72 md:w-full
     flex justify-center items-center
     cursor-pointer
     bg-blue-600 hover:bg-blue-700
@@ -354,7 +353,7 @@ const handleBookNow = async () => {
     ? "Please log in to book"
     : bookingLoading
     ? "Redirecting..."
-    : "Book Now"}
+    : "PAY NOW"}
 </Button>
 
 {bookingError && (
