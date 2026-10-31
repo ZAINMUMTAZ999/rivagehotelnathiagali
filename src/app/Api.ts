@@ -73,7 +73,7 @@ export type addReviewTypes = {
   message: string;
 };
 
-// const Base_Url_API = "http://localhost:3000";
+// const Base_Url_API = "http://localhost:3000/api";
 
 const Base_Url_API = "https://backend-hotel-omega.vercel.app/api";
 
@@ -594,6 +594,52 @@ type NewReviewPayload = {
 };
 
 
+
+// 1. Create Stripe Checkout Session
+export const createBookingCheckout = async (hotelId: string) => {
+  const response = await fetch(
+    `${Base_Url_API}/api/v2/create-booking-checkout`,
+    {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ hotelId }),
+    }
+  );
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || "Checkout creation failed");
+  }
+
+  return data;
+};
+
+// 2. Verify Stripe Payment
+export const verifyPayment = async (sessionId: string) => {
+  const response = await fetch(
+    `${Base_Url_API}/api/v2/verify-payment`,
+    {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ sessionId }),
+    }
+  );
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || "Payment verification failed");
+  }
+
+  return data;
+};
 export {
   registerApi,
   loginApi,

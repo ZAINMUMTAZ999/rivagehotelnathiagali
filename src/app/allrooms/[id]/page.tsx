@@ -6,7 +6,7 @@ import {
   FaBed,
 } from "react-icons/fa";
 
-import { getHotelApiBId } from "../../Api";
+import { getHotelApiBId, createBookingCheckout } from "../../Api";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/app/components/ui/button";
@@ -32,6 +32,8 @@ export type addHotelTypes = {
 
 const MyHotelsById = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [bookingLoading, setBookingLoading] = useState(false);
+const [bookingError, setBookingError] = useState("");
 
   const goToPrevious = () => {
     setCurrentIndex((prevIndex) =>
@@ -246,7 +248,29 @@ queryKey: ["hotel", id],
       </div>
     );
   };
+const handleBookNow = async () => {
+  try {
+    setBookingLoading(true);
+    setBookingError("");
 
+    const data = await createBookingCheckout(hotel._id);
+
+    if (!data.checkoutUrl) {
+      throw new Error("Stripe checkout URL not received");
+    }
+
+    window.location.href = data.checkoutUrl;
+
+  } catch (error) {
+    setBookingError(
+      error instanceof Error
+        ? error.message
+        : "Booking failed"
+    );
+  } finally {
+    setBookingLoading(false);
+  }
+};
   return (
     // <div className="mt-8 w-3/4">
     <div className="mx-auto mt-2 w-full max-w-7xl px-4 lg:px-8 ">
@@ -296,13 +320,16 @@ queryKey: ["hotel", id],
         )}
 
         {/* ✅ Press effect on "Book Now" button */}
-      <Link
+      {/* <Link
   href={whatsappUrl}
   target="_blank"
   rel="noopener noreferrer"
   className="flex justify-center mb-6 active:scale-95 transition-transform duration-150 select-none"
->
+> */}
+ <div className="mb-6">
   <Button
+    onClick={handleBookNow}
+    disabled={bookingLoading}
     className="
       w-full sm:w-72
       flex justify-center items-center
@@ -310,8 +337,7 @@ queryKey: ["hotel", id],
       bg-blue-600 hover:bg-blue-700
       active:bg-blue-950 active:scale-95
       text-white font-medium
-      rounded-lg
-      py-3
+      rounded-lg py-3
       shadow-lg
       transition-all duration-150
       focus:outline-none
@@ -320,9 +346,16 @@ queryKey: ["hotel", id],
       focus:ring-offset-2
     "
   >
-    Book Now Pay Later
+    {bookingLoading ? "Redirecting..." : "Book Now"}
   </Button>
-</Link>
+
+  {bookingError && (
+    <p className="mt-2 text-center text-sm text-red-500">
+      {bookingError}
+    </p>
+  )}
+</div>
+{/* </Link> */}
 
         {/* Accommodation Type */}
         <div className="text-md text-gray-500 mt-1 mb-4">
