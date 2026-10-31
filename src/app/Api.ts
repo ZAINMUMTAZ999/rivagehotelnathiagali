@@ -598,7 +598,7 @@ type NewReviewPayload = {
 // 1. Create Stripe Checkout Session
 export const createBookingCheckout = async (hotelId: string) => {
   const response = await fetch(
-    `${Base_Url_API}/api/v2/create-booking-checkout`,
+    `${Base_Url_API}/v2/create-booking-checkout`,
     {
       method: "POST",
       credentials: "include",
@@ -621,7 +621,7 @@ export const createBookingCheckout = async (hotelId: string) => {
 // 2. Verify Stripe Payment
 export const verifyPayment = async (sessionId: string) => {
   const response = await fetch(
-    `${Base_Url_API}/api/v2/verify-payment`,
+    `${Base_Url_API}/v2/verify-payment`,
     {
       method: "POST",
       credentials: "include",
