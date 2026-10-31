@@ -14,6 +14,7 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { GetEachHotelReviewId } from "../../components/GetEachHotelReviewId";
 import { useParams } from "next/navigation";
+import { AppContext } from "@/app/context/AppNotify";
 
 export type addHotelTypes = {
   _id: string;
@@ -33,8 +34,8 @@ export type addHotelTypes = {
 const MyHotelsById = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [bookingLoading, setBookingLoading] = useState(false);
-const [bookingError, setBookingError] = useState("");
-
+  const [bookingError, setBookingError] = useState("");
+  const { isLogged } = AppContext();
   const goToPrevious = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
@@ -62,7 +63,7 @@ const [bookingError, setBookingError] = useState("");
     isLoading,
     isError,
   } = useQuery<addHotelTypes>({
-queryKey: ["hotel", id],
+    queryKey: ["hotel", id],
     queryFn: () => getHotelApiBId(id),
     enabled: Boolean(id),
   });
@@ -228,10 +229,9 @@ queryKey: ["hotel", id],
                 className={`flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden border-2 
                   transition-all duration-150 relative select-none
                   active:scale-95 active:opacity-80
-                  ${
-                    index === currentIndex
-                      ? "border-blue-600 opacity-100 ring-2 ring-blue-300 hover:cursor-pointer"
-                      : "border-gray-300 opacity-70 hover:opacity-90 hover:cursor-pointer"
+                  ${index === currentIndex
+                    ? "border-blue-600 opacity-100 ring-2 ring-blue-300 hover:cursor-pointer"
+                    : "border-gray-300 opacity-70 hover:opacity-90 hover:cursor-pointer"
                   }`}
               >
                 <Image
@@ -249,6 +249,11 @@ queryKey: ["hotel", id],
     );
   };
 const handleBookNow = async () => {
+  if (!isLogged) {
+    setBookingError("Please log in before booking.");
+    return;
+  }
+
   try {
     setBookingLoading(true);
     setBookingError("");
@@ -263,9 +268,7 @@ const handleBookNow = async () => {
 
   } catch (error) {
     setBookingError(
-      error instanceof Error
-        ? error.message
-        : "Booking failed"
+      error instanceof Error ? error.message : "Booking failed"
     );
   } finally {
     setBookingLoading(false);
@@ -320,42 +323,47 @@ const handleBookNow = async () => {
         )}
 
         {/* ✅ Press effect on "Book Now" button */}
-      {/* <Link
+        {/* <Link
   href={whatsappUrl}
   target="_blank"
   rel="noopener noreferrer"
   className="flex justify-center mb-6 active:scale-95 transition-transform duration-150 select-none"
 > */}
- <div className="mb-6">
-  <Button
-    onClick={handleBookNow}
-    disabled={bookingLoading}
-    className="
-      w-full sm:w-72
-      flex justify-center items-center
-      cursor-pointer
-      bg-blue-600 hover:bg-blue-700
-      active:bg-blue-950 active:scale-95
-      text-white font-medium
-      rounded-lg py-3
-      shadow-lg
-      transition-all duration-150
-      focus:outline-none
-      focus:ring-2
-      focus:ring-blue-500
-      focus:ring-offset-2
-    "
-  >
-    {bookingLoading ? "Redirecting..." : "Book Now"}
-  </Button>
+        <div className="mb-6">
+       <Button
+  onClick={handleBookNow}
+  disabled={!isLogged || bookingLoading}
+  className="
+    w-full sm:w-72
+    flex justify-center items-center
+    cursor-pointer
+    bg-blue-600 hover:bg-blue-700
+    active:bg-blue-950 active:scale-95
+    text-white font-medium
+    rounded-lg py-3
+    shadow-lg
+    transition-all duration-150
+    focus:outline-none
+    focus:ring-2
+    focus:ring-blue-500
+    focus:ring-offset-2
+    disabled:opacity-50 disabled:cursor-not-allowed
+  "
+>
+  {!isLogged
+    ? "Please log in to book"
+    : bookingLoading
+    ? "Redirecting..."
+    : "Book Now"}
+</Button>
 
-  {bookingError && (
-    <p className="mt-2 text-center text-sm text-red-500">
-      {bookingError}
-    </p>
-  )}
-</div>
-{/* </Link> */}
+{bookingError && (
+  <p className="mt-2 text-center text-sm text-red-500">
+    {bookingError}
+  </p>
+)}
+        </div>
+        {/* </Link> */}
 
         {/* Accommodation Type */}
         <div className="text-md text-gray-500 mt-1 mb-4">
