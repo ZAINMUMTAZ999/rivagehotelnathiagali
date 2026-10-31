@@ -73,9 +73,9 @@ export type addReviewTypes = {
   message: string;
 };
 
-// const Base_Url_API = "http://localhost:3000/api";
-
-const Base_Url_API = "https://backend-hotel-omega.vercel.app/api";
+const Base_Url_API = "http://localhost:8000/api";
+// 
+// const Base_Url_API = "https://backend-hotel-omega.vercel.app/api";
 
 const deleteJobApi = async (hotelId: string) => {
   const response = await fetch(`${Base_Url_API}/delete/${hotelId}`, {

@@ -248,14 +248,10 @@ const MyHotelsById = () => {
       </div>
     );
   };
+
+
 const handleBookNow = async () => {
-  if (!isLogged) {
- return (
-    <Link href="/login" className="hover:cursor-pointer">
-      Please log in to book
-    </Link>
-  );
-  }
+
 
   try {
     setBookingLoading(true);
@@ -332,40 +328,65 @@ const handleBookNow = async () => {
   rel="noopener noreferrer"
   className="flex justify-center mb-6 active:scale-95 transition-transform duration-150 select-none"
 > */}
-        <div className="mb-6">
-       <Button
-  onClick={handleBookNow}
-  disabled={!isLogged || bookingLoading}
-  className="
-     sm:w-72 md:w-full
-    flex justify-center items-center
-    cursor-pointer
-    bg-blue-600 hover:bg-blue-700
-    active:bg-blue-950 active:scale-95
-    text-white font-medium
-    rounded-lg py-3
-    shadow-lg
-    transition-all duration-150
-    focus:outline-none
-    focus:ring-2
-    focus:ring-blue-500
-    focus:ring-offset-2
-    disabled:opacity-50 disabled:cursor-not-allowed
-  "
->
-  {!isLogged
-    ? "Please log in to book"
-    : bookingLoading
-    ? "Redirecting..."
-    : "PAY NOW"}
-</Button>
+   <div className="mb-6">
+  {!isLogged ? (
+    <Link
+      href="/login"
+      className="
+        group flex min-h
+        
+        -[52px] w-full sm:w-72 md:w-full
+        mx-auto items-center justify-center gap-2
+        rounded-xl bg-blue-600 px-6 py-3
+        text-sm font-semibold text-white
+        shadow-md shadow-blue-600/20
+        transition-all duration-200
+        hover:bg-blue-700 hover:shadow-lg
+        active:scale-[0.98]
+        focus-visible:outline-none
+        focus-visible:ring-4 focus-visible:ring-blue-200
+      "
+    >
+      Please log in to book
+      <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+    </Link>
+  ) : (
+    <Button
+      onClick={handleBookNow}
+      disabled={bookingLoading}
+      className="
+        group flex min-h-[52px] w-full sm:w-72 md:w-full
+        mx-auto items-center justify-center gap-2
+        rounded-xl bg-blue-600 px-6 py-3
+        text-sm font-semibold text-white
+        shadow-md shadow-blue-600/20
+        transition-all duration-200
+        hover:bg-blue-700 hover:shadow-lg
+        active:scale-[0.98]
+        focus-visible:ring-4 focus-visible:ring-blue-200
+        disabled:cursor-not-allowed disabled:opacity-60
+      "
+    >
+      {bookingLoading ? (
+        <>
+          <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
+          Redirecting...
+        </>
+      ) : (
+        <>
+          PAY NOW
+          <ChevronRight className="h-4 w-4 transition-transform hover:cursor-pointer cursor-pointer group-hover:translate-x-1" />
+        </>
+      )}
+    </Button>
+  )}
 
-{bookingError && (
-  <p className="mt-2 text-center text-sm text-red-500">
-    {bookingError}
-  </p>
-)}
-        </div>
+  {bookingError && (
+    <p className="mt-3 text-center text-sm text-red-500">
+      {bookingError}
+    </p>
+  )}
+</div>
         {/* </Link> */}
 
         {/* Accommodation Type */}
