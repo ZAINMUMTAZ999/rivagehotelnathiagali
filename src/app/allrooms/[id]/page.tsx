@@ -373,10 +373,10 @@ const handleBookNow = async () => {
           Redirecting...
         </>
       ) : (
-        <div className=" hover:cursor-pointer cursor-pointer">
+        <>
           PAY NOW
           <ChevronRight className="h-4 w-4 transition-transform hover:cursor-pointer cursor-pointer group-hover:translate-x-1" />
-        </div>
+        </>
       )}
     </Button>
   )}

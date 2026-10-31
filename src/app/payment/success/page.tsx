@@ -139,41 +139,7 @@ export default function PaymentSuccessPage() {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(28,66,122,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(28,66,122,0.025)_1px,transparent_1px)] bg-[size:34px_34px] [mask-image:linear-gradient(to_bottom,black,transparent_75%)]" />
       </div>
 
-      {/* Header */}
-      <header className="relative z-10 border-b border-[#E6ECF4] bg-white/85 backdrop-blur-xl">
-        <div className="mx-auto flex h-[64px] w-full max-w-[1200px] items-center justify-between px-4 sm:h-[76px] sm:px-7 lg:px-10">
-
-          <Link
-            href="/"
-            aria-label="HotelBooking homepage"
-            className="group inline-flex min-w-0 items-center gap-2.5 rounded-lg outline-none focus-visible:ring-4 focus-visible:ring-[#BBD2FF]"
-          >
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[12px] bg-[#0755C9] text-white shadow-[0_5px_14px_rgba(7,85,201,0.22)] transition-transform duration-300 group-hover:-rotate-3 group-hover:scale-105 sm:h-10 sm:w-10">
-              <House
-                className="h-[18px] w-[18px] sm:h-5 sm:w-5"
-                strokeWidth={2.3}
-              />
-            </span>
-
-            <span className="truncate text-[17px] font-extrabold tracking-[-0.055em] text-[#14243D] sm:text-[20px]">
-              Hotel<span className="text-[#0755C9]">Booking</span>
-            </span>
-          </Link>
-
-          <div className="flex items-center gap-2 rounded-full border border-[#E7EDF5] bg-white px-2.5 py-1.5 text-[11px] font-semibold text-[#53647D] shadow-sm sm:gap-2.5 sm:px-3.5 sm:py-2 sm:text-xs">
-            <ShieldCheck className="h-4 w-4 text-[#13845B]" />
-
-            <span className="hidden min-[360px]:inline">
-              Secure checkout
-            </span>
-
-            <span className="min-[360px]:hidden">
-              Secure
-            </span>
-          </div>
-        </div>
-      </header>
-
+   
       {/* Main content */}
       <section className="relative mx-auto flex w-full max-w-[1200px] flex-1 flex-col justify-center px-3 py-6 sm:px-6 sm:py-10 md:px-8 md:py-12 lg:px-10">
 
@@ -597,9 +563,7 @@ export default function PaymentSuccessPage() {
                     </h2>
                   </div>
 
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#EEF4FF] text-[#1762CB] sm:h-10 sm:w-10">
-                    <Sparkles className="h-[18px] w-[18px]" />
-                  </span>
+                
                 </div>
 
                 <div className="mt-5 space-y-0 sm:mt-6">
